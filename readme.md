@@ -1,4 +1,5 @@
-# yt2009
+# yt20090wii
+
 a fairly accurate 2009 youtube frontend.
 
 <img src="doc-imgs/ie6-ss.png" width="400">
@@ -16,8 +17,8 @@ a fairly accurate 2009 youtube frontend.
 - install node.js
 - open a terminal (windows powershell/cmd) in the directory you cloned yt2009 to, then:
 - install required dependencies with: `npm install`
-- create a config file by launching and following: `node yt2009setup.js`
-- run to set and download remaining assets `node post_config_setup.js`
+- create a config file by launching and following: `node yt2009setup.js` (make sure your port is either 443 or 80)
+- run to set and download remaining assets `node post_config_setup.js` 
 - run yt2009 by changing directory to `back` (`cd back`) and starting with `node backend.js`
 - navigate to your IP:port you have set while configuring to see a 2009 homepage.
 
@@ -32,6 +33,8 @@ afterwards, you can just `cd back` and `node backend.js` to start. no need to re
 **as of november 2023, it still isn't merged with the main repo.**
 
 - set up an android app by following [apk_setup.md](apk_setup.md)
+
+- set up an wii app by following [wii_setup.md](wii_setup.md)
 
 ---
 
