@@ -1564,6 +1564,23 @@ leanbackEndpoints.forEach(lbe => {
     })
 })
 
+let wiitvEndpoints = ["/wiitv", "/wiitv/", "/wiitv/index.htm"]
+let wiitv = fs.readFileSync("../wiitv/index.html").toString()
+leanback = leanback.split(`http_url`).join(
+    "http://" + config.ip + ":" + config.port
+)
+leanbackEndpoints.forEach(lbe => {
+    app.get(lbe, (req, res) => {
+        if(!yt2009_utils.isAuthorized(req)) {
+            res.redirect("/unauth.htm")
+            return;
+        }
+        if(yt2009_utils.isRatelimited(req, res)) return;
+        res.send(leanback)
+    })
+})
+
+
 /*
 ======
 virt /account management
@@ -4197,13 +4214,6 @@ misc dummy flash endpoints
 ======
 */
 
-app.get("/wiitv", (req, res) => {
-    if(req.query.action_get_flashvars) {
-        res.status(200).send("")
-        return;
-    }
-    res.status(200).send("")
-})
 app.get("/leanback_ajax", (req, res) => {
     if(req.query.action_featured) {
         let r = fs.readFileSync("../assets/site-assets/leanback_ajax.json").toString()
@@ -4218,6 +4228,7 @@ app.get("/player_204", (req, res) => {
 app.get("/media/iviv", (req, res) => {
     res.redirect("/media/iviv/iv3_edit_module.swf")
 })
+
 app.post("/annotations_auth/update2", (req, res) => {
     let annotations = ""
     try {
