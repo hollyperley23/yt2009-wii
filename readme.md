@@ -1,4 +1,4 @@
-# yt20090wii
+# yt2009wii - aka NexTube
 
 a fairly accurate 2009 youtube frontend + a wii revival.
 
