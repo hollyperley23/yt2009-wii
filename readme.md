@@ -1,9 +1,20 @@
 # yt20090wii
 
-a fairly accurate 2009 youtube frontend.
+a fairly accurate 2009 youtube frontend + a wii revival.
 
-<img src="doc-imgs/ie6-ss.png" width="400">
-<img src="doc-imgs/ie6-ss2.png" width="400">
+**
+THIS IS NOT ASSOCIATED NOR ENDORSED BY GOOGLE, YOUTUBE, OR NINTENDO
+**
+
+Credits:
+
+YouTube/Google/Nintendo (of course)
+
+DX (Creator of YT2009)
+
+SuperrSonic (found some shit about codecs)
+
+NCP3.0 (Me/Owner)
 
 ---
 
@@ -23,14 +34,6 @@ a fairly accurate 2009 youtube frontend.
 - navigate to your IP:port you have set while configuring to see a 2009 homepage.
 
 afterwards, you can just `cd back` and `node backend.js` to start. no need to re-set it up each time.
-
----
-
-## optional after-setup steps
-
-### - **if experiencing issues with ytdl-core, apply this pull. https://github.com/fent/node-ytdl-core/pull/1217**
-
-**as of november 2023, it still isn't merged with the main repo.**
 
 - set up an android app by following [apk_setup.md](apk_setup.md)
 
