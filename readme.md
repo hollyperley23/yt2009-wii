@@ -18,6 +18,13 @@ NCP3.0 (Me/Owner)
 
 ---
 
+## already have an instance 
+
+- replace your back folder with this fork's folder (or just replace backend.js, yt2009warpSWF.js, and add yt2009webm.js)
+- replace your site-assets folder (in assets) with the fork's folder (or just replace leanback.json)
+
+- then follow along with [wii_setup.md](wii_setup.md) for the rest of the setup.
+
 ## setup
 ### if you prefer using docker rather than installing directly, go [here](docker.md) for setup instructions instead
 
@@ -35,9 +42,7 @@ NCP3.0 (Me/Owner)
 
 afterwards, you can just `cd back` and `node backend.js` to start. no need to re-set it up each time.
 
-- set up an android app by following [apk_setup.md](apk_setup.md)
-
-- set up an wii app by following [wii_setup.md](wii_setup.md)
+- then follow along with [wii_setup.md](wii_setup.md) for the rest of the setup.
 
 ---
 
