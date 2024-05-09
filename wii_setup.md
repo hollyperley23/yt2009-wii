@@ -24,11 +24,11 @@ NCP3.0 (Me/Owner)
 
 - [2]. grab these programs
 
-https://github.com/jindrapetrik/jpexs-decompiler
-
-https://www.java.com/en/
-
-https://gbatemp.net/threads/wii-cs-tools-0-3.207472/ (https://code.google.com/archive/p/showmiiwads/downloads)
+  https://github.com/jindrapetrik/jpexs-decompiler
+  
+  https://www.java.com/en/
+  
+  https://gbatemp.net/threads/wii-cs-tools-0-3.207472/ (https://code.google.com/archive/p/showmiiwads/downloads)
 
 - [3]. launch JEPXS
  
@@ -42,6 +42,9 @@ https://gbatemp.net/threads/wii-cs-tools-0-3.207472/ (https://code.google.com/ar
 
   (rootofyt2009)/wiitv/leanbacklite_wii.swf (this is the app pretty much, this is what the channel loads)
 
-  - [4]. editing apiplayer
-   
+- [4]. editing apiplayer
+
+   Open Scirpts -> frame 1 -> DoAcition (the first one)
+
+     
     
