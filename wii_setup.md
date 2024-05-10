@@ -45,6 +45,14 @@ NCP3.0 (Me/Owner)
 - [4]. editing apiplayer
 
    Open Scirpts -> frame 1 -> DoAcition (the first one)
+  
+   And then simply change any url pointing to 192.168.1.150 to whatever you want.
 
-     
+- [5] editing apiplayer-vflZLm5Vu.swf
+      
+    This is pretty simple replace all instaces of 192.168.1.150 with your url, and also replace
+    all instances of get_video_info with get_wii_video_info (this is because we need to mess with
+    stuff on get_video_info in order to prevent it from giving issues).
+
+- [6] editing leanbacklite_
     
