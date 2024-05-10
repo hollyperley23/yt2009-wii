@@ -57,7 +57,7 @@ NCP3.0 (Me/Owner)
     stuff on get_video_info in order to prevent it from giving issues). so for example
     192.168.1.150/get_video_info should become (urlyour)/get_wii_video_info 
 
-- [6] editing leanbacklite_wii
+- [6] editing leanbacklite_wii.swf
 
     Same procces, just search for all URLs with 192.168.1.150 and replace it with whatever your url is.
   
@@ -65,8 +65,56 @@ NCP3.0 (Me/Owner)
 
     Use WADMII, and select your wad and extract it to a folder.
 
-- [8]
+- [8] extracting 00000002.app (or whatever, idr its full name)
 
-    Use U8Mii to extract 02.app (full name is
+    Use U8Mii to extract 00000002.app (full name is idr)
+
+- [9] patching wii_shim (or whatever its name) and the wii_dev_shim (or whater its name)
+
+     In trusted folder open wii_shim and wii_dev_shim, change any youtube.com url to your url.
+     You can either do /wiitv or /wiitv/leanbacklite_wii or whatever else floats your boat.
+
+- [10] finishing up
+
+      Finish up packaging, use U8MII to rebuild the 00000002.app (you will have to rename it to .app).
+      Then replace 00000002.app from the extracted WAD and rebuild and install it to your wii.
+
+
+  Extras:
+
+  Getting FLVs to play,
+
+  change get_webm to get_video, and in get video_wii_video_info change 43
+  to 5 (or maybe 7), this is itag or whatever code for FLVs iirc.
+
+  Making videos play in higher qualitly,
+
+  change get_video_info fmt_list or whatever (whatever says 480x360p or something)
+  to 680x480 (or whatever 480p is), the in the yt2009getwebm.js, look for ffmpeg
+  and there should be something like this.
+
+  ```
+    "vid_webm": function(id, callback) {
+        // get a webm file needed by the browser
+        let ffmpegCommandWebm = [
+            "ffmpeg",
+            "-threads", "4",
+            "-i", `${__dirname}/../assets/${id}.mp4`,
+            "-c:v", "libvpx", "-b:v", "300k", "-preset", "ultrafast", "-vf", "scale=480:360", "-aspect", "4:3", "-                pix_fmt", "yuv420p",
+            "-c:a", "libvorbis",
+            "-r", "30", "-g", "30",
+            `${__dirname}/../assets/${id}.webm`            
+        ];
+  ```
+
+  Change, the bitrate to something higher like 500kb to 1000kb to better take advantage
+  of the higher res, please be aware this is going to be slower on the wii and also take
+  longer to proccess which may lead to issues.
+
+  Loading normal leanbacklite (non wii)
+
+  I haven't tested nor uploaded it yet but, with you replace the wiitv with tv in trusted
+  shim it should make it load the leanbacklite normal which was used in like tvs and such.
+  I'll update this later.
      
     
