@@ -12,7 +12,7 @@ const yt2009_videos_page = require("./yt2009videos");
 const yt2009_channels_page = require("./yt2009channelspage")
 const yt2009_warp_test = require("./yt2009warp");
 const yt2009_warp_swf = require("./yt2009warpSWF")
-const yt2009_webm= require("./yt2009webm")
+const yt2009_webm = require("./yt2009webm")
 const yt2009_history = require("./yt2009history");
 const yt2009_subs = require("./yt2009subscriptions");
 const yt2009_favorites = require("./yt2009favorites");
@@ -782,8 +782,153 @@ app.get("/swf/apiplayer.swf", (req, res) => {
     res.redirect("/xl/apiplayer-f.swf")
 })
 
-
 app.get("/get_video_info", (req, res) => {
+    if(req.query.el == "leanback") {
+        // add to history if leanback
+        let history = ""
+        if(req.headers.cookie
+        && req.headers.cookie.includes("leanback_history=")) {
+            history = req.headers.cookie
+                      .split("leanback_history=")[1].split(";")[0]
+        }
+        history = history.split(":")
+        if(history.length >= 3) {
+            history.pop()
+        }
+        history.unshift(req.query.video_id.replace("/mp4", ""))
+        let cookieParams = [
+            `leanback_history=${history.join(":")}; `,
+            `Path=/; `,
+            `Expires=Fri, 31 Dec 2066 23:59:59 GMT`
+        ]
+        res.set("set-cookie", cookieParams.join(""))
+    }
+    req.query.video_id = req.query.video_id.replace("/mp4", "")
+    yt2009.fetch_video_data(req.query.video_id, (data => {
+        yt2009.get_qualities(req.query.video_id, (qualities => {
+            if((!qualities || qualities.length == 0) && data.qualities) {
+                qualities = data.qualities
+            }
+            let fmt_list = ""
+            let fmt_stream_map = ""
+            let fmt_map = ""
+            let url_encoded_fmt_stream_map = []
+            let addUrlEncoded = false;
+            if(req.query.html5) {
+                addUrlEncoded = true;
+            }
+            qualities.forEach(quality => {
+                switch(quality) {
+                    case "1080p": {
+                        fmt_list += "37/1920x1080/9/0/115,"
+                        fmt_map += "37/3000000/9/0/115,"
+                        fmt_stream_map += `37|http://${config.ip}:${
+                            config.port
+                        }/exp_hd?video_id=${req.query.video_id}&fhd=1&,`
+                        if(addUrlEncoded) {
+                            let fmtData = [
+                                "type=video%2Fmp4%3B+codecs%3D%22avc1.64001F%2C+mp4a.40.2%22",
+                                "itag=37",
+                                `url=${encodeURIComponent(`http://${config.ip}:${
+                                    config.port
+                                }/exp_hd?video_id=${req.query.video_id}&fhd=1`)}`,
+                                "quality=hd1080"
+                            ].join("&")
+                            url_encoded_fmt_stream_map.push(fmtData)
+                        }
+                        break;
+                    }
+                    case "720p": {
+                        fmt_list += "22/1280x720/9/0/115,"
+                        fmt_map += "22/2000000/9/0/115,"
+                        fmt_stream_map += `22|http://${config.ip}:${
+                            config.port
+                        }/exp_hd?video_id=${req.query.video_id}&,`
+                        if(addUrlEncoded) {
+                            let fmtData = [
+                                "type=video%2Fmp4%3B+codecs%3D%22avc1.64001F%2C+mp4a.40.2%22",
+                                "itag=22",
+                                `url=${encodeURIComponent(`http://${config.ip}:${
+                                    config.port
+                                }/exp_hd?video_id=${req.query.video_id}`)}`,
+                                "quality=hd720"
+                            ].join("&")
+                            url_encoded_fmt_stream_map.push(fmtData)
+                        }
+                        break;
+                    }
+                    case "480p": {
+                        fmt_list += "35/854x480/9/0/115,"
+                        fmt_map += "35/0/9/0/115,"
+                        fmt_stream_map +=  `35|http://${config.ip}:${
+                            config.port
+                        }/get_480?video_id=${req.query.video_id}&,`
+                        if(addUrlEncoded) {
+                            let fmtData = [
+                                "type=video%2Fmp4%3B+codecs%3D%22avc1.64001F%2C+mp4a.40.2%22",
+                                "itag=35",
+                                `url=${encodeURIComponent(`http://${config.ip}:${
+                                    config.port
+                                }/get_480?video_id=${req.query.video_id}`)}`,
+                                "quality=large"
+                            ].join("&")
+                            url_encoded_fmt_stream_map.push(fmtData)
+                        }
+                        break;
+                    }
+                }
+            })
+            fmt_list += "5/640x360/9/0/115"
+            fmt_map += "5/0/7/0/0"
+            fmt_stream_map += `5|http://${config.ip}:${
+                config.port
+            }/get_video?video_id=${data.id}/mp4`
+            if(addUrlEncoded && url_encoded_fmt_stream_map.length == 0) {
+                let fmtData = [
+                    "type=video%2Fmp4%3B+codecs%3D%22avc1.64001F%2C+mp4a.40.2%22",
+                    "itag=5",
+                    `url=${encodeURIComponent(`http://${config.ip}:${
+                        config.port
+                    }/get_video?video_id=${req.query.video_id}/mp4`)}`,
+                    "quality=medium"
+                ].join("&")
+                url_encoded_fmt_stream_map.push(fmtData)
+            }
+            let urlStreams = (addUrlEncoded
+            ? "\nurl_encoded_fmt_stream_map=" + encodeURIComponent(
+                url_encoded_fmt_stream_map.join(",")
+            )
+            : "")
+            res.send(`status=ok
+length_seconds=${data.length}
+keywords=a
+vq=None
+muted=0
+avg_rating=5.0
+thumbnail_url=${
+    encodeURIComponent(
+        `${req.protocol}://i.ytimg.com/vi/${req.query.video_id}/hqdefault.jpg`
+    )
+}
+allow_ratings=1
+hl=en
+ftoken=
+allow_embed=1
+fmt_map=${encodeURIComponent(fmt_map)}
+fmt_url_map=${encodeURIComponent(fmt_stream_map)}
+token=amogus
+plid=amogus
+track_embed=0
+author=${data.author_name}
+title=${data.title}
+video_id=${req.query.video_id}
+fmt_list=${encodeURIComponent(fmt_list)}
+fmt_stream_map=${encodeURIComponent(fmt_stream_map)}${urlStreams}`.split("\n").join("&"))
+        }))
+    }), "", "", false, false)
+})
+
+app.get("/get_wii_video_info", (req, res) => {
     if(req.query.el == "leanback") {
         // add to history if leanback
         let history = ""
