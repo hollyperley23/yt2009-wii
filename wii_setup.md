@@ -24,6 +24,8 @@ NCP3.0 (Me/Owner)
 
 - [2]. grab these programs
 
+  grab a YouTube channel WAD (you can back it up from your wii)
+  
   https://github.com/jindrapetrik/jpexs-decompiler
   
   https://www.java.com/en/
@@ -52,7 +54,19 @@ NCP3.0 (Me/Owner)
       
     This is pretty simple replace all instaces of 192.168.1.150 with your url, and also replace
     all instances of get_video_info with get_wii_video_info (this is because we need to mess with
-    stuff on get_video_info in order to prevent it from giving issues).
+    stuff on get_video_info in order to prevent it from giving issues). so for example
+    192.168.1.150/get_video_info should become (urlyour)/get_wii_video_info 
 
-- [6] editing leanbacklite_
+- [6] editing leanbacklite_wii
+
+    Same procces, just search for all URLs with 192.168.1.150 and replace it with whatever your url is.
+  
+- [7] extracting the wad
+
+    Use WADMII, and select your wad and extract it to a folder.
+
+- [8]
+
+    Use U8Mii to extract 02.app (full name is
+     
     
