@@ -12,6 +12,8 @@ YouTube/Google/Nintendo (of course)
 
 DX (Creator of YT2009)
 
+Mrt84 (Helped me package the wad and fix views and such)
+
 SuperrSonic (found some shit about codecs)
 
 NCP3.0 (Me/Owner)
