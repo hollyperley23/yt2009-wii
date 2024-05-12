@@ -74,7 +74,11 @@ NCP3.0 (Me/Owner)
      In trusted folder open wii_shim and wii_dev_shim, change any youtube.com url to your url.
      You can either do /wiitv or /wiitv/leanbacklite_wii or whatever else floats your boat.
 
-- [10] finishing up
+- [10]
+
+      Using a private server patcher, patch your wad (like wiimmfi).
+
+- [11] finishing up
 
       Finish up packaging, use U8MII to rebuild the 00000002.app (you will have to rename it to .app).
       Then replace 00000002.app from the extracted WAD and rebuild and install it to your wii.
