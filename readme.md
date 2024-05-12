@@ -12,6 +12,8 @@ YouTube/Google/Nintendo (of course)
 
 DX (Creator of YT2009)
 
+ljcool2006 (found the files for leanback and such)
+
 Mrt84 (Helped me package the wad and fix views and such)
 
 SuperrSonic (found some shit about codecs)
@@ -19,6 +21,7 @@ SuperrSonic (found some shit about codecs)
 NCP3.0 (Me/Owner)
 
 ---
+
 
 ## already have an instance 
 
