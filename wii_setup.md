@@ -72,7 +72,7 @@ NCP3.0 (Me/Owner)
 - [9] patching wii_shim (or whatever its name) and the wii_dev_shim (or whater its name)
 
      In trusted folder open wii_shim and wii_dev_shim, change any youtube.com url to your url.
-     You can either do /wiitv or /wiitv/leanbacklite_wii or whatever else floats your boat.
+     Do /wiitv/leanbacklite_wii.swf (instead of wiitv, according to mrt /wiitv won't work)
 
      before patching the wad, go to config/common.pcf, scroll all the down until u see "dummy=1", replace that text to "relax=2" and save the pcf, pack the u8 archive and wad
 
