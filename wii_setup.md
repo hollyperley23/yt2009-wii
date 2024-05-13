@@ -18,7 +18,7 @@ NCP3.0 (Me/Owner)
 
 --
 
-## For the love of all that is holy before contacting me try this
+## for the love of all that is holy before contacting me try this
 
 is your wii on the same WIRLESS network as your PC  
 
@@ -35,6 +35,11 @@ are you using the latest version of the YouTube channel
 I do not use windows nor do I really care about windows, I'll help you
 it should work but again I do not use windows I ain't gonna be of a ton 
 of help for ffmpeg issue or what not.
+
+## windows fanboy
+
+https://gist.github.com/aslushnikov/422f1e1a57796a476bf73ebe04f2e5ac (try this for ffmpeg, no I won't compile it for you)
+
 
 ## already have an instance 
 
