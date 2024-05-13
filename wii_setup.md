@@ -16,7 +16,25 @@ SuperrSonic (found some shit about codecs)
 
 NCP3.0 (Me/Owner)
 
----
+--
+
+## For the love of all that is holy before contacting me try this
+
+is your wii on the same WIRLESS network as your PC  
+
+did you patch all of the urls
+
+is it all http
+
+are you using WadMII 
+
+are you using the latest version of the YouTube channel
+
+## also note
+
+I do not use windows nor do I really care about windows, I'll help you
+it should work but again I do not use windows I ain't gonna be of a ton 
+of help for ffmpeg issue or what not.
 
 ## already have an instance 
 
