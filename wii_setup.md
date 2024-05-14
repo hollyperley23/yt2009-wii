@@ -36,10 +36,15 @@ I do not use windows nor do I really care about windows, I'll help you
 it should work but again I do not use windows I ain't gonna be of a ton 
 of help for ffmpeg issue or what not.
 
-## windows fanboy
+## windows fanboys
 
 https://gist.github.com/aslushnikov/422f1e1a57796a476bf73ebe04f2e5ac (try this for ffmpeg, no I won't compile it for you)
 
+## what this is 
+
+a hobby project, please understand that I do not intend this for everyone, I'll help you the best I can but again I do not use 
+windows nor do I wish to support windows. This isn't to be the number 1 yt wii service, I just happended to open source a project
+I worked on.
 
 ## already have an instance 
 
@@ -113,6 +118,8 @@ https://gist.github.com/aslushnikov/422f1e1a57796a476bf73ebe04f2e5ac (try this f
   Extras:
 
   Getting FLVs to play,
+
+  IN THE VIDEO LOADER CLASS IN APIPLAYER_whatever LETTERS
 
   change get_webm to get_video, and in get video_wii_video_info change 43
   to 5 (or maybe 7), this is itag or whatever code for FLVs iirc.
