@@ -30,6 +30,8 @@ NCP3.0 (Me/Owner)
 
 - /feeds/api/thumbnails/*/users
 
+- /feeds/api/thumbnails/*/playlists
+
 - /feeds/api/thumbnails/*
 
 - reads the feed and sends its <media:thumbnail yt:name='poster' url='http://i.ytimg.com/vi/VcJmb3VNFXo/0.jpg' height='240' width='320' time='00:00:00'/>, and redircts.
