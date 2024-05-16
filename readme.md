@@ -26,11 +26,11 @@ NCP3.0 (Me/Owner)
 
 - A new API request,
 
-/feeds/api/thumbnails/*/results 
+- /feeds/api/thumbnails/*/results 
 
-/feeds/api/thumbnails/*/users
+- /feeds/api/thumbnails/*/users
 
-/feeds/api/thumbnails/*
+- /feeds/api/thumbnails/*
 
 - reads the feed and sends its <media:thumbnail yt:name='poster' url='http://i.ytimg.com/vi/VcJmb3VNFXo/0.jpg' height='240' width='320' time='00:00:00'/>, and redircts.
 it is used for the leanback_ajax, which is used for the wii.
