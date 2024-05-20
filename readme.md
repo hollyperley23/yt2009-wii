@@ -24,7 +24,7 @@ NCP3.0 (Me/Owner)
 
 ## changes
 
-- A new API request,
+- A new API,
 
 - /feeds/api/thumbnails/*/results 
 
@@ -37,11 +37,13 @@ NCP3.0 (Me/Owner)
 - reads the feed and sends its <media:thumbnail yt:name='poster' url='http://i.ytimg.com/vi/VcJmb3VNFXo/0.jpg' height='240' width='320' time='00:00:00'/>, and redircts.
 it is used for the leanback_ajax, which is used for the wii.
 
-- WebM Support
+- WebM Support 
 
 - using get_webm and get_wii_video will get you a video in WebMs with VP8/OGG in order to get videos to play properly on the Wii.
 
 - Leanback Lite and Leanback Lite Wii patched.
+
+- views are in playlists gdata
 
 ---
 
