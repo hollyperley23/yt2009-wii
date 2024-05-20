@@ -72,6 +72,11 @@ I worked on.
 
   (rootofyt2009)/wiitv/leanbacklite_wii.swf (this is the app pretty much, this is what the channel loads)
 
+- [4] editing leanback_ajax.json
+
+      Simple, just go into assets, and the site assets, fine the file and replace EVERY instance
+      of 192.168.1.150 with yours, you can also modify or remove channels and such.
+
 - [4]. editing apiplayer
 
    Open Scirpts -> frame 1 -> DoAcition (the first one)
