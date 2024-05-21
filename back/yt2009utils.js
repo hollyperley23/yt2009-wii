@@ -2,7 +2,9 @@ const fetch = require("node-fetch")
 const constants = require("./yt2009constants.json")
 const yt2009exports = require("./yt2009exports")
 const fs = require("fs")
+const readline = require('readline'); // Include the readline module
 const ytdl = require("ytdl-core")
+const http = require('http')
 const dominant_color = require("./dominant_color")
 const config = require("./config.json")
 const tokens = config.tokens || ["amogus"]
@@ -47,6 +49,12 @@ module.exports = {
         return tr;
     },
 
+
+    // the stuff I added
+    fetchAndServeThumbnail: fetchAndServeThumbnail,
+    fetchAndServePFPThumbnail: fetchAndServePFPThumbnail,
+    fetchAndServeSearchThumbnail: fetchAndServeSearchThumbnail,
+    fetchAndServePlaylistThumbnail, fetchAndServePlaylistThumbnail,
 
     "seconds_to_time": function(input) {
         // seconds to time (192 -> 3:12)
@@ -513,22 +521,11 @@ module.exports = {
         }
         fname = fname.replace(".png", "")
         if(!fs.existsSync(`../assets/${fname}.png`)) {
-            fetch(link.replace("ggpht.com", "googleusercontent.com"), {
+            fetch(link, {
                 "headers": constants.headers
             }).then(r => {
                 r.buffer().then(buffer => {
                     fs.writeFileSync(`../assets/${fname}.png`, buffer)
-                })
-            }).catch(e => {
-                console.log("googleusercontent load fail! trying ggpht")
-                fetch(link, {
-                    "headers": constants.headers
-                }).then(r => {
-                    r.buffer().then(buffer => {
-                        fs.writeFileSync(`../assets/${fname}.png`, buffer)
-                    })
-                }).catch(e => {
-                    console.log("attempt 2 of loading user avatar fail!", link)
                 })
             })
         }
@@ -1574,11 +1571,6 @@ module.exports = {
         && req.headers.cookie.includes("autogen_thumbnails")) {
             file = "1.jpg"
         }
-        if(req.headers
-        && req.headers.cookie
-        && req.headers.cookie.includes("2010.swf")) {
-            file = "default.jpg"
-        }
         let fullUrl = "//i.ytimg.com/vi/" + id + "/" + file
         if(req.headers
         && req.headers.cookie
@@ -1632,4 +1624,171 @@ module.exports = {
 
         return false;
     }
+
+    
 }
+
+function fetchAndServeThumbnail(req, res, feedName) {
+    const feedUrl = `http://192.168.1.150/feeds/api/standardfeeds/US/${encodeURIComponent(feedName)}`;
+    console.log('Downloading feed from:', feedUrl); 
+
+    http.get(feedUrl, (response) => {
+        let rawData = '';
+
+        response.on('data', (chunk) => {
+            rawData += chunk;
+        });
+
+        response.on('end', () => {
+            try {
+                const thumbnailMatch = rawData.match(/<media:thumbnail yt:name='poster' url='(.*?)'/);
+                const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : null;
+
+                if (thumbnailUrl) {
+                    res.writeHead(302, {
+                        'Location': thumbnailUrl
+                    });
+                    res.end();
+                } else {
+                    const defaultImageUrl = 'http://i.ytimg.com/vi/e/0.jpg';
+                    res.writeHead(302, {
+                        'Location': defaultImageUrl
+                    });
+                    res.end();
+                }
+            } catch (error) {
+                console.error("Error processing feed data:", error);
+                res.statusCode = 500;
+                res.end("Error processing feed data");
+            }
+        });
+    }).on('error', (err) => {
+        console.error("Error downloading feed:", err);
+        res.statusCode = 500;
+        res.end("Error downloading feed");
+    });
+}
+
+function fetchAndServePFPThumbnail(req, res, feedName) {
+    const feedUrl = `http://192.168.1.150/feeds/api/users/${encodeURIComponent(feedName)}/uploads`;
+    console.log('Downloading feed from:', feedUrl); 
+
+    http.get(feedUrl, (response) => {
+        let rawData = '';
+
+        response.on('data', (chunk) => {
+            rawData += chunk;
+        });
+
+        response.on('end', () => {
+            try {
+                const thumbnailMatch = rawData.match(/<media:thumbnail yt:name='poster' url='(.*?)'/);
+                const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : null;
+
+                if (thumbnailUrl) {
+                    res.writeHead(302, {
+                        'Location': thumbnailUrl
+                    });
+                    res.end();
+                } else {
+                    const defaultImageUrl = 'http://i.ytimg.com/vi/e/0.jpg';
+                    res.writeHead(302, {
+                        'Location': defaultImageUrl
+                    });
+                    res.end();
+                }
+            } catch (error) {
+                console.error("Error processing feed data:", error);
+                res.statusCode = 500;
+                res.end("Error processing feed data");
+            }
+        });
+    }).on('error', (err) => {
+        console.error("Error downloading feed:", err);
+        res.statusCode = 500;
+        res.end("Error downloading feed");
+    });
+}
+
+function fetchAndServeSearchThumbnail(req, res, feedName) {
+    const feedUrl = `http://192.168.1.150/feeds/api/videos?q=${encodeURIComponent(feedName)}`;
+    console.log('Downloading feed from:', feedUrl); 
+
+    http.get(feedUrl, (response) => {
+        let rawData = '';
+
+        response.on('data', (chunk) => {
+            rawData += chunk;
+        });
+
+        response.on('end', () => {
+            try {
+                const thumbnailMatch = rawData.match(/<media:thumbnail yt:name='poster' url='(.*?)'/);
+                const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : null;
+
+                if (thumbnailUrl) {
+                    res.writeHead(302, {
+                        'Location': thumbnailUrl
+                    });
+                    res.end();
+                } else {
+                    const defaultImageUrl = 'http://i.ytimg.com/vi/e/0.jpg';
+                    res.writeHead(302, {
+                        'Location': defaultImageUrl
+                    });
+                    res.end();
+                }
+            } catch (error) {
+                console.error("Error processing feed data:", error);
+                res.statusCode = 500;
+                res.end("Error processing feed data");
+            }
+        });
+    }).on('error', (err) => {
+        console.error("Error downloading feed:", err);
+        res.statusCode = 500;
+        res.end("Error downloading feed");
+    });
+}
+
+function fetchAndServePlaylistThumbnail(req, res, feedName) {
+    const feedUrl = `http://192.168.1.150/feeds/api/playlists/${encodeURIComponent(feedName)}`;
+    console.log('Downloading feed from:', feedUrl); 
+
+    http.get(feedUrl, (response) => {
+        let rawData = '';
+
+        response.on('data', (chunk) => {
+            rawData += chunk;
+        });
+
+        response.on('end', () => {
+            try {
+                const thumbnailMatch = rawData.match(/<media:thumbnail yt:name='poster' url='(.*?)'/);
+                const thumbnailUrl = thumbnailMatch ? thumbnailMatch[1] : null;
+
+                if (thumbnailUrl) {
+                    res.writeHead(302, {
+                        'Location': thumbnailUrl
+                    });
+                    res.end();
+                } else {
+                    const defaultImageUrl = 'http://i.ytimg.com/vi/e/0.jpg';
+                    res.writeHead(302, {
+                        'Location': defaultImageUrl
+                    });
+                    res.end();
+                }
+            } catch (error) {
+                console.error("Error processing feed data:", error);
+                res.statusCode = 500;
+                res.end("Error processing feed data");
+            }
+        });
+    }).on('error', (err) => {
+        console.error("Error downloading feed:", err);
+        res.statusCode = 500;
+        res.end("Error downloading feed");
+    });
+}
+

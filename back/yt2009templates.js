@@ -785,7 +785,7 @@ module.exports = {
     </media:group>
     <yt:playlistId>${id}</yt:playlistId>`
     },
-    "cpbVideo": function(video, index) {
+    "cpbVideo": function(video, index, views) {
         return `
     <entry gd:etag='W/&quot;DUUMQnYzeCp7ImA9WxFUGU4.&quot;'>
         <id>${video.id}</id>
@@ -825,7 +825,7 @@ module.exports = {
             <yt:videoid>${video.id}</yt:videoid>
         </media:group>
         <gd:rating average='5.0' max='5' min='1' numRaters='1' rel='http://schemas.google.com/g/2005#overall'/>
-        <yt:statistics favoriteCount='0' viewCount='0'/>
+        <yt:statistics favoriteCount="N/A" viewCount="${video.views}"/>
         <yt:position>${index}</yt:position>
     </entry>`
     },
