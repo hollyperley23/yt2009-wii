@@ -116,7 +116,7 @@ module.exports = {
         || (req.headers.referer || "").includes("/mp4")
         || req.query.t == "amogus") {
             req.query.video_id = req.query.video_id.replace("/mp4", "")
-            res.redirect("/channel_fh264_getvideo?v=" + req.query.video_id)
+            res.redirect("/get_video?v=" + req.query.video_id)
             return;
         }
         let v = req.query.video_id.replace("/mp4", "")
@@ -132,12 +132,12 @@ module.exports = {
             // xl
             if(req.query.fmt == "22") {
                 // hd
-                res.redirect("/exp_hd?video_id=" + req.query.video_id)
+                res.redirect("/get_video?video_id=" + req.query.video_id)
                 return;
             }
             if(req.query.fmt == "35") {
                 // hq
-                res.redirect("/get_480?video_id=" + req.query.video_id)
+                res.redirect("/get_video?video_id=" + req.query.video_id)
                 return;
             }
         }
@@ -152,15 +152,24 @@ module.exports = {
     "vid_flv": function(id, callback) {
         // get a flv file needed by flash
         let ffmpegCommandFlv = [
+            "sudo", 
             "ffmpeg",
-            `-i ${__dirname}/../assets/${id}.mp4`,
-            ` -b 1500k -ab 128000`,
+            `-i '${__dirname}/../assets/${id}.mp4'`, 
+            `-c:v flv`,
+            `-c:a libmp3lame -ar 44100 -ac 1 -b:a 64k`, 
+            `-b:v 100k`,
+            `-r 24`, 
+            `-s 320x240`, 
             `${__dirname}/../assets/${id}.flv`
-        ]
+        ];
+    
+
+        console.log(ffmpegCommandFlv.join(" "));
 
         // have flv?
         if(flvProcessingVideos.includes(id)) {
             // wait for flv to finish processing (another request sent before)
+            console.log("flv request sent before - wait for finish")
             let x = setInterval(() => {
                 if(!flvProcessingVideos.includes(id)) {
                     callback();
@@ -197,12 +206,15 @@ module.exports = {
         }
 
         function convert_mp4_to_flv(id, callback) {
+            console.log("flv process start")
             flvProcessingVideos.push(id)
             child_process.exec(ffmpegCommandFlv.join(" "),
             (error, stdout, stderr) => {
+                console.log("flv process done, remove from list")
                 flvProcessingVideos = flvProcessingVideos.filter(s => s !== id)
                 callback()
             })
         }
     }
 }
+

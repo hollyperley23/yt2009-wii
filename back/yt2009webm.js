@@ -154,18 +154,18 @@ module.exports = {
         // get a webm file needed by the browser
         let ffmpegCommandWebm = [
             "ffmpeg",
-            "-threads", "4", // Adjust the number of threads based on your CPU cores
+            "-threads", "8", 
             "-i", `${__dirname}/../assets/${id}.mp4`,
-            "-c:v", "libvpx", "-b:v", "300k", "-preset", "ultrafast", "-vf", "scale=480:360", "-aspect", "4:3", "-pix_fmt", "yuv420p",
+            "-c:v", "libvpx", "-b:v", "300k", "-cpu-used", "16", "-vf", "scale=480:360", "-aspect", "4:3", "-pix_fmt", "yuv420p",
             "-c:a", "libvorbis",
             "-r", "30", "-g", "30",
-            `${__dirname}/../assets/${id}.webm`            
+            `${__dirname}/../assets/${id}.webm`                      
         ];
     
         console.log("FFmpeg Command (WebM):");
         console.log(ffmpegCommandWebm.join(' '));
     
-        // have webm?
+        // have webm?s
         if(webmProcessingVideos.includes(id)) {
             // wait for webm to finish processing (another request sent before)
             console.log("WebM request sent before - wait for finish")

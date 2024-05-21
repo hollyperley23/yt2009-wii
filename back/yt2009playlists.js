@@ -139,7 +139,11 @@ module.exports = {
                 })
 
                 videoList.name = primarySidebar.title.runs[0].text
+
                 videoList.views = primarySidebar.stats[1].simpleText
+
+                console.log(videoList.views = primarySidebar.stats[1].simpleText);
+
                 videoList.creatorName = owner.text
                 if(owner.navigationEndpoint) {
                     videoList.creatorUrl = owner.navigationEndpoint.browseEndpoint
@@ -159,6 +163,8 @@ module.exports = {
 
                 // filmy
 
+           
+
                 playlistArray.forEach(video => {
                     if(!video.playlistVideoRenderer) return;
                     video = video.playlistVideoRenderer
@@ -173,7 +179,10 @@ module.exports = {
                                             .navigationEndpoint.browseEndpoint
                                             .canonicalBaseUrl,
                         "time": video.lengthText ?
-                                video.lengthText.simpleText : ""
+                                video.lengthText.simpleText : "",
+                        "views": utils.approxSubcount (
+                            video.videoInfo.runs[0].text.split(" ")[0]
+                        )
                     })
                 })
 
@@ -190,7 +199,7 @@ module.exports = {
             xmlResponse += yt2009templates.cpbPlaylistsBegin(
                 data.name,
                 data.playlistId,
-                data.creatorName
+                data.creatorName,
             )
             xmlResponse += yt2009templates.cpbPlaylistsCounts(
                 data.videos.length,
@@ -202,6 +211,8 @@ module.exports = {
             data.videos.forEach(video => {
                 xmlResponse += yt2009templates.cpbVideo(video, videoIndex)
                 videoIndex += 1
+                console.log(video);
+
             })
             xmlResponse += `
             </feed>`

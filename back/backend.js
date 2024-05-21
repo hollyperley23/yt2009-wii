@@ -12,7 +12,7 @@ const yt2009_videos_page = require("./yt2009videos");
 const yt2009_channels_page = require("./yt2009channelspage")
 const yt2009_warp_test = require("./yt2009warp");
 const yt2009_warp_swf = require("./yt2009warpSWF")
-const yt2009_webm = require("./yt2009webm")
+const yt2009_webm= require("./yt2009webm")
 const yt2009_history = require("./yt2009history");
 const yt2009_subs = require("./yt2009subscriptions");
 const yt2009_favorites = require("./yt2009favorites");
@@ -41,6 +41,7 @@ const yt2009charts = require("./yt2009charts")
 let devTimings = false;
 
 const https = require("https")
+
 const fs = require("fs")
 const app = express();
 app.use(express.raw({
@@ -774,12 +775,83 @@ app.get("/leanback_ajax?action_featured=1&", (req, res) => {
 })
 
 
+
 app.get("/swf/apiplayer.swf", (req, res) => {
     res.redirect("/xl/apiplayer-f.swf")
 })
 
 app.get("/swf/apiplayer.swf", (req, res) => {
     res.redirect("/xl/apiplayer-f.swf")
+})
+
+
+app.get("/get_wii_video_info", (req, res) => {
+    if(req.query.el == "leanback") {
+        // add to history if leanback
+        let history = ""
+        if(req.headers.cookie
+        && req.headers.cookie.includes("leanback_history=")) {
+            history = req.headers.cookie
+                      .split("leanback_history=")[1].split(";")[0]
+        }
+        history = history.split(":")
+        if(history.length >= 3) {
+            history.pop()
+        }
+        history.unshift(req.query.video_id.replace("/mp4", ""))
+        let cookieParams = [
+            `leanback_history=${history.join(":")}; `,
+            `Path=/; `,
+            `Expires=Fri, 31 Dec 2066 23:59:59 GMT`
+        ]
+        res.set("set-cookie", cookieParams.join(""))
+    }
+    req.query.video_id = req.query.video_id.replace("/mp4", "")
+    yt2009.fetch_video_data(req.query.video_id, (data => {
+        yt2009.get_qualities(req.query.video_id, (qualities => {
+            if((!qualities || qualities.length == 0) && data.qualities) {
+                qualities = data.qualities
+            }
+            let fmt_list = ""
+            let fmt_stream_map = ""
+            let fmt_map = ""
+            fmt_list += "43/480x360/9/0/115"
+            fmt_map += "43/0/7/0/0"
+            fmt_stream_map += `43|http://${config.ip}:${
+                config.port
+            }/get_webm?video_id=${data.id}`
+            res.send(`status=ok
+length_seconds=${data.length}
+keywords=a
+vq=None
+muted=0
+avg_rating=5.0
+thumbnail_url=${
+    encodeURIComponent(
+        `${req.protocol}://i.ytimg.com/vi/${req.query.video_id}/hqdefault.jpg`
+    )
+}
+allow_ratings=1
+hl=en
+ftoken=
+allow_embed=1
+fmt_map=${encodeURIComponent(fmt_map)}
+fmt_url_map=${encodeURIComponent(fmt_stream_map)}
+token=amogus
+plid=amogus
+track_embed=0
+author=${data.author_name}
+title=${data.title}
+video_id=${req.query.video_id}
+fmt_list=${encodeURIComponent(fmt_list)}
+fmt_stream_map=${encodeURIComponent(fmt_stream_map)}`.split("\n").join("&"))
+        }))
+        
+    }), "", "", false, false)
+})
+
+app.get("/xl/embed", (req, res) => {
+    yt2009_xl.xl_embed(req, res)
 })
 
 app.get("/get_video_info", (req, res) => {
@@ -993,9 +1065,6 @@ fmt_stream_map=${encodeURIComponent(fmt_stream_map)}`.split("\n").join("&"))
     }), "", "", false, false)
 })
 
-app.get("/xl/embed", (req, res) => {
-    yt2009_xl.xl_embed(req, res)
-})
 
 /*
 ======
@@ -1023,6 +1092,7 @@ app.get("/feeds/api/videos/", (req, res) => {
     }
     yt2009_cps.get_search(req, res)
 })
+
 
 //left this when messing about with leanbacklite_v3
 // this gets it partially working lol
@@ -1926,6 +1996,29 @@ app.get("/feeds/api/videos/*", (req, res) => {
         return;
     }
 })
+
+
+app.get("/feeds/api/thumbnails/:feedName", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServeThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/users", (req, res) => {
+    const feedName = req.params.feedName; 
+    yt2009_utils.fetchAndServePFPThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/results", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServeSearchThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/playlists", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServePlaylistThumbnail(req, res, feedName);
+});
+
+
 app.post("/feeds/api/videos/*/ratings", (req, res) => {
     res.status(200).send()
 })
@@ -4377,6 +4470,7 @@ thumbnailProxyEndpoints.forEach(t => {
     })
 })
 
+
 /*
 ======
 misc dummy flash endpoints
@@ -4391,6 +4485,16 @@ app.get("/leanback_ajax", (req, res) => {
     }
     res.status(200).send("")
 })
+
+app.get("/leanback_ajax?action_environment", (req, res) => {
+    if(req.query.action_featured) {
+        let r = fs.readFileSync("../assets/site-assets/leanback_ajax.json").toString()
+        res.send(r)
+        return;
+    }
+    res.status(200).send("")
+})
+
 app.get("/player_204", (req, res) => {
     res.sendStatus(204)
 })

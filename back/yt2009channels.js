@@ -153,10 +153,9 @@ module.exports = {
             let metadataParts = []
             try {
                 r.header.pageHeaderRenderer.content.pageHeaderViewModel
-                .metadata.contentMetadataViewModel.metadataRows.forEach(mr => {
-                    mr.metadataParts.forEach(m => {
-                        metadataParts.push(m.text.content)
-                    })
+                .metadata.contentMetadataViewModel.metadataRows[0].metadataParts
+                .forEach(m => {
+                    metadataParts.push(m.text.content)
                 })
             }
             catch(error) {}
@@ -378,16 +377,6 @@ module.exports = {
                             callback(data)
                         }
                     })
-                }).catch(e => {
-                    fs.writeFileSync(`../assets/${data.newBanner}`, "")
-                    delete data.banner;
-                    delete data.newBanner;
-                    delete data.bannerUrl;
-                    additionalFetchesCompleted++;
-                    if(additionalFetchesCompleted >= fetchesRequired) {
-                        callback(data)
-                    }
-                    return;
                 })
             }
             catch(error) {
@@ -818,7 +807,6 @@ module.exports = {
                         watch_arg = req.headers.cookie.split("alt_swf_arg=")[1]
                                                     .split(";")[0]
                     }
-                    if(!watch_arg) {watch_arg = "video_id"}
 
                     
                     let flashUrl = `${watch_url}?${watch_arg}=${video.id}`
@@ -838,24 +826,6 @@ module.exports = {
                         flashUrl += `&iv_module=http%3A%2F%2F`
                         + `${config.ip}%3A${config.port}%2Fiv_module.swf`;
                     }
-                    if(watch_url.includes("2012.swf")) {
-                        let modulePrefix = `http://${config.ip}:${config.port}/alt-swf/modules/`
-                        let args = {
-                            "BASE_YT_URL": `http://${config.ip}:${config.port}/`,
-                            "iv3_module": `${modulePrefix}2012_iv3_module-vfl7CyC10.swf`,
-                            "cc3_module": `${modulePrefix}2012_subtitles3_module-vflX-PxNh.swf`,
-                            "cc_load_policy": "1",
-                            "iv_load_policy": "1"
-                        }
-                        let argsMerged = ""
-                        for(let a in args) {
-                            argsMerged += "&" + a + "=" + args[a]
-                        }
-                        flashUrl += argsMerged;
-                    }
-                    if(watch_url.includes("cps2.swf")) {
-                        flashUrl += `&BASE_YT_URL=http://${config.ip}:${config.port}/`;
-                    }
                     code = code.replace(
                         "<!--yt2009_player-->",
                         templates.flashObject(flashUrl)
@@ -863,9 +833,7 @@ module.exports = {
                     code = code.replace(
                         `//yt2009-f-custom-player`,
                         `var customPlayerUrl = "${watch_url}";
-                        var customPlayerArg = "${watch_arg}";
-                        var baseUrlSetting = "http://${config.ip}:${config.port}/";
-                        var currentVideo = "${video.id}";`
+                        var customPlayerArg = "${watch_arg}"`
                     )
                 }
             } else {
@@ -1476,11 +1444,6 @@ module.exports = {
                         setChannelIcon()
                         markAsDone()
                     }
-                }).catch(e => {
-                    // error pulling old icon, use current
-                    fs.writeFileSync(fname, "")
-                    setChannelIcon()
-                    markAsDone()
                 })
             }
         }
@@ -1541,10 +1504,6 @@ module.exports = {
                         }
                         
                     }
-                }).catch(e => {
-                    // bg pull fail, use default
-                    fs.writeFileSync(bgfile, "")
-                    c()
                 })
             } else if(fs.existsSync(bgfile) && fs.statSync(bgfile).size > 5) {
                 // use downloaded background
@@ -1579,9 +1538,6 @@ module.exports = {
                     // doesn't exist, download current
                     downCurrent()
                 }
-            }).catch(e => {
-                // can't pull, use current
-                downCurrent()
             })
 
             // failed :( get current banner
@@ -1601,14 +1557,6 @@ module.exports = {
                             templates.banner(`${`/assets/${cId}_banner.jpg`}`)
                         )
                         getOldBg("404")
-                    })
-                }).catch(e => {
-                    fetch(data.bannerUrl.replace("googleusercontent", "ggpht"), {
-                        "headers": yt2009constants.headers
-                    }).then(r => {
-                        fs.writeFileSync(`../assets/${cId}_banner.jpg`, "")
-                        getOldBg()
-                        return;
                     })
                 })
             }
@@ -1844,7 +1792,7 @@ module.exports = {
                                     userHandle = m;
                                 }
                             })
-                        } else if(r.header.c4TabbedHeaderRenderer.channelHandleText) {
+                        } else {
                             userHandle = r.header.c4TabbedHeaderRenderer
                                           .channelHandleText.runs[0].text
                         }
