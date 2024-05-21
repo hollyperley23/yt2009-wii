@@ -48,6 +48,14 @@ I worked on.
 
 ## already have an instance 
 
+  Make Sure to install FFMpeg!
+
+  sudo dnf install ffmpeg
+
+  sudo dnf install libvpx
+
+  
+
 - [1]. once you have your local instance setup, make sure you are using port 80, and your local ip adress, and you're connected to the same network as your wii.
 
 - [2]. grab these programs
