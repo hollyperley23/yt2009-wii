@@ -14,6 +14,10 @@ a fairly accurate 2009 youtube frontend.
 
   This may be hard for some I can try to help, my discord tag is pnj3.0.
 
+  # windows users
+
+    I will make a guide later down the road after the Linux guide. 
+
 ## setup
 ### if you prefer using docker rather than installing directly, go [here](docker.md) for setup instructions instead
 
