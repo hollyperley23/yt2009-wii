@@ -6,7 +6,7 @@
 
   # windows users
 
-    I may make a guide later down the road after the Linux guide. 
+    I may make a Windows guide at some point.
 
 ## optional after-setup steps
 
