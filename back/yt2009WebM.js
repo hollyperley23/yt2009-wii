@@ -136,48 +136,67 @@ module.exports = {
             console.log(`Video ${id} is already being processed. Skipping duplicate request.`);
             return;
         }
-
+    
         webmProcessingVideos.push(id);
-
+    
+        const inputFilePath = `${__dirname}/../assets/${id}.mp4`;
+        const outputFilePath = `${__dirname}/../assets/${id}.webm`;
+    
+        if (!fs.existsSync(inputFilePath)) {
+            console.error(`Input file ${inputFilePath} does not exist.`);
+    
+            utils.saveMp4(id, () => {
+    
+                console.log(`MP4 file for video ${id} has been saved. Converting to WebM...`);
+                convert_mp4_to_webm(() => {
+                    callback();  
+                });
+            });
+            return;
+        }
+    
         const ffmpegCommandWebm = [
             "ffmpeg",
-            "-threads", "8", 
-            "-i", `${__dirname}/../assets/${id}.mp4`,
-            "-c:v", "libvpx", "-b:v", "300k", "-cpu-used", "8", "-vf", "scale=480:360", "-aspect", "4:3", "-pix_fmt", "yuv420p",
+            "-v", "verbose",
+            "-i", inputFilePath,
+            "-c:v", "libvpx",
+            "-b:v", "300k",
+            "-cpu-used", "8",
+            "-vf", "scale=480:360",
+            "-aspect", "4:3",
+            "-pix_fmt", "yuv420p",
             "-c:a", "libvorbis",
-            "-r", "30", "-g", "30",
-            `${__dirname}/../assets/${id}.webm`
+            "-b:a", "128k",
+            "-r", "30",
+            "-g", "30",
+            outputFilePath
         ].join(" ");
-
+    
         const convert_mp4_to_webm = (callback) => {
             const startTime = Date.now();
-
+    
             child_process.exec(ffmpegCommandWebm, (error, stdout, stderr) => {
                 const endTime = Date.now(); 
                 const processingTime = ((endTime - startTime) / 1000).toFixed(2); 
-
+    
                 webmProcessingVideos = webmProcessingVideos.filter(s => s !== id);
                 if (error) {
                     console.error(`Error processing video ${id}:`, error);
+                    console.error(`stderr: ${stderr}`);
                 } else {
                     console.log(`Video ${id} processed successfully in ${processingTime} seconds.`);
                 }
-                callback();
+                callback();  
             });
         };
-
-        if (fs.existsSync(`../assets/${id}.webm`)) {
+    
+        if (fs.existsSync(outputFilePath)) {
             console.log(`Video ${id} already exists as .webm. No need to reprocess.`);
             webmProcessingVideos = webmProcessingVideos.filter(s => s !== id);
-            callback();
-        } else if (fs.existsSync(`../assets/${id}.mp4`)) {
+            callback();  
+        } else {
             console.log(`Converting ${id} from .mp4 to .webm...`);
             convert_mp4_to_webm(callback);
-        } else {
-            utils.saveMp4(id, () => {
-                console.log(`Saved ${id}.mp4, now converting to .webm...`);
-                convert_mp4_to_webm(callback);
-            });
         }
     }
 };
