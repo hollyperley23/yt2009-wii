@@ -1,10 +1,18 @@
-# yt2009
+# NextTube - A Project Aimed To Revive The YouTube Channel For The Wii!
+
 a fairly accurate 2009 youtube frontend.
 
 <img src="doc-imgs/ie6-ss.png" width="400">
 <img src="doc-imgs/ie6-ss2.png" width="400">
 
 ---
+
+# warnings
+
+  This is a rewrite (hopefully shouldn't be too hard), as YT2009 did some semi major changes that cannot be easily
+  merged (or well I am too stupid to).
+
+  This may be hard for some I can try to help, my discord tag is pnj3.0.
 
 ## setup
 ### if you prefer using docker rather than installing directly, go [here](docker.md) for setup instructions instead
