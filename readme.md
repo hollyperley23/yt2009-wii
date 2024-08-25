@@ -1,10 +1,5 @@
 # NextTube - A Project Aimed To Revive The YouTube Channel For The Wii!
 
-a fairly accurate 2009 youtube frontend.
-
-<img src="doc-imgs/ie6-ss.png" width="400">
-<img src="doc-imgs/ie6-ss2.png" width="400">
-
 ---
 
 # warnings
@@ -16,26 +11,7 @@ a fairly accurate 2009 youtube frontend.
 
   # windows users
 
-    I will make a guide later down the road after the Linux guide. 
-
-## setup
-### if you prefer using docker rather than installing directly, go [here](docker.md) for setup instructions instead
-
-- **make sure you have [imagemagick](https://imagemagick.org/) and [ffmpeg](https://ffmpeg.org/) in your PATH.**
-
-### when installing imagemagick, make sure you also install its legacy tools (convert)! 
-
-- install node.js
-- open a terminal (windows powershell/cmd) in the directory you cloned yt2009 to, then:
-- install required dependencies with: `npm install`
-- create a config file by launching and following: `node yt2009setup.js`
-- run to set and download remaining assets `node post_config_setup.js`
-- run yt2009 by changing directory to `back` (`cd back`) and starting with `node backend.js`
-- navigate to your IP:port you have set while configuring to see a 2009 homepage.
-
-afterwards, you can just `cd back` and `node backend.js` to start. no need to re-set it up each time.
-
----
+    I may make a guide later down the road after the Linux guide. 
 
 ## optional after-setup steps
 
