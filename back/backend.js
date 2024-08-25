@@ -1590,7 +1590,6 @@ app.get("/get_video", (req, res) => {
 // things added by NexTube
 
 app.get("/get_webm", (req, res) => {
-    console.log("/get_webm call", req.query.video_id);
     yt2009_webm.get_webm(req, res)
 })
 

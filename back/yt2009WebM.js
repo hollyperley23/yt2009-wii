@@ -1,39 +1,35 @@
 const yt2009main = require("./yt2009html");
 const yt2009search = require("./yt2009search");
-const yt2009wayback = require("./cache_dir/wayback_watchpage");
 const yt2009templates = require("./yt2009templates");
-const yt2009exports = require("./yt2009exports");
 const video_exists = require("./cache_dir/video_exists_cache_mgr");
 const ryd = require("./cache_dir/ryd_cache_manager");
 const fs = require("fs");
-const fetch = require("node-fetch");
-const constants = require("./yt2009constants.json");
 const utils = require("./yt2009utils");
 const child_process = require("child_process");
-const ytdl = require("ytdl-core");
 const config = require("./config.json");
+
 let webmProcessingVideos = [];
 
 module.exports = {
-    "get_video": function(req, res) {
-        if(!utils.isAuthorized(req)) {
+    get_video(req, res) {
+        if (!utils.isAuthorized(req)) {
             res.send("");
             return;
         }
 
-        let video = req.query.video_id.replace("/mp4", "");
+        const videoId = req.query.video_id.replace("/mp4", "");
 
-        if(config.env == "dev") {
+        if (config.env === "dev") {
             console.log(`(${utils.get_used_token(req) + "_warp_swf"}) warp init (${Date.now()})`);
         }
 
-        yt2009main.fetch_video_data(video, (data) => {
+        yt2009main.fetch_video_data(videoId, (data) => {
             res.send(`
 <?xml version="1.0" encoding="utf-8"?>
 <ut_response status="ok">
     <video>
         <author>${data.author_name}</author>
-        <id>${video}</id>
+        <id>${videoId}</id>
         <title>${data.title}</title>
         <length_seconds>${data.length}</length_seconds>
         <rating_avg>5</rating_avg>
@@ -42,9 +38,9 @@ module.exports = {
         <view_count>1</view_count>
         <upload_time>1</upload_time>
         <comment_count>1</comment_count>
-        <tags> </tags>
-        <url>http://www.youtube.com/watch?v=${video}</url>
-        <thumbnail_url>http://i.ytimg.com/vi/${video}/default.jpg</thumbnail_url>
+        <tags></tags>
+        <url>http://</url>
+        <thumbnail_url>http://</thumbnail_url>
         <embed_status>ok</embed_status>
         <allow_ratings>yes</allow_ratings>
     </video>
@@ -52,141 +48,135 @@ module.exports = {
         }, req.headers["user-agent"], utils.get_used_token(req), false, false, true);
     },
 
-    "get_related": function(req, res) {
-        if(!utils.isAuthorized(req)) {
+    get_related(req, res) {
+        if (!utils.isAuthorized(req)) {
             res.send("");
             return;
         }
 
-        let video = req.query.video_id.replace("/mp4", "");
+        const videoId = req.query.video_id.replace("/mp4", "");
 
-        if(config.env == "dev") {
-            console.log(`(${utils.get_used_token(req) + "_warp_swf"}) warp videos load (${video}, ${Date.now()})`);
+        if (config.env === "dev") {
+            console.log(`(${utils.get_used_token(req) + "_warp_swf"}) warp videos load (${videoId}, ${Date.now()})`);
         }
 
-        let videos_xml = `<?xml version="1.0" encoding="utf-8"?>
+        let videosXml = `<?xml version="1.0" encoding="utf-8"?>
 <ut_response status="ok">
 <video_list>`;
-        let video_index = 1;
 
-        yt2009main.fetch_video_data(video, (data) => {
+        yt2009main.fetch_video_data(videoId, (data) => {
             yt2009search.related_from_keywords(
                 utils.exp_related_keyword(data.tags, data.title),
-                video, "", (html, related) => {
-                    related.forEach(v => {
-                        videos_xml += yt2009templates.warpVideo(
+                videoId, "", (html, related) => {
+                    related.forEach((v, index) => {
+                        videosXml += yt2009templates.warpVideo(
                             v.id,
                             v.title,
                             v.length,
                             v.creatorHandle || v.creatorName,
-                            video_index,
+                            index + 1,
                             v.description,
                             v.views,
                             ryd.readCache(v.id) || 5,
                             v.upload
                         );
-
-                        video_index++;
                     });
 
-                    videos_xml += `
+                    videosXml += `
 </video_list>
 </ut_response>`;
-                    res.send(videos_xml);
-            }, "http");
+                    res.send(videosXml);
+                }, "http");
         }, req.headers["user-agent"], utils.get_used_token(req), false, false, true);
     },
 
-    "get_webm": function(req, res) {
-        if(!req.query.video_id) {
+    get_webm(req, res) {
+        const videoId = req.query.video_id;
+
+        if (!videoId) {
             res.sendStatus(400);
             return;
         }
 
-        if(req.query.fmt == 5 || req.query.video_id.includes("/mp4") || (req.headers.referer || "").includes("/mp4") || req.query.t == "amogus") {
-            req.query.video_id = req.query.video_id.replace("/mp4", "");
-            res.redirect("/get_webm?v=" + req.query.video_id);
+        const sanitizedVideoId = videoId.replace("/mp4", "");
+
+        if (req.query.fmt == 5 || sanitizedVideoId.includes("/mp4") || (req.headers.referer || "").includes("/mp4") || req.query.t === "amogus") {
+            res.redirect(`/get_webm?v=${sanitizedVideoId}`);
             return;
         }
-        
-        let v = req.query.video_id.replace("/mp4", "");
 
-        if(yt2009main.get_cache_video(v).restricted) {
-            res.redirect("/tvhtml5simply?v=" + v);
+        if (yt2009main.get_cache_video(sanitizedVideoId).restricted) {
+            res.redirect(`/tvhtml5simply?v=${sanitizedVideoId}`);
+            return;
         }
 
-        if(req.query.noflv == 1) {
+        if (req.query.noflv == 1) {
             res.send("");
             return;
         }
 
-        if(req.query.eurl && req.query.eurl.includes("embedr.com")) {
-            if(req.query.fmt == "22") {
-                res.redirect("/get_webm?video_id=" + req.query.video_id);
-                return;
-            }
-            if(req.query.fmt == "35") {
-                res.redirect("/get_webm?video_id=" + req.query.video_id);
+        if (req.query.eurl && req.query.eurl.includes("embedr.com")) {
+            if (req.query.fmt == "22" || req.query.fmt == "35") {
+                res.redirect(`/get_webm?video_id=${sanitizedVideoId}`);
                 return;
             }
         }
 
-        this.vid_webm(req.query.video_id, () => {
+        this.vid_webm(sanitizedVideoId, () => {
             try {
-                res.redirect(`../assets/${req.query.video_id}.webm`);
-            } catch(error) {}
+                res.redirect(`../assets/${sanitizedVideoId}.webm`);
+            } catch (error) {
+                console.error(`Error redirecting to webm file:`, error);
+            }
         });
     },
 
-    "vid_webm": function(id, callback) {
-        let ffmpegCommandWebm = [
+    vid_webm(id, callback) {
+        if (webmProcessingVideos.includes(id)) {
+            console.log(`Video ${id} is already being processed. Skipping duplicate request.`);
+            return;
+        }
+
+        webmProcessingVideos.push(id);
+
+        const ffmpegCommandWebm = [
             "ffmpeg",
             "-threads", "8", 
             "-i", `${__dirname}/../assets/${id}.mp4`,
-            "-c:v", "libvpx", "-b:v", "300k", "-cpu-used", "16", "-vf", "scale=480:360", "-aspect", "4:3", "-pix_fmt", "yuv420p",
+            "-c:v", "libvpx", "-b:v", "300k", "-cpu-used", "8", "-vf", "scale=480:360", "-aspect", "4:3", "-pix_fmt", "yuv420p",
             "-c:a", "libvorbis",
             "-r", "30", "-g", "30",
-            `${__dirname}/../assets/${id}.webm`                      
-        ];
+            `${__dirname}/../assets/${id}.webm`
+        ].join(" ");
 
-        if(webmProcessingVideos.includes(id)) {
-            let x = setInterval(() => {
-                if(!webmProcessingVideos.includes(id)) {
-                    callback();
-                    clearInterval(x);
+        const convert_mp4_to_webm = (callback) => {
+            const startTime = Date.now();
+
+            child_process.exec(ffmpegCommandWebm, (error, stdout, stderr) => {
+                const endTime = Date.now(); 
+                const processingTime = ((endTime - startTime) / 1000).toFixed(2); 
+
+                webmProcessingVideos = webmProcessingVideos.filter(s => s !== id);
+                if (error) {
+                    console.error(`Error processing video ${id}:`, error);
+                } else {
+                    console.log(`Video ${id} processed successfully in ${processingTime} seconds.`);
                 }
-            }, 250);
-            return;
-        }
-
-        if(!fs.existsSync(`../assets/${id}.webm`) && yt2009exports.getStatus(id)) {
-            yt2009exports.waitForStatusChange(id, () => {
-                convert_mp4_to_webm(id, () => {
-                    callback();
-                });
-            });
-            return;
-        }
-
-        if(fs.existsSync(`../assets/${id}.webm`)) {
-            callback();
-        } else if(fs.existsSync(`../assets/${id}.mp4`) && !fs.existsSync(`../assets/${id}.webm`)) {
-            convert_mp4_to_webm(id, () => {
                 callback();
             });
+        };
+
+        if (fs.existsSync(`../assets/${id}.webm`)) {
+            console.log(`Video ${id} already exists as .webm. No need to reprocess.`);
+            webmProcessingVideos = webmProcessingVideos.filter(s => s !== id);
+            callback();
+        } else if (fs.existsSync(`../assets/${id}.mp4`)) {
+            console.log(`Converting ${id} from .mp4 to .webm...`);
+            convert_mp4_to_webm(callback);
         } else {
             utils.saveMp4(id, () => {
-                convert_mp4_to_webm(id, () => {
-                    callback();
-                });
-            });
-        }
-
-        function convert_mp4_to_webm(id, callback) {
-            webmProcessingVideos.push(id);
-            child_process.exec(ffmpegCommandWebm.join(" "), (error, stdout, stderr) => {
-                webmProcessingVideos = webmProcessingVideos.filter(s => s !== id);
-                callback();
+                console.log(`Saved ${id}.mp4, now converting to .webm...`);
+                convert_mp4_to_webm(callback);
             });
         }
     }
