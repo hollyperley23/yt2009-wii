@@ -1,11 +1,8 @@
 # NextTube - A Project Aimed To Revive The YouTube Channel For The Wii!
 
-# warnings
+  # linux users
 
-  This is a rewrite (hopefully shouldn't be too hard), as YT2009 did some semi major changes that cannot be easily
-  merged (or well I am too stupid to).
-
-  This may be hard for some I can try to help, my discord tag is pnj3.0.
+    https://github.com/4df26cda-0a87-4ebd-8f35-bc0c135c301f
 
   # windows users
 
