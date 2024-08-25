@@ -41,6 +41,12 @@ let devTimings = false;
 const package = require("../package.json")
 const version = package.version;
 
+// things added by next tube
+
+const yt2009_webm= require("./yt2009WebM")
+
+// end
+
 const https = require("https")
 const fs = require("fs")
 const app = express();
@@ -900,6 +906,75 @@ fmt_stream_map=${encodeURIComponent(fmt_stream_map)}${urlStreams}`.split("\n").j
     }), "", "", false, false)
 })
 
+// made for NexTube
+
+app.get("/get_wii_video_info", (req, res) => {
+    if(req.query.el == "leanback") {
+        // add to history if leanback
+        let history = ""
+        if(req.headers.cookie
+        && req.headers.cookie.includes("leanback_history=")) {
+            history = req.headers.cookie
+                      .split("leanback_history=")[1].split(";")[0]
+        }
+        history = history.split(":")
+        if(history.length >= 3) {
+            history.pop()
+        }
+        history.unshift(req.query.video_id.replace("/mp4", ""))
+        let cookieParams = [
+            `leanback_history=${history.join(":")}; `,
+            `Path=/; `,
+            `Expires=Fri, 31 Dec 2066 23:59:59 GMT`
+        ]
+        res.set("set-cookie", cookieParams.join(""))
+    }
+    req.query.video_id = req.query.video_id.replace("/mp4", "")
+    yt2009.fetch_video_data(req.query.video_id, (data => {
+        yt2009.get_qualities(req.query.video_id, (qualities => {
+            if((!qualities || qualities.length == 0) && data.qualities) {
+                qualities = data.qualities
+            }
+            let fmt_list = ""
+            let fmt_stream_map = ""
+            let fmt_map = ""
+            fmt_list += "43/480x360/9/0/115"
+            fmt_map += "43/0/7/0/0"
+            fmt_stream_map += `43|http://${config.ip}:${
+                config.port
+            }/get_webm?video_id=${data.id}`
+            res.send(`status=ok
+length_seconds=${data.length}
+keywords=a
+vq=None
+muted=0
+avg_rating=5.0
+thumbnail_url=${
+    encodeURIComponent(
+        `${req.protocol}://i.ytimg.com/vi/${req.query.video_id}/hqdefault.jpg`
+    )
+}
+allow_ratings=1
+hl=en
+ftoken=
+allow_embed=1
+fmt_map=${encodeURIComponent(fmt_map)}
+fmt_url_map=${encodeURIComponent(fmt_stream_map)}
+token=amogus
+plid=amogus
+track_embed=0
+author=${data.author_name}
+title=${data.title}
+video_id=${req.query.video_id}
+fmt_list=${encodeURIComponent(fmt_list)}
+fmt_stream_map=${encodeURIComponent(fmt_stream_map)}`.split("\n").join("&"))
+        }))
+        
+    }), "", "", false, false)
+})
+
+// end
+
 app.get("/get_video_metadata", (req, res) => {
     if(!req.query.video_id) {
         res.sendStatus(400)
@@ -1511,6 +1586,15 @@ app.get("/next_awesome", (req, res) => {
 app.get("/get_video", (req, res) => {
     yt2009_warp_swf.get_flv(req, res)
 })
+
+// things added by NexTube
+
+app.get("/get_webm", (req, res) => {
+    console.log("/get_webm call", req.query.video_id);
+    yt2009_webm.get_webm(req, res)
+})
+
+// end
 
 
 /*
@@ -4362,9 +4446,4 @@ if(obamaVideoObject) {
     fs.writeFileSync("./yt2009constants.json", JSON.stringify(yt2009_constant))
 }
 
-/*
-pizdec
-jp2gmd
-mleczsus :*
-Stawik
-*/
+//
