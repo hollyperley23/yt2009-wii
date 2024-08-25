@@ -1740,11 +1740,25 @@ app.get("/yt2009_flags.htm", (req, res) => {
 auth-protect leanback
 ======
 */
+
+
+
 let leanbackEndpoints = ["/leanback", "/leanback/", "/leanback/index.htm"]
 let leanback = fs.readFileSync("../leanback/index.html").toString()
 leanback = leanback.split(`http_url`).join(
     "http://" + config.ip + ":" + config.port
 )
+
+// NexTube stuff
+
+let wiitvEndpoints = ["/wiitv", "/wiitv/", "/wiitv/index.htm"]
+let wiitv = fs.readFileSync("../wiitv/index.html").toString()
+leanback = leanback.split(`http_url`).join(
+    "http://" + config.ip + ":" + config.port
+)
+
+// end
+
 leanbackEndpoints.forEach(lbe => {
     app.get(lbe, (req, res) => {
         if(!yt2009_utils.isAuthorized(req)) {
