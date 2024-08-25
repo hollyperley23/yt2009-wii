@@ -2,7 +2,7 @@
 
   # linux users
 
-    https://github.com/4df26cda-0a87-4ebd-8f35-bc0c135c301f
+   [linux_setup.pdf](linux_setup.md)
 
   # windows users
 
