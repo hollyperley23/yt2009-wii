@@ -1,7 +1,5 @@
 # NextTube - A Project Aimed To Revive The YouTube Channel For The Wii!
 
----
-
 # warnings
 
   This is a rewrite (hopefully shouldn't be too hard), as YT2009 did some semi major changes that cannot be easily
