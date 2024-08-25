@@ -2,7 +2,7 @@
 
   # linux users
 
-   [linux_setup.pdf](linux_setup.md)
+   [linux_setup.pdf](linux_setup.pdf)
 
   # windows users
 
