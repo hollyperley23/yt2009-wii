@@ -18,6 +18,12 @@
 
 ---
 
+## in progress
+
+  remove/increase video load time limit
+
+  fixed random return to main menu after like an hour of playback or something idk why
+
 ## credits
 
   DX (Creator of YT2009)
