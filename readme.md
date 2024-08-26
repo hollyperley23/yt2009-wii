@@ -18,6 +18,16 @@
 
 ---
 
+## credits
+
+  DX (Creator of YT2009)
+
+  SuperrSonic (Giving me info about the wii app using webms)
+
+  MRT84 (helped me get the app patched, and helped me with views and such)
+
+  YouTube/Google/Nintendo (of course, this wouldn't exist without them)
+
 ## updating
 
 if you want to update your frontend instance, use
