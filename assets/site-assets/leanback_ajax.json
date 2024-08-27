@@ -5,7 +5,7 @@
          "video_count":4777,
          "gdata_list_id":"FLtrends",
          "icon":"trends",
-         "gdata_url":"\/feeds\/api\/users\/trends\/favorites",
+         "gdata_url":"http://192.168.150/feeds/api/users/trends/favorites",
          "list_id":"FLeNZlh03MyUkjRlLFpVQxsg",
          "tab":"featured",
          "thumbnail":"http:\/\/i1.ytimg.com\/vi\/6ravZzYKR34\/hqdefault.jpg"
@@ -15,7 +15,7 @@
          "video_count":30,
          "gdata_list_id":"STmost_popular_Music",
          "icon":"music",
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Music?time=today",
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Music",
          "list_id":"LBpop,10,t,en_US",
          "tab":"featured",
          "thumbnail":"http:\/\/i1.ytimg.com\/vi\/_vw2K0AgFF0\/hqdefault.jpg"
@@ -25,7 +25,7 @@
          "video_count":30,
          "gdata_list_id":"STmost_popular_Games",
          "icon":"gaming",
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Games?time=today",
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Games",
          "list_id":"LBpop,20,t,en_US",
          "tab":"featured",
          "thumbnail":"http:\/\/i1.ytimg.com\/vi\/7WJBJ9OI1ds\/hqdefault.jpg"
@@ -35,95 +35,95 @@
          "video_count":30,
          "gdata_list_id":"STmost_popular_Sports",
          "icon":"sports",
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Sports?time=today",
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Sports",
          "list_id":"LBpop,17,t,en_US",
          "tab":"featured",
          "thumbnail":"http:\/\/i1.ytimg.com\/vi\/vu1zMV5j0fo\/hqdefault.jpg"
       },
       {
-         "title":"Film \u0026 Animation",
+         "title":"Film & Animation",
          "video_count":30,
          "gdata_list_id":"STmost_popular_Film",
          "icon":"film",
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Film?time=today",
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Film",
          "list_id":"LBpop,1,t,en_US",
          "tab":"featured",
          "thumbnail":"http:\/\/i1.ytimg.com\/vi\/DfSyyw8duQ0\/hqdefault.jpg"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Entertainment?time=today",
          "title":"Entertainment",
-         "tab":"featured",
+         "gdata_list_id":"STmost_popular_Entertainment",
          "icon":"entertainment",
-         "gdata_list_id":"STmost_popular_Entertainment"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Entertainment",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Comedy?time=today",
          "title":"Comedy",
-         "tab":"featured",
+         "gdata_list_id":"STmost_popular_Comedy",
          "icon":"comedy",
-         "gdata_list_id":"STmost_popular_Comedy"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Comedy",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_News?time=today",
-         "title":"News \u0026 Politics",
-         "tab":"featured",
+         "title":"News & Politics",
+         "gdata_list_id":"STmost_popular_News",
          "icon":"news",
-         "gdata_list_id":"STmost_popular_News"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_News",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_People?time=today",
-         "title":"People \u0026 Blogs",
-         "tab":"featured",
+         "title":"People & Blogs",
+         "gdata_list_id":"STmost_popular_People",
          "icon":"people",
-         "gdata_list_id":"STmost_popular_People"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_People",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Tech?time=today",
-         "title":"Science \u0026 Technology",
-         "tab":"featured",
+         "title":"Science & Technology",
+         "gdata_list_id":"STmost_popular_Tech",
          "icon":"tech",
-         "gdata_list_id":"STmost_popular_Tech"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Tech",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Howto?time=today",
-         "title":"Howto \u0026 Style",
-         "tab":"featured",
+         "title":"Howto & Style",
+         "gdata_list_id":"STmost_popular_Howto",
          "icon":"howto",
-         "gdata_list_id":"STmost_popular_Howto"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Howto",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Education?time=today",
          "title":"Education",
-         "tab":"featured",
+         "gdata_list_id":"STmost_popular_Education",
          "icon":"education",
-         "gdata_list_id":"STmost_popular_Education"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Education",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular_Animals?time=today",
-         "title":"Pets \u0026 Animals",
-         "tab":"featured",
+         "title":"Pets & Animals",
+         "gdata_list_id":"STmost_popular_Animals",
          "icon":"animals",
-         "gdata_list_id":"STmost_popular_Animals"
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular_Animals",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/users\/Y30JRSgfhYXA6i6xX1erWg\/uploads",
          "title":"Smosh",
-         "tab":"featured",
-         "gdata_list_id":"UUY30JRSgfhYXA6i6xX1erWg"
+         "gdata_list_id":"UUY30JRSgfhYXA6i6xX1erWg",
+         "gdata_url":"http://192.168.150/feeds/api/users/Y30JRSgfhYXA6i6xX1erWg/uploads",
+         "tab":"featured"
       },
       {
-         "gdata_url":"\/feeds\/api\/users\/aBf1a-dpIsw8OxqH4ki2Kg\/uploads",
-         "title":"Geek \u0026 Sundry",
-         "tab":"featured",
-         "gdata_list_id":"UUaBf1a-dpIsw8OxqH4ki2Kg"
+         "title":"Geek & Sundry",
+         "gdata_list_id":"UUaBf1a-dpIsw8OxqH4ki2Kg",
+         "gdata_url":"http://192.168.150/feeds/api/users/aBf1a-dpIsw8OxqH4ki2Kg/uploads",
+         "tab":"featured"
       },
       {
          "title":"Most Popular",
          "video_count":30,
          "gdata_list_id":"STmost_popular",
          "icon":"popular",
-         "gdata_url":"\/feeds\/api\/standardfeeds\/US\/most_popular?time=today",
+         "gdata_url":"http://192.168.150/feeds/api/standardfeeds/US/most_popular",
          "list_id":"LBpop,0,t,en_US",
          "tab":"featured",
          "thumbnail":"http:\/\/i1.ytimg.com\/vi\/1b1loWJfxaA\/hqdefault.jpg"
