@@ -44,6 +44,7 @@ const version = package.version;
 // things added by next tube
 
 const yt2009_webm= require("./yt2009WebM")
+const yt2009_flv= require("./yt2009Format5")
 
 // end
 
@@ -1591,6 +1592,10 @@ app.get("/get_video", (req, res) => {
 
 app.get("/get_webm", (req, res) => {
     yt2009_webm.get_webm(req, res)
+})
+
+app.get("/get_format5", (req, res) => {
+    yt2009_flv.get_flv(req, res)
 })
 
 // end
