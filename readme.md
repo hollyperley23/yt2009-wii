@@ -6,7 +6,9 @@
 
   # windows users
 
-    I may make a Windows guide at some point.
+   idk how well it will work good luck
+
+   [windows_setup.pdf](windows_setup.pdf) 
 
 ## optional after-setup steps
 
