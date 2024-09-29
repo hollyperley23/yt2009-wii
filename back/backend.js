@@ -1598,8 +1598,16 @@ app.get("/get_video", (req, res) => {
 // things added by NexTube
 
 app.get("/get_webm", (req, res) => {
-    yt2009_webm.get_webm(req, res)
-})
+    if (req.query.v) {
+
+        const videoId = req.query.v;
+        const redirectUrl = `/get_webm?video_id=${videoId}`;
+        res.redirect(redirectUrl);
+    } else {
+
+        yt2009_webm.get_webm(req, res);
+    }
+});
 
 app.get("/get_format5", (req, res) => {
     yt2009_flv.get_flv(req, res)
@@ -4368,6 +4376,8 @@ misc flash endpoints
 ======
 */
 
+/* NexTube stuff  */
+
 app.get("/wiitv", (req, res) => {
     if(req.query.action_get_flashvars) {
         res.status(200).send("")
@@ -4375,6 +4385,9 @@ app.get("/wiitv", (req, res) => {
     }
     res.status(200).send("")
 })
+
+/* end */
+
 app.get("/leanback_ajax", (req, res) => {
     if(req.query.action_search) {
         if(!req.query.search_query) {
