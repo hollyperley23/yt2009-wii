@@ -1,5 +1,9 @@
 # NextTube - A Project Aimed To Revive The YouTube Channel For The Wii!
 
+  # things to note
+
+   this fork is not endoursed or created or maintaned or what not by the creator of YT2009 (dx)!
+  
   # linux users
 
    [linux_setup.pdf](linux_setup.pdf)
