@@ -3,6 +3,18 @@
   # things to note
 
    this fork is not endoursed or created or maintaned or what not by the creator of YT2009 (dx)!
+
+  # WARNING AS OF THE 14TH OF OCTOBER 2024 
+
+  YouTube I think did some backend changes which is causing the Wii APP through YT2009 to have issue, DX
+  said he'll look into what is happening with videos and such so stay tuned.
+
+  # READ THIS
+
+  please please please check EVERY EVERY instance of youtube.com and 192.168.1.150, and if you want
+  video playback in a browser (using MP4s rather than WebMs that the wii likes) use /wiitv/alt,
+  and for leanbacklitev3, use either h263 or TV media swfs (AND PATCH THEM). If you're not
+  sure you did this CHECK IT AGAIN before contacting me.
   
   # linux users
 
