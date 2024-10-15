@@ -126,75 +126,81 @@ module.exports = {
         let additionalFetchesCompleted = 0;
 
         // basic extract
-        let data = {}
-        if(!r.metadata) {
-            callback(false)
+        let data = {};
+        if (!r.metadata) {
+            callback(false);
             return;
         }
-        data.name = r.metadata.channelMetadataRenderer.title
+        data.name = r.metadata.channelMetadataRenderer.title;
         data.properties = {
             "name": r.metadata.channelMetadataRenderer.title,
             "description": r.metadata.channelMetadataRenderer.description
-                            .split("\n").join("<br>") || ""
-        }
-        // recently, an A/B test was launched that doesn't use
-        // c4TabbedHeaderRenderer which was used for a long time before that.
-        // the following code mitigation could have been simpler
-        // but i want to keep it readable.
+                .split("\n").join("<br>") || ""
+        };
+
+        // recently, an A/B test was launched that doesn't use c4TabbedHeaderRenderer
+        // handle the different structures gracefully
         let useViewmodelParse = false;
-        if(r.header.pageHeaderRenderer) {
-            useViewmodelParse = true
+        if (r.header.pageHeaderRenderer) {
+            useViewmodelParse = true;
         }
-        if(useViewmodelParse) {
+
+        if (useViewmodelParse) {
             data.id = r.metadata.channelMetadataRenderer.channelUrl
-                       .split("channel/")[1]
+                    .split("channel/")[1];
 
             // channel metadata
-            let metadataParts = []
+            let metadataParts = [];
             try {
                 r.header.pageHeaderRenderer.content.pageHeaderViewModel
                 .metadata.contentMetadataViewModel.metadataRows.forEach(mr => {
                     mr.metadataParts.forEach(m => {
-                        metadataParts.push(m.text.content)
-                    })
-                })
-            }
-            catch(error) {}
+                        metadataParts.push(m.text.content);
+                    });
+                });
+            } catch (error) {}
 
             metadataParts.forEach(m => {
                 // handle
-                if(m.startsWith("@")) {
+                if (m.startsWith("@")) {
                     data.handle = m;
                 }
                 // subscriber count
-                if(m.includes(" subscriber")) {
-                    data.properties.subscribers = m.split(" ")[0]
+                if (m.includes(" subscriber")) {
+                    data.properties.subscribers = m.split(" ")[0];
                 }
                 // video count
-                if(m.includes(" video")) {
-                    data.videoCount = m.split(" ")[0]
+                if (m.includes(" video")) {
+                    data.videoCount = m.split(" ")[0];
                 }
-            })
-        } else {
-            data.id = r.header.c4TabbedHeaderRenderer.channelId
-            if(r.header.c4TabbedHeaderRenderer.channelHandleText) {
+            });
+        } else if (r.header.c4TabbedHeaderRenderer) {
+            data.id = r.header.c4TabbedHeaderRenderer.channelId;
+
+            if (r.header.c4TabbedHeaderRenderer.channelHandleText) {
                 data.handle = r.header.c4TabbedHeaderRenderer
-                               .channelHandleText.runs[0].text
+                            .channelHandleText.runs[0].text;
             }
-            if(r.header.c4TabbedHeaderRenderer.subscriberCountText) {
+
+            if (r.header.c4TabbedHeaderRenderer.subscriberCountText) {
                 let sub = r.header.c4TabbedHeaderRenderer
-                           .subscriberCountText.simpleText
-                           .replace(" subscribers", "")
+                            .subscriberCountText.simpleText
+                            .replace(" subscribers", "");
                 data.properties.subscribers = sub;
             }
+
             try {
                 data.videoCount = r.header.c4TabbedHeaderRenderer
-                                   .videosCountText.runs[0].text
-            }
-            catch(error) {}
+                                .videosCountText.runs[0].text;
+            } catch (error) {}
+        } else {
+            // handle case where neither structure exists
+            callback(false);
+            return;
         }
-        data.url = r.metadata.channelMetadataRenderer.channelUrl
-        data.videos = []
+
+        data.url = r.metadata.channelMetadataRenderer.channelUrl;
+        data.videos = [];
 
         // fetch videos tab
         data.tabParams = {}
@@ -410,62 +416,64 @@ module.exports = {
         // mark a step as done
         let callbacksRequired = 2;
         let callbacksMade = 0;
+        
         function markCompleteStep() {
             callbacksMade++;
-            if(callbacksMade == callbacksRequired) {
-                callback()
+            if (callbacksMade == callbacksRequired) {
+                callback();
             }
         }
 
-
         // comments
-        if(data.videos[0]) {
-            let video = data.videos[0]
-            if(saved_channel_comments[video.id]) {
-                markCompleteStep()
+        if (data.videos && data.videos.length > 0) {
+            let video = data.videos[0];
+            if (saved_channel_comments[video.id]) {
+                markCompleteStep();
             } else {
                 yt2009html.get_video_comments(video.id, (comments) => {
                     try {
                         saved_channel_comments[video.id] = JSON.parse(
                             JSON.stringify(comments)
                         );
+                    } catch (error) {
+                        saved_channel_comments[video.id] = [];
                     }
-                    catch(error) {saved_channel_comments[video.id] = []}
-                    markCompleteStep()
-                })
+                    markCompleteStep();
+                });
             }
         } else {
-            markCompleteStep()
+            markCompleteStep();
         }
 
-       // playlists
-       let playlist_list = {}
-       if(n_impl_yt2009channelcache.read("playlist")[data.id]
-       || !data.tabParams
-       || !data.tabParams["playlists"]) {
-           markCompleteStep()
-       } else {
-           yt2009utils.channelGetSectionByParam(
-               data.id, data.tabParams["playlists"], (r => {
-                   let tab = yt2009utils.channelJumpTab(r, "playlists")
-                                       .content
-                                       .sectionListRenderer.contents[0]
-                                       .itemSectionRenderer.contents[0]
-                   try {
-                       playlist_list = yt2009utils.parseChannelPlaylists(tab)
-                   }
-                   catch(error) {}
-        
-                   n_impl_yt2009channelcache.write(
-                       "playlist",
-                       data.id,
-                       JSON.parse(JSON.stringify(playlist_list))
-                   )
-                   markCompleteStep()
-               }
-           ))
-       }
+        // playlists
+        let playlist_list = {};
+        if (n_impl_yt2009channelcache.read("playlist")[data.id]
+            || !data.tabParams
+            || !data.tabParams["playlists"]
+        ) {
+            markCompleteStep();
+        } else {
+            yt2009utils.channelGetSectionByParam(
+                data.id, data.tabParams["playlists"], (r => {
+                    let tab = yt2009utils.channelJumpTab(r, "playlists")
+                                        .content
+                                        .sectionListRenderer.contents[0]
+                                        .itemSectionRenderer.contents[0];
+                    try {
+                        playlist_list = yt2009utils.parseChannelPlaylists(tab);
+                    } catch (error) {}
+
+                    n_impl_yt2009channelcache.write(
+                        "playlist",
+                        data.id,
+                        JSON.parse(JSON.stringify(playlist_list))
+                    );
+                    markCompleteStep();
+                })
+            );
+        }
     },
+
 
     /*
     ========
