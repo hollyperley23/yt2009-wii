@@ -97,9 +97,11 @@ module.exports = {
     },
 
     "parsePlaylist": function(playlistId, callback) {
-        if(cache.read()[playlistId]) {
-            callback(JSON.parse(JSON.stringify(cache.read()[playlistId])))
-            return JSON.parse(JSON.stringify(cache.read()[playlistId]));
+        // Check if the playlist is in cache
+        if (cache.read()[playlistId]) {
+            let cachedData = JSON.parse(JSON.stringify(cache.read()[playlistId]));
+            callback(cachedData);
+            return cachedData;
         } else {
             let videoList = {
                 "name": "",
@@ -111,81 +113,98 @@ module.exports = {
                 "lastUpdate": "",
                 "videoCount": "",
                 "playlistId": playlistId
-            }
+            };
+
+            // Fetch playlist data
             this.innertube_get_data(playlistId, (r) => {
-                let playlistArray = r.contents.twoColumnBrowseResultsRenderer
-                                     .tabs[0].tabRenderer.content
-                                     .sectionListRenderer.contents[0]
-                                     .itemSectionRenderer.contents[0]
-                                     .playlistVideoListRenderer.contents
-                // metadata
-                let primarySidebar = r.sidebar.playlistSidebarRenderer.items[0]
-                                      .playlistSidebarPrimaryInfoRenderer
-                let owner = ""
+                // Error handling: Check if the response structure matches what we expect
+                if (!r || !r.contents || !r.contents.twoColumnBrowseResultsRenderer) {
+                    console.error("Invalid response structure: ", r);
+                    return callback({ error: "Playlist data is unavailable" });
+                }
+
+                let playlistArray;
                 try {
+                    playlistArray = r.contents.twoColumnBrowseResultsRenderer
+                                    .tabs[0].tabRenderer.content
+                                    .sectionListRenderer.contents[0]
+                                    .itemSectionRenderer.contents[0]
+                                    .playlistVideoListRenderer.contents;
+                } catch (error) {
+                    console.error("Failed to parse playlist array: ", error);
+                    return callback({ error: "Failed to parse playlist data" });
+                }
+
+                // Metadata extraction
+                let primarySidebar, owner = "", vidCount = "", lastUpdate = "";
+
+                try {
+                    primarySidebar = r.sidebar.playlistSidebarRenderer.items[0]
+                                    .playlistSidebarPrimaryInfoRenderer;
                     owner = r.sidebar.playlistSidebarRenderer.items[1]
-                             .playlistSidebarSecondaryInfoRenderer.videoOwner
-                             .videoOwnerRenderer.title.runs[0]
-                }
-                catch(error) {}
-                
-                let vidCount = ""
-                primarySidebar.stats[0].runs.forEach(run => {
-                    vidCount += run.text
-                })
+                            .playlistSidebarSecondaryInfoRenderer.videoOwner
+                            .videoOwnerRenderer.title.runs[0];
 
-                let lastUpdate = ""
-                primarySidebar.stats[2].runs.forEach(run => {
-                    lastUpdate += run.text
-                })
-
-                videoList.name = primarySidebar.title.runs[0].text
-                videoList.views = primarySidebar.stats[1].simpleText
-                videoList.creatorName = owner.text
-                if(owner.navigationEndpoint) {
-                    videoList.creatorUrl = owner.navigationEndpoint.browseEndpoint
-                                                .canonicalBaseUrl
-                } else {
-                    videoList.creatorUrl = "#"
+                    // Extract video count and last update time
+                    primarySidebar.stats[0].runs.forEach(run => {
+                        vidCount += run.text;
+                    });
+                    primarySidebar.stats[2].runs.forEach(run => {
+                        lastUpdate += run.text;
+                    });
+                } catch (error) {
+                    console.error("Failed to extract playlist metadata: ", error);
                 }
+
+                // Fill the videoList object with metadata
                 try {
+                    videoList.name = primarySidebar.title.runs[0].text;
+                    videoList.views = primarySidebar.stats[1].simpleText;
+                    videoList.creatorName = owner.text;
+                    videoList.creatorUrl = owner.navigationEndpoint
+                                        ? owner.navigationEndpoint.browseEndpoint.canonicalBaseUrl
+                                        : "#";
                     videoList.description = primarySidebar.description
-                                            ? primarySidebar.description
-                                              .simpleText.split("\n")
-                                              .splice(0, 3).join("<br>") : ""
+                                        ? primarySidebar.description.simpleText.split("\n")
+                                            .splice(0, 3).join("<br>")
+                                        : "";
+                    videoList.lastUpdate = lastUpdate;
+                    videoList.videoCount = vidCount;
+                } catch (error) {
+                    console.error("Error filling videoList metadata: ", error);
                 }
-                catch(error) {}
-                videoList.lastUpdate = lastUpdate
-                videoList.videoCount = vidCount
 
-                // filmy
+                // Fill the videos array
+                try {
+                    playlistArray.forEach(video => {
+                        if (!video.playlistVideoRenderer) return;
+                        video = video.playlistVideoRenderer;
+                        videoList.videos.push({
+                            "id": video.videoId,
+                            "title": video.title.runs[0].text,
+                            "thumbnail": "http://i.ytimg.com/vi/" + video.videoId + "/hqdefault.jpg",
+                            "uploaderName": video.shortBylineText.runs[0].text,
+                            "uploaderUrl": video.shortBylineText.runs[0]
+                                            .navigationEndpoint.browseEndpoint.canonicalBaseUrl,
+                            "time": video.lengthText ? video.lengthText.simpleText : "",
+                            "views": utils.approxSubcount(
+                                video.videoInfo.runs[0].text.split(" ")[0]
+                            )
+                        });
+                    });
+                } catch (error) {
+                    console.error("Error processing playlist videos: ", error);
+                }
 
-                playlistArray.forEach(video => {
-                    if(!video.playlistVideoRenderer) return;
-                    video = video.playlistVideoRenderer
-                    videoList.videos.push({
-                        "id": video.videoId,
-                        "title": video.title.runs[0].text,
-                        "thumbnail": "http://i.ytimg.com/vi/"
-                                    + video.videoId
-                                    + "/hqdefault.jpg",
-                        "uploaderName": video.shortBylineText.runs[0].text,
-                        "uploaderUrl": video.shortBylineText.runs[0]
-                                            .navigationEndpoint.browseEndpoint
-                                            .canonicalBaseUrl,
-                        "time": video.lengthText ?
-                                video.lengthText.simpleText : "",
-                        "views": utils.approxSubcount(
-                            video.videoInfo.runs[0].text.split(" ")[0]
-                        )
-                    })
-                })
+                // Cache the result
+                cache.write(playlistId, JSON.parse(JSON.stringify(videoList)));
 
-                cache.write(playlistId, JSON.parse(JSON.stringify(videoList)))
-                callback(cache.read()[playlistId])
-            })
+                // Return the result via callback
+                callback(cache.read()[playlistId]);
+            });
         }
     },
+
 
     "create_cpb_xml": function(req, res) {
         let compatAuth = false;
@@ -203,17 +222,26 @@ module.exports = {
                 data.playlistId,
                 data.creatorName
             )
+
             xmlResponse += yt2009templates.cpbPlaylistsCounts(
-                data.videos.length,
+                (Array.isArray(data.videos) ? data.videos.length : 0),  
                 data.playlistId,
                 data.name,
-                data.description
-            )
+                data.description || "No description available"  
+            );
+
             let videoIndex = 1;
-            data.videos.forEach(video => {
-                xmlResponse += yt2009templates.cpbVideo(video, videoIndex)
-                videoIndex += 1
-            })
+
+            if (Array.isArray(data.videos) && data.videos.length > 0) { 
+                data.videos.forEach(video => {
+                    xmlResponse += yt2009templates.cpbVideo(video, videoIndex);
+                    videoIndex += 1;
+                });
+            } else {
+                console.warn("No videos available in the playlist.");
+                xmlResponse += "<p>No videos available in this playlist.</p>";  
+            }            
+
             xmlResponse += `
             </feed>`
 

@@ -748,6 +748,7 @@ module.exports = {
             </div>`
     },
     "cpbPlaylistsBegin": function(title, id, authorName) {
+        const safeTitle = title ? title : "Placeholder!";
         return `<?xml version='1.0' encoding='UTF-8'?>
 <feed
     xmlns='http://www.w3.org/2005/Atom'
@@ -759,8 +760,8 @@ module.exports = {
     <id>yt2009playlist</id>
     <updated>2009-06-22T19:41:28.000Z</updated>
     <category scheme='http://schemas.google.com/g/2005#kind' term='http://gdata.youtube.com/schemas/2007#playlist'/>
-    <title>${title}</title>
-    <subtitle>${title.toLowerCase()}</subtitle>
+    <title>${safeTitle}</title>
+    <subtitle>${safeTitle.toLowerCase()}</subtitle>
     <logo>http://www.youtube.com/img/pic_youtubelogo_123x63.gif</logo>
     <link rel='alternate' type='text/html' href='http://www.youtube.com/view_play_list?p=${id}'/>
     <link rel='http://schemas.google.com/g/2005#feed' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/playlists/${id}?v=2'/>
