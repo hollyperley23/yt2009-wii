@@ -4,7 +4,7 @@
 
    this fork is not endoursed or created or maintaned or what not by the creator of YT2009 (dx)!
 
-   # featrures
+   # features
 
    Leanbacklite_v3.swf (/tv/) - the YouTube TV interface from 2013-2015 for some devices!
 
