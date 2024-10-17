@@ -4,6 +4,15 @@
 
    this fork is not endoursed or created or maintaned or what not by the creator of YT2009 (dx)!
 
+   # featrures
+
+   Leanbacklite_v3.swf (/tv/) - the YouTube TV interface from 2013-2015 for some devices!
+
+   Leanbacklite_wii.swf (/wiitv/ for webm, /wiitv/alt/ for flv) - what is used for the Wii and let's 
+   you use the Wii app in your browser!
+
+   WebM support with /get_webm! 
+
   # WARNING AS OF THE 14TH OF OCTOBER 2024 
 
   YouTube I think did some backend changes which is causing the Wii APP through YT2009 to have issue, DX
