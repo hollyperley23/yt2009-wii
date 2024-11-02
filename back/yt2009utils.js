@@ -1108,12 +1108,8 @@ module.exports = {
             }
             let qualities = {}
             let h264DashAudioUrl;
-            // prefer nondash formats
-            r.streamingData.formats.forEach(q => {
-                q.dash = false;
-                qualities[q.qualityLabel] = q;
-            })
-            // add h264 dash formats
+ 
+            // use h264 dash formats
             let audioFormats = []
             r.streamingData.adaptiveFormats.forEach(q => {
                 if(q.mimeType.includes("audio/mp4")) {

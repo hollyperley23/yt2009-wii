@@ -41,6 +41,13 @@ let devTimings = false;
 const package = require("../package.json")
 const version = package.version;
 
+// things added by next tube
+
+const yt2009_webm= require("./yt2009WebM")
+const yt2009_flv= require("./yt2009Format5")
+
+// end
+
 const https = require("https")
 const fs = require("fs")
 const app = express();
@@ -907,6 +914,75 @@ fmt_stream_map=${encodeURIComponent(fmt_stream_map)}${urlStreams}`.split("\n").j
     }), "", "", false, false)
 })
 
+// made for NexTube
+
+app.get("/get_wii_video_info", (req, res) => {
+    if(req.query.el == "leanback") {
+        // add to history if leanback
+        let history = ""
+        if(req.headers.cookie
+        && req.headers.cookie.includes("leanback_history=")) {
+            history = req.headers.cookie
+                      .split("leanback_history=")[1].split(";")[0]
+        }
+        history = history.split(":")
+        if(history.length >= 3) {
+            history.pop()
+        }
+        history.unshift(req.query.video_id.replace("/mp4", ""))
+        let cookieParams = [
+            `leanback_history=${history.join(":")}; `,
+            `Path=/; `,
+            `Expires=Fri, 31 Dec 2066 23:59:59 GMT`
+        ]
+        res.set("set-cookie", cookieParams.join(""))
+    }
+    req.query.video_id = req.query.video_id.replace("/mp4", "")
+    yt2009.fetch_video_data(req.query.video_id, (data => {
+        yt2009.get_qualities(req.query.video_id, (qualities => {
+            if((!qualities || qualities.length == 0) && data.qualities) {
+                qualities = data.qualities
+            }
+            let fmt_list = ""
+            let fmt_stream_map = ""
+            let fmt_map = ""
+            fmt_list += "43/480x360/9/0/115"
+            fmt_map += "43/0/7/0/0"
+            fmt_stream_map += `43|http://${config.ip}:${
+                config.port
+            }/get_webm?video_id=${data.id}`
+            res.send(`status=ok
+length_seconds=${data.length}
+keywords=a
+vq=None
+muted=0
+avg_rating=5.0
+thumbnail_url=${
+    encodeURIComponent(
+        `${req.protocol}://i.ytimg.com/vi/${req.query.video_id}/hqdefault.jpg`
+    )
+}
+allow_ratings=1
+hl=en
+ftoken=
+allow_embed=1
+fmt_map=${encodeURIComponent(fmt_map)}
+fmt_url_map=${encodeURIComponent(fmt_stream_map)}
+token=amogus
+plid=amogus
+track_embed=0
+author=${data.author_name}
+title=${data.title}
+video_id=${req.query.video_id}
+fmt_list=${encodeURIComponent(fmt_list)}
+fmt_stream_map=${encodeURIComponent(fmt_stream_map)}`.split("\n").join("&"))
+        }))
+        
+    }), "", "", false, false)
+})
+
+// end
+
 app.get("/get_video_metadata", (req, res) => {
     if(!req.query.video_id) {
         res.sendStatus(400)
@@ -1519,6 +1595,26 @@ app.get("/get_video", (req, res) => {
     yt2009_warp_swf.get_flv(req, res)
 })
 
+// things added by NexTube
+
+app.get("/get_webm", (req, res) => {
+    if (req.query.v) {
+
+        const videoId = req.query.v;
+        const redirectUrl = `/get_webm?video_id=${videoId}`;
+        res.redirect(redirectUrl);
+    } else {
+
+        yt2009_webm.get_webm(req, res);
+    }
+});
+
+app.get("/get_format5", (req, res) => {
+    yt2009_flv.get_flv(req, res)
+})
+
+// end
+
 
 /*
 ======
@@ -1663,11 +1759,38 @@ app.get("/yt2009_flags.htm", (req, res) => {
 auth-protect leanback
 ======
 */
+
+
+
 let leanbackEndpoints = ["/leanback", "/leanback/", "/leanback/index.htm"]
 let leanback = fs.readFileSync("../leanback/index.html").toString()
 leanback = leanback.split(`http_url`).join(
     "http://" + config.ip + ":" + config.port
 )
+
+// NexTube stuff
+
+let wiitvEndpoints = ["/wiitv", "/wiitv/", "/wiitv/index.htm"]
+let wiitv = fs.readFileSync("../wiitv/index.html").toString()
+wiitv = wiitv.split(`http_url`).join(
+    "http://" + config.ip + ":" + config.port
+)
+
+let leanbackV3EndPoint = ["/tv", "/tv/", "/tv/index.htm"]
+let tv = fs.readFileSync("../tv/index.html").toString()
+tv = tv.split(`http_url`).join(
+    "http://" + config.ip + ":" + config.port
+)
+
+app.get("/feeds/api/channelstandardfeeds/most_subscribed", (req, res) => {
+    let r = fs.readFileSync("../assets/site-assets/most_subscribed.atom");
+    res.send(r)
+    return;
+})
+
+
+// end
+
 leanbackEndpoints.forEach(lbe => {
     app.get(lbe, (req, res) => {
         if(!yt2009_utils.isAuthorized(req)) {
@@ -4266,6 +4389,8 @@ misc flash endpoints
 ======
 */
 
+/* NexTube stuff  */
+
 app.get("/wiitv", (req, res) => {
     if(req.query.action_get_flashvars) {
         res.status(200).send("")
@@ -4273,6 +4398,9 @@ app.get("/wiitv", (req, res) => {
     }
     res.status(200).send("")
 })
+
+/* end */
+
 app.get("/leanback_ajax", (req, res) => {
     if(req.query.action_search) {
         if(!req.query.search_query) {
@@ -4431,9 +4559,4 @@ if(obamaVideoObject) {
     fs.writeFileSync("./yt2009constants.json", JSON.stringify(yt2009_constant))
 }
 
-/*
-pizdec
-jp2gmd
-mleczsus :*
-Stawik
-*/
+//
