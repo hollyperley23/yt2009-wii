@@ -14,6 +14,8 @@ THIS IS NOT ASSOCIATED NOR ENDORSED BY GOOGLE, YOUTUBE, OR NINTENDO
 
 [windows_setup.pdf](windows_setup.pdf)
 
+## please patch the conf file in your wad properly and don't use https ##
+
 ## also clear your assets often to avoid crashes! 
 
 ## Make sure to patch leanback_ajax.json with your ip adress and EVERY swf I tell you!
