@@ -6,6 +6,9 @@ a fairly accurate 2009 youtube frontend + a wii-tv and leanback v3 revival.
 THIS IS NOT ASSOCIATED NOR ENDORSED BY GOOGLE, YOUTUBE, OR NINTENDO
 **
 
+## warning as of 7/11/2024 ##
+## we are working on getting to the new yt2009 update, new branch by AT MOST sunday maybe tonight?##
+
 ## Linux Guide ##
 
 [linux_setup.pdf](linux_setup.pdf)
