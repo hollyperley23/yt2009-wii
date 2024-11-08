@@ -64,6 +64,8 @@ it is used for the leanback_ajax, which is used for the wii.
 
 - views are in playlists gdata
 
+- homepage is modern
+
 ---
 
 ## already have an instance 

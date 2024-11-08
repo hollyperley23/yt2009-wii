@@ -1038,7 +1038,7 @@ https://web.archive.org/web/20091111/http://www.youtube.com/watch?v=${data.id}`
             }, 500)
         }
         if(flags.includes("homepage_contribute")
-        && uploadJS.getFullYear() <= 2010) {
+        && uploadJS.getFullYear() <= 2099) {
             // add to "videos being watched now" and /videos
             let go = true;
             featured_videos.slice(0, 23).forEach(vid => {
