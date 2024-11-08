@@ -1,31 +1,96 @@
-# yt2009
-a fairly accurate 2009 youtube frontend.
+# yt2009wii - aka NexTube
 
-<img src="doc-imgs/ie6-ss.png" width="400">
-<img src="doc-imgs/ie6-ss2.png" width="400">
+a fairly accurate 2009 youtube frontend + a wii-tv and leanback v3 revival.
+
+**
+THIS IS NOT ASSOCIATED NOR ENDORSED BY GOOGLE, YOUTUBE, OR NINTENDO
+**
+
+## warning as of 7/11/2024 ##
+## we are working on getting to the new yt2009 update, new branch by AT MOST sunday maybe tonight?##
+
+## Linux Guide ##
+
+[linux_setup.pdf](linux_setup.pdf)
+
+## Windows Guide ##
+
+[windows_setup.pdf](windows_setup.pdf)
+
+## please patch the conf file in your wad properly and don't use https ##
+
+## also clear your assets often to avoid crashes! 
+
+## Make sure to patch leanback_ajax.json with your ip adress and EVERY swf I tell you!
+
+Credits:
+
+YouTube/Google/Nintendo (of course)
+
+DX (Creator of YT2009)
+
+ljcool2006 (found the files for leanback and such)
+
+Mrt84 (Helped me package the wad and fix views and such)
+
+SuperrSonic (found some shit about codecs)
+
+NCP3.0 (Me/Owner)
 
 ---
+
+## changes
+
+- A new API,
+
+- /feeds/api/thumbnails/*/results 
+
+- /feeds/api/thumbnails/*/users
+
+- /feeds/api/thumbnails/*/playlists
+
+- /feeds/api/thumbnails/*
+
+- most subcribed channels feed (forgot which one)
+
+- reads the feed and sends its <media:thumbnail yt:name='poster' url='http://i.ytimg.com/vi/VcJmb3VNFXo/0.jpg' height='240' width='320' time='00:00:00'/>, and redircts.
+it is used for the leanback_ajax, which is used for the wii.
+
+- WebM Support 
+
+- using get_webm and get_wii_video will get you a video in WebMs with VP8/OGG in order to get videos to play properly on the Wii.
+
+- Leanback Lite and Leanback Lite Wii patched.
+
+- views are in playlists gdata
+
+---
+
+## already have an instance 
+
+- replace your back folder with this fork's folder (or just replace backend.js, yt2009warpSWF.js, and add yt2009webm.js)
+- replace your site-assets folder (in assets) with the fork's folder (or just replace leanback.json)
+
+- then follow along with [wii_setup.md](wii_setup.md) for the rest of the setup.
 
 ## setup
 ### if you prefer using docker rather than installing directly, go [here](docker.md) for setup instructions instead
 
 - **make sure you have [imagemagick](https://imagemagick.org/) and [ffmpeg](https://ffmpeg.org/) in your PATH.**
 
+### when installing imagemagick, make sure you also install its legacy tools (convert)! 
+
 - install node.js
 - open a terminal (windows powershell/cmd) in the directory you cloned yt2009 to, then:
 - install required dependencies with: `npm install`
-- create a config file by launching and following: `node yt2009setup.js`
-- run to set and download remaining assets `node post_config_setup.js`
+- create a config file by launching and following: `node yt2009setup.js` (make sure your port is either 443 or 80)
+- run to set and download remaining assets `node post_config_setup.js` 
 - run yt2009 by changing directory to `back` (`cd back`) and starting with `node backend.js`
 - navigate to your IP:port you have set while configuring to see a 2009 homepage.
 
 afterwards, you can just `cd back` and `node backend.js` to start. no need to re-set it up each time.
 
----
-
-## optional after-setup steps
-
-- set up an android app by following [apk_setup.md](apk_setup.md)
+- then follow along with [wii_setup.md](wii_setup.md) for the rest of the setup.
 
 ---
 
