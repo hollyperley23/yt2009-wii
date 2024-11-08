@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?><transcript><text start="0" dur="4.95">&amp;gt;&amp;gt; We want to first start by booting the machine.
+So Kahn is actually--Kahn Lee, who is the</text><text start="4.95" dur="4.95">product manager on Chrome OS, is actually
+going to press the button and do a cold reboot.</text><text start="9.9" dur="6.28">Let&amp;#39;s go. So we really care about how fast
+we can get the machine to boot. We want this</text><text start="16.18" dur="4.63">to be in a matter of seconds. And as you can
+see, we are in the log-in screen, right? It</text><text start="20.81" dur="4.66">takes about seven seconds right now and we
+are working very, very, very hard to make</text><text start="25.47" dur="4.519">this time shorter. It takes another three
+seconds to log-in to your favorite application.</text><text start="29.989" dur="4.131">So we are going to switch to the machine from
+which we have been projecting. In case you</text><text start="34.12" dur="3.2">didn&amp;#39;t realize, we have been projecting from
+a Chrome OS machine. So we are going to get</text><text start="37.32" dur="6.61">out of the full screen mode and we are within
+Chrome OS. So two things before I get started</text><text start="43.93" dur="5.199">with the demo, first of all, hopefully, this
+is not a surprise to you, but it looks like</text><text start="49.129" dur="7.061">Chrome, right? And so, internally, we joke
+around, saying Chrome is Chrome OS, right,</text><text start="56.19" dur="5.049">and Chrome is the OS for all practical purposes.
+Having said that, there are many, many interesting</text><text start="61.239" dur="3.761">changes in Chrome which I&amp;#39;m going to walk
+you through to make it function like an operating</text><text start="65" dur="5.299">system. The advantage of doing it this way
+is it&amp;#39;s very familiar and intuitive to most</text><text start="70.299" dur="5.68">users. Almost everyone knows how to use a
+browser; so we just want it to feel that way.</text><text start="75.979" dur="4.981">The second thing I want to say before I walk
+through the UI is, at this stage of the project,</text><text start="80.96" dur="5.199">we are opening up the project to a year ahead
+of release. So we are actually training through</text><text start="86.159" dur="4.75">the UI. I have to convince the team to stop
+checking in code so that we can kind of be</text><text start="90.909" dur="5.25">able to freeze it for the demo, right? We
+are checking in codes as we speak. So, a lot</text><text start="96.159" dur="4.221">of the UI is going to change. I&amp;#39;m not fully
+sure how it will turn out, but one thing I</text><text start="100.38" dur="3.86">can guarantee is it won&amp;#39;t be exactly like
+what you&amp;#39;re looking at today. Having said</text><text start="104.24" dur="4.169">that, there are many, many important concepts
+here which we are very sure will carry over</text><text start="108.409" dur="6.172">to the final product. So, I&amp;#39;m going to focus
+on covering those aspects for you first. So,</text><text start="114.581" dur="6.229">let&amp;#39;s start with, it looks like Chrome but
+on the top left hand side, you&amp;#39;re seeing some</text><text start="120.81" dur="6.33">small tabs; we call this application tabs.
+So, you can take any of your favorite applications.</text><text start="127.14" dur="6.74">In my case, it&amp;#39;s Gmail and Calendar, et cetera;
+but it could be Facebook, it could be YahooMail,</text><text start="133.88" dur="6.01">whatever users want. You can take any application
+and, with one click, pin it to be your favorite</text><text start="139.89" dur="3.959">application. And once you do that, we call
+these application tabs. We are working very</text><text start="143.849" dur="4.97">hard to make it possible for you to get to
+your favorite applications instantly. So once</text><text start="148.819" dur="4.5">you choose something as an application tab,
+they always stay in place. So, let&amp;#39;s open</text><text start="153.319" dur="6.261">a few tabs. As you can see, Kahn is opening
+a few tabs; but the application tabs on the</text><text start="159.58" dur="4.329">top left, the five of them, don&amp;#39;t move at
+all. So you can open, close, et cetera; they</text><text start="163.909" dur="4.711">always stay in place. So, we are working very
+hard to make it easy for you to access your</text><text start="168.62" dur="5.17">favorite applications. In addition to this
+method of accessing your applications, there</text><text start="173.79" dur="6.54">is--on the top left hand side, you have something
+what we call as the App Menu. So, caveat,</text><text start="180.33" dur="4.94">the UI here is going to change but the concept
+is we really want you to be able to discover</text><text start="185.27" dur="7.06">new applications as well as to access your
+top applications. So let&amp;#39;s go around and start</text><text start="192.33" dur="4.841">poking around the App menu. I&amp;#39;m noticing an
+interesting app called Contacts, so let&amp;#39;s</text><text start="197.171" dur="6.029">try that out. Something interesting happened.
+Something popped from below--internally, we</text><text start="203.2" dur="3.93">call these as moles because they kind of come
+from underground but we are going to call</text><text start="207.13" dur="7.359">them panels externally. So, panels are something--which
+these are persistent lightweight windows which</text><text start="214.489" dur="3.871">you can have them around with you all the
+time. They are persistent. So, for example,</text><text start="218.36" dur="6.76">let&amp;#39;s click on a few tabs--they don&amp;#39;t move
+at all, right? And the panel stays; it&amp;#39;s a</text><text start="225.12" dur="4.86">persistent window. There are several interesting
+use cases for it. You can minimize them and</text><text start="229.98" dur="4.13">make them go away and you can bring them back.
+We are going to work hard to make sure we</text><text start="234.11" dur="5.2">can automatically manage panels for users.
+So, this is a chat window. So, Khan is chatting</text><text start="239.31" dur="5.8">with David, one of the engineers on the team,
+and, hopefully, David says hi back. There</text><text start="245.11" dur="5.25">you go. So Buddy List and Chat is a great
+example of how you would use a panel. Let&amp;#39;s</text><text start="250.36" dur="4.54">see one of the use cases for panels right
+there. So, let&amp;#39;s poke around; there&amp;#39;s Notepad.</text><text start="254.9" dur="4.86">So let&amp;#39;s click on Notepad as an example. So,
+one more panel--the interesting thing about</text><text start="259.76" dur="4.841">Chrome OS is, I mentioned all data is in the
+cloud. So what does that mean? So, Khan is</text><text start="264.601" dur="6.449">going to type something here and maybe we
+should go to Google doc and open this notepad</text><text start="271.05" dur="6.53">file. You can see it&amp;#39;s right there in the
+cloud. All data in Chrome OS is in the cloud.</text><text start="277.58" dur="4.15">So, as a model, anything you put on the machine
+is instantly available to you from anywhere</text><text start="281.73" dur="5.97">so--which is something we are very, very excited
+about. Let me show one more use case for panels.</text><text start="287.7" dur="5.91">Let&amp;#39;s type YouTube in the Chrome Omnibox.
+Recently, we launched this very cool music</text><text start="293.61" dur="4.27">feature called Music OneBox by which you can
+type in names of songs and play it right off</text><text start="297.88" dur="6.18">the Google search page. So let&amp;#39;s click on
+Beautiful Day. You can see a panel popped</text><text start="304.06" dur="5.27">up and it plays right in place. It&amp;#39;s a persistent
+window; you can leave it there, you can minimize</text><text start="309.33" dur="4.31">it and keep working, right? You can use this
+to put streaming music from the Web. So these</text><text start="313.64" dur="4.46">are interesting examples of how we expect
+people to use panels. Before we get caught</text><text start="318.1" dur="8.792">up in the song, so, let&amp;#39;s wrap it up. If you
+go to the-—well, let&amp;#39;s go poke around at</text><text start="326.892" dur="6.908">the app menu once more. So, what I like about
+Netbooks is, today, I traveled and I go on</text><text start="333.8" dur="6.32">vacation and it&amp;#39;s tough to carry my DVD player,
+my computer, my book reader, et cetera. The</text><text start="340.12" dur="5.53">great thing about Netbooks is these are ultra-light
+and mobile devices and once battery times</text><text start="345.65" dur="4.17">get much better, you can carry them around
+with you as general purpose devices. So, we</text><text start="349.82" dur="4.67">actually expect these to be great entertainment
+devices. People should be able to watch videos,</text><text start="354.49" dur="4.54">play music, play games, books, et cetera.
+So let&amp;#39;s see how the experience looks like.</text><text start="359.03" dur="5.87">So I&amp;#39;m an avid chess player so I have this
+chess game which I use on my Chrome OS machine</text><text start="364.9" dur="12.09">and you can now--with just a flash--double-click,
+okay. So Khan is playing the chess game. You</text><text start="376.99" dur="4.36">can see how it&amp;#39;s very easy and visual and
+you can enter--you can make it full screen</text><text start="381.35" dur="3.86">more and take over the screen. So these are
+good examples of what we expect people to</text><text start="385.21" dur="6.53">do with these machines. In fact, another good
+example of what you can do is read books.</text><text start="391.74" dur="3.85">So, for example, we are working hard on this
+experience and we have ways to go, but if</text><text start="395.59" dur="6.97">you look at Google Books, for example, here
+is &amp;quot;Alice in Wonderland.&amp;quot; So you can have</text><text start="402.56" dur="4.75">it on your netbook in a full screen mode and
+you can read conveniently. It&amp;#39;s--you know,</text><text start="407.31" dur="3.61">these are scanned books which are available,
+and I can totally imagine reading it to my</text><text start="410.92" dur="5.7">daughter, you know, carrying a netbook around
+with me. So it&amp;#39;s very, very compelling. So</text><text start="416.62" dur="4.69">we are really interested in solving all these
+interesting user experiences for people. One</text><text start="421.31" dur="5.86">of the things is I spend all my time in one
+Chrome window, but it&amp;#39;s very common for users</text><text start="427.17" dur="4.75">to have multiple sets of windows. So we want
+to walk you through that experience. For example,</text><text start="431.92" dur="3.54">it&amp;#39;s the time of the year in which I&amp;#39;m trying
+to get all my gift shopping done before holidays</text><text start="435.46" dur="5.2">come around, right? So I have a set of windows
+with Amazon, eBay, et cetera, so I can easily</text><text start="440.66" dur="5.26">switch over to the other windows. And so I
+have Amazon and eBay; it&amp;#39;s a completely different</text><text start="445.92" dur="5.39">Chrome instance for me. And I even have YouTube.
+I want to take the chance to show that YouTube</text><text start="451.31" dur="6.5">works and Flash works on the machine, so let&amp;#39;s
+click on a video and make sure it works. So</text><text start="457.81" dur="5.84">as you can see, YouTube works and Flash works.
+I&amp;#39;ll just move to another window. Let&amp;#39;s go</text><text start="463.65" dur="4.53">back to the original window; you can move
+back and forth. In fact, you can go to the</text><text start="468.18" dur="5.391">&amp;quot;All View&amp;quot; mode and you can see all the windows
+which are open on your system. The UI here</text><text start="473.571" dur="4.649">is going to change a little bit, but you can
+imagine, I can open a new Chrome window, right?</text><text start="478.22" dur="5.09">And I can drag and drop a tab from one Chrome
+window to another Chrome window. It&amp;#39;s very</text><text start="483.31" dur="10.33">simple, very intuitive and just works. So,
+this is the core part of the user experience.</text><text start="493.64" dur="4.76">Having said that, one of the things we realized
+is people are going buy these netbooks, they&amp;#39;re</text><text start="498.4" dur="5.37">going to go home and do a lot of common things
+they are used to doing with computers. So</text><text start="503.77" dur="4.14">we actually have a long list of all these
+use cases and we are working hard to make</text><text start="507.91" dur="4.73">sure it works seamlessly for users. Let me
+walk through a couple of examples. Most people</text><text start="512.64" dur="6.35">plug in their cameras, right? They may plug
+in a USB drive. And so what happens if we</text><text start="518.99" dur="6.39">plug in a USB drive? You can imagine the set-up
+concept, but you can imagine Chrome opens</text><text start="525.38" dur="4.38">a tab and shows you what&amp;#39;s in the content
+of a camera or a USB drive and you can see</text><text start="529.76" dur="4.63">the files that are on the machine. It turns
+out in this USB drive, there are Excel files.</text><text start="534.39" dur="4.69">We don&amp;#39;t have Microsoft Excel on this machine.
+So what happens if we click Excel file. Let&amp;#39;s</text><text start="539.08" dur="6.54">give it a shot. It turns out Microsoft office
+launched a killer app for Chrome OS. They&amp;#39;ve</text><text start="545.62" dur="6.93">been working very, very hard to do this. The
+point here is Chrome OS does not have a propriety</text><text start="552.55" dur="5.12">app framework. It&amp;#39;s a completely open app
+framework. It&amp;#39;s the Web; so anybody who puts</text><text start="557.67" dur="5.31">up a URL, anybody who writes an application
+that works on the Web and in a browser is</text><text start="562.98" dur="4.81">writing an application for Chrome OS. It&amp;#39;s
+something we are very, very excited by. And,</text><text start="567.79" dur="5.71">for the record, I&amp;#39;m an avid Google Spreadsheets
+user--just a disclaimer. So, there are few</text><text start="573.5" dur="5.89">other use cases people can do. Here are some
+interesting use case we can demonstrate. So</text><text start="579.39" dur="5.05">Khan is going to take a picture; in fact,
+he has one of the new droids and it has a</text><text start="584.44" dur="4.17">five mega pixel camera so it&amp;#39;s pretty cool.
+So, hopefully, we are going to get a good</text><text start="588.61" dur="5.06">picture out of it and he&amp;#39;s going to take the
+picture, and let&amp;#39;s see what happens if you</text><text start="593.67" dur="15.39">plug this in your Chrome OS machine. So you
+can see Chrome OS detects the camera as a</text><text start="609.06" dur="4.77">storage device, that the phone is a storage
+device. It can pull the picture right there.</text><text start="613.83" dur="4.95">So he&amp;#39;s clicking on the picture. And here
+you go; I can see Arlington squarely in the</text><text start="618.78" dur="5.72">center of the picture. So it turns out there
+is a video on the phone as well. So let&amp;#39;s</text><text start="624.5" dur="6.93">try and see what happens if you click the
+video. The video plays right in place in the</text><text start="631.43" dur="6.37">panel we talked about. So the point here is
+we really want it to be possible for all these</text><text start="637.8" dur="5.07">seamless use cases to--I mean, for all these
+use cases for uses to be seamless. We just</text><text start="642.87" dur="4.59">want computers to be delightful and works.
+So we are working very hard to make that possible.</text><text start="647.46" dur="5.81">One final example I just want to give is people
+run in to many, many different types of files,</text><text start="653.27" dur="4.52">right, when they use a computer. They need
+to be able to use those files. For example,</text><text start="657.79" dur="4.42">let&amp;#39;s go to one of my favorite Web sites--I
+go there pretty often--the IRS.gov. And let&amp;#39;s</text><text start="662.21" dur="4.41">go around and click on a PDF file, right?
+So what happens if you click on a PDF file?</text><text start="666.62" dur="4.54">It works. It&amp;#39;s instant. It&amp;#39;s in the browser,
+right? So, that&amp;#39;s the underlying theme of</text><text start="671.16" dur="5.32">what we are trying to accomplish: speed, simplicity
+and security. So I&amp;#39;m going to take a step...</text></transcript>

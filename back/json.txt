@@ -1,0 +1,56 @@
+
+    ==========
+
+    yt2009 - dev
+
+    ==========
+    1.13.3, launch time: 0:50
+        
+received 0 videos from master
+added 0 comments from master
+userVideos endpoint called
+Authorization successful
+Extracted user ID: UC4rqhyiTs7XyuODcECvuiiQ
+ID recognized as channel. Path set to: /channel/UC4rqhyiTs7XyuODcECvuiiQ
+() channel channel/UC4rqhyiTs7XyuODcECvuiiQ
+Received data from channels.main: {
+  name: 'Scott The Woz',
+  properties: {
+    name: 'Scott The Woz',
+    description: 'Hey all, Scott here.<br><br>Scott The Woz is a comedic video game centric variety show that focuses on reviews, editorials, retrospectives and much more. New episodes are uploaded 2-4 times each month.<br><br>Other original content, mainly comedic shorts, can be found here as well. New originals are uploaded sporadically.<br><br>"Scott The Woz" Logo/Banner by Nico Vliek (@WhaddupNico)',
+    subscribers: '1.94M'
+  },
+  id: 'UC4rqhyiTs7XyuODcECvuiiQ',
+  handle: '@ScottTheWoz',
+  videoCount: '281',
+  url: 'https://www.youtube.com/channel/UC4rqhyiTs7XyuODcECvuiiQ',
+  videos: [],
+  tabParams: {
+    home: 'EghmZWF0dXJlZPIGBAoCMgA%3D',
+    videos: 'EgZ2aWRlb3PyBgQKAjoA',
+    playlists: 'EglwbGF5bGlzdHPyBgQKAkIA',
+    community: 'Egljb21tdW5pdHnyBgQKAkoA'
+  },
+  friends: {
+    Videos: [],
+    'Other Channels': [ [Object], [Object] ],
+    'Popular videos': [],
+    'Scott The Woz (All Episodes)': [],
+    'Scott The Woz (Season Six)': [],
+    'Scott The Woz (Season Five)': [],
+    'Scott The Woz (Season Four)': [],
+    'Scott The Woz (Season Three)': [],
+    'Scott The Woz (Season Two)': [],
+    'Scott The Woz (Season One)': [],
+    Originals: []
+  },
+  avatar: '/assets/AIdro_mIkb4KUR9VjGmN_yrh0YcXZGiCAz-u8ghugXJIqA5CyYY=s72-c-k-c0x00ffffff-no-rj.png',
+  banner: '4rqhyiTs7XyuODcECvuiiQ_banner.jpg',
+  newBanner: '4rqhyiTs7XyuODcECvuiiQ_uniq_banner.jpg',
+  bannerUrl: 'https://yt3.googleusercontent.com/wHzVq24KQLiS1Aq7upFh-Z7XGdTgT6vR4qdb2KUOnxJNx8vRKUFBlrgAeN7AaV8eF8MaoPI8eg=w1060-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj'
+}
+No videos found in the received data.
+Starting response with gdata_feedStart template
+Completed response with gdata_feedEnd template
+Setting content-type to application/atom+xml
+Response sent to client

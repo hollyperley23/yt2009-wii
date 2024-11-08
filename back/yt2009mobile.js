@@ -839,45 +839,76 @@ module.exports = {
     },
 
     // apk videos
-    "userVideos": function(req, res) {
-        if(!mobileauths.isAuthorized(req, res, "feed")) return;
-        let id = req.originalUrl.split("/users/")[1]
-                                .split("/uploads")[0]
-        let path = "/@" + id
-        if(id.startsWith("UC") && id.length == 24) {
-            path = "/channel/" + id
-        }
-        channels.main({"path": path, 
+   "userVideos": function(req, res) {
+    console.log("userVideos endpoint called");
+
+    if (!mobileauths.isAuthorized(req, res, "feed")) {
+        console.log("Authorization failed for request");
+        return;
+    }
+    console.log("Authorization successful");
+
+    let id = req.originalUrl.split("/users/")[1].split("/uploads")[0];
+    console.log("Extracted user ID:", id);
+
+    let path = "/@" + id;
+    if (id.startsWith("UC") && id.length == 24) {
+        path = "/channel/" + id;
+        console.log("ID recognized as channel. Path set to:", path);
+    } else {
+        console.log("ID recognized as username. Path set to:", path);
+    }
+
+    channels.main({
+        "path": path, 
         "headers": {"cookie": ""},
-        "query": {"f": 0}}, 
-        {"send": function(data) {
+        "query": {"f": 0}
+    }, {
+        "send": function(data) {
+            console.log("Received data from channels.main:", data);
+
+            if (data.videos && data.videos.length > 0) {
+                console.log("Number of videos received:", data.videos.length);
+            } else {
+                console.log("No videos found in the received data.");
+            }
+
             let response = templates.gdata_feedStart;
+            console.log("Starting response with gdata_feedStart template");
 
             (data.videos || []).forEach(video => {
-                let cacheVideo = yt2009html.get_cache_video(video.id)
-                
+                console.log("Processing video ID:", video.id);
+
+                let cacheVideo = yt2009html.get_cache_video(video.id);
+                console.log("Fetched cached video data for video ID", video.id, ":", cacheVideo);
+
                 response += templates.gdata_feedVideo(
                     video.id,
                     video.title,
                     utils.asciify(data.name),
                     utils.bareCount(video.views),
-                    utils.time_to_seconds(
-                        video.length
-                    ||  Math.floor(Math.random() * 240) + 60
-                    ),
+                    utils.time_to_seconds(video.length || Math.floor(Math.random() * 240) + 60),
                     yt2009html.get_video_description(video.id),
                     utils.relativeToAbsoluteApprox(video.upload),
                     (cacheVideo.tags || []).join() || "-",
                     cacheVideo.category || "-",
                     mobileflags.get_flags(req).watch
-                )
-            })
+                );
+
+                console.log("Added video to response:", video.id);
+            });
 
             response += templates.gdata_feedEnd;
-            res.set("content-type", "application/atom+xml")
-            res.send(response)
-        }}, "", true)
-    },
+            console.log("Completed response with gdata_feedEnd template");
+
+            res.set("content-type", "application/atom+xml");
+            console.log("Setting content-type to application/atom+xml");
+
+            res.send(response);
+            console.log("Response sent to client");
+        }
+    }, "", true);
+},
 
     // apk user playlists
     "userPlaylists": function(req, res, sendRawData) {

@@ -36,10 +36,12 @@ const video_rating = require("./cache_dir/rating_cache_manager")
 const config = require("./config.json")
 const child_process = require("child_process")
 const yt2009charts = require("./yt2009charts")
-const yt2009gdataauths = require("./yt2009mobileauths")
+const yt2009gdataauths = require("./yt2009mobileauths") 
 let devTimings = false;
 const package = require("../package.json")
 const version = package.version;
+const path = require('path');
+const assetsDir = path.join(__dirname, '../assets/');
 
 // things added by next tube
 
@@ -98,6 +100,37 @@ if(require("os").totalmem() <= 110000000) {
     
 `)
 }
+
+
+
+function deleteWebms() {
+    fs.readdir(assetsDir, (err, files) => {
+        if (err) {
+            console.error('Error reading directory:', err);
+            return;
+        }
+
+        files.forEach(file => {
+            // Check if the file is a .webm file
+            if (file.endsWith('.webm')) {
+                const filePath = `${assetsDir}/${file}`;
+
+                // Delete the file
+                fs.unlink(filePath, (err) => {
+                    if (err) {
+                        console.error('Error deleting file:', filePath, err);
+                    } else {
+                        console.log('Deleted:', filePath);
+                    }
+                });
+            }
+        });
+    });
+}
+
+// Call the function to delete the .webm files
+deleteWebms();
+
 
 if(fs.existsSync("./yt2009experimentals.js")) {
     try {
@@ -4401,6 +4434,27 @@ app.get("/wiitv", (req, res) => {
     }
     res.status(200).send("")
 })
+
+app.get("/feeds/api/thumbnails/:feedName", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServeThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/users", (req, res) => {
+    const feedName = req.params.feedName; 
+    yt2009_utils.fetchAndServePFPThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/results", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServeSearchThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/playlists", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServePlaylistThumbnail(req, res, feedName);
+});
+
 
 /* end */
 

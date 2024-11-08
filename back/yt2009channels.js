@@ -211,7 +211,7 @@ module.exports = {
         let chip = encodeURIComponent(Buffer.from(
             vidsContinuation.serializeBinary()
         ).toString("base64"))
-        fetchChip(chip)
+        fetchChip(chip, data.id)
         r.contents.twoColumnBrowseResultsRenderer.tabs.forEach(tab => {
             // get params for other tabs for future use
             try {
@@ -221,60 +221,80 @@ module.exports = {
             }
             catch(error) {}
         })
-
-        function fetchChip(chipToken) {
-            fetch(`https://www.youtube.com/youtubei/v1/browse?key=${
-                yt2009html.get_api_key()
-            }`, {
-                "headers": yt2009constants.headers,
-                "referrer": "https://www.youtube.com/",
-                "referrerPolicy": "strict-origin-when-cross-origin",
-                "body": JSON.stringify({
-                    "context": yt2009constants.cached_innertube_context,
-                    "continuation": chipToken
-                }),
-                "method": "POST",
-                "mode": "cors"
-            }).then(r => {r.json().then(r => {
-                if(!r.onResponseReceivedActions) {
-                    createVideosFromChip([])
+        
+        async function fetchChip(browseId, continuationToken) {
+            console.log("fetchChip called with browseId:", browseId, "and continuationToken:", continuationToken);
+        
+            try {
+                const response = await fetch('https://www.youtube.com/youtubei/v1/browse?key=AIzaSyAO_FJ2SlqU8Q4STEHLGCilw_Y9_11qcW8', {
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "referrer": "https://www.youtube.com/",
+                        "referrerPolicy": "strict-origin-when-cross-origin"
+                    },
+                    "body": JSON.stringify({
+                        "context": {
+                            "client": {
+                                "clientName": "WEB", 
+                                "clientVersion": "2.9999099" // You can update this as per versioning
+                            }
+                        },
+                        "browseId": browseId, // Add browseId here
+                        "continuationCommand": {
+                            "token": continuationToken, // Continuation token passed as an argument
+                            "request": "CONTINUATION_REQUEST_TYPE_BROWSE" // The request type for the continuation
+                        }
+                    }),
+                    "method": "POST",
+                    "mode": "cors"
+                });
+        
+                const data = await response.json(); // Await the response and parse it as JSON
+                console.log("fetchChip - Raw JSON response:", JSON.stringify(data, null, 2));
+        
+                if (!data.onResponseReceivedActions) {
+                    console.log("fetchChip - No 'onResponseReceivedActions' found.");
+                    createVideosFromChip([]); // Handle if no actions exist
                     return;
                 }
-                r.onResponseReceivedActions.forEach(action => {
-                    if(action.reloadContinuationItemsCommand.slot
-                    == "RELOAD_CONTINUATION_SLOT_BODY") {
-                        videosTabAvailable = true
-                        createVideosFromChip(
-                            action.reloadContinuationItemsCommand
-                                  .continuationItems
-                        )
+        
+                data.onResponseReceivedActions.forEach(action => {
+                    if (action.reloadContinuationItemsCommand && action.reloadContinuationItemsCommand.slot === "RELOAD_CONTINUATION_SLOT_BODY") {
+                        console.log("fetchChip - Processing videos in continuation slot body.");
+                        videosTabAvailable = true; // This flag could be used elsewhere
+                        createVideosFromChip(action.reloadContinuationItemsCommand.continuationItems); // Call your function to handle videos
                     }
-                })
-            })})
+                });
+        
+            } catch (error) {
+                console.error("fetchChip - Error:", error);
+            }
         }
-
+        
         function createVideosFromChip(chip) {
+            console.log("Chip data received for video processing:", JSON.stringify(chip, null, 2)); // Log the chip data
+        
             chip.forEach(video => {
-                if(video.richItemRenderer || video.gridVideoRenderer) {
-                    video = (video.richItemRenderer || video.gridVideoRenderer)
-                            .content.videoRenderer
-                    data.videos.push({
+                if (video.richItemRenderer || video.gridVideoRenderer) {
+                    video = (video.richItemRenderer || video.gridVideoRenderer).content.videoRenderer;
+                    const videoData = {
                         "id": video.videoId,
                         "title": video.title.runs[0].text,
-                        "views": (video.viewCountText
-                              || {"simpleText": "0 views"}).simpleText,
+                        "views": (video.viewCountText || {"simpleText": "0 views"}).simpleText,
                         "upload": video.publishedTimeText.simpleText,
-                        "thumbnail": "http://i.ytimg.com/vi/"
-                                    + video.videoId
-                                    + "/hqdefault.jpg",
-                        "length": (video.lengthText || {"simpleText": "00:00"})
-                                  .simpleText
-                    })
+                        "thumbnail": "http://i.ytimg.com/vi/" + video.videoId + "/hqdefault.jpg",
+                        "length": (video.lengthText || {"simpleText": "00:00"}).simpleText
+                    };
+                    console.log("Processed video data:", JSON.stringify(videoData, null, 2)); // Log each video data
+        
+                    data.videos.push(videoData);
                 }
-            })
+            });
+        
             additionalFetchesCompleted++;
-            onVideosCreate()
-        }
+            console.log("Video data after processing all items in chip:", JSON.stringify(data.videos, null, 2)); // Log accumulated video data
+            onVideosCreate();
+        }        
 
         // find featured channels (/channels tab removed / 2023-11-16)
         let homeTab;
