@@ -296,9 +296,6 @@ module.exports = {
         
         results.forEach(result => {
             // video result
-
-           // console.log("Raw JSON response received:", JSON.stringify(results, null, 2)); // Logs the full JSON structure
-
             if(result.videoRenderer) {
                 result = result.videoRenderer
                 let uploadDate = ""

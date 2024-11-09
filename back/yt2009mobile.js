@@ -839,77 +839,189 @@ module.exports = {
     },
 
     // apk videos
-   "userVideos": function(req, res) {
-    console.log("userVideos endpoint called");
-
-    if (!mobileauths.isAuthorized(req, res, "feed")) {
-        console.log("Authorization failed for request");
-        return;
-    }
-    console.log("Authorization successful");
-
-    let id = req.originalUrl.split("/users/")[1].split("/uploads")[0];
-    console.log("Extracted user ID:", id);
-
-    let path = "/@" + id;
-    if (id.startsWith("UC") && id.length == 24) {
-        path = "/channel/" + id;
-        console.log("ID recognized as channel. Path set to:", path);
-    } else {
-        console.log("ID recognized as username. Path set to:", path);
-    }
-
-    channels.main({
-        "path": path, 
+    "userVideos": function(req, res) {
+        if(!mobileauths.isAuthorized(req, res, "feed")) return;
+        let id = req.originalUrl.split("/users/")[1]
+                                .split("/uploads")[0]
+        let path = "/@" + id
+        if(id.startsWith("UC") && id.length == 24) {
+            path = "/channel/" + id
+        }
+        channels.main({"path": path, 
         "headers": {"cookie": ""},
-        "query": {"f": 0}
-    }, {
-        "send": function(data) {
-            console.log("Received data from channels.main:", data);
-
-            if (data.videos && data.videos.length > 0) {
-                console.log("Number of videos received:", data.videos.length);
-            } else {
-                console.log("No videos found in the received data.");
-            }
-
+        "query": {"f": 0}}, 
+        {"send": function(data) {
             let response = templates.gdata_feedStart;
-            console.log("Starting response with gdata_feedStart template");
 
             (data.videos || []).forEach(video => {
-                console.log("Processing video ID:", video.id);
-
-                let cacheVideo = yt2009html.get_cache_video(video.id);
-                console.log("Fetched cached video data for video ID", video.id, ":", cacheVideo);
-
+                let cacheVideo = yt2009html.get_cache_video(video.id)
+                
                 response += templates.gdata_feedVideo(
                     video.id,
                     video.title,
                     utils.asciify(data.name),
                     utils.bareCount(video.views),
-                    utils.time_to_seconds(video.length || Math.floor(Math.random() * 240) + 60),
+                    utils.time_to_seconds(
+                        video.length
+                    ||  Math.floor(Math.random() * 240) + 60
+                    ),
                     yt2009html.get_video_description(video.id),
                     utils.relativeToAbsoluteApprox(video.upload),
                     (cacheVideo.tags || []).join() || "-",
                     cacheVideo.category || "-",
                     mobileflags.get_flags(req).watch
-                );
-
-                console.log("Added video to response:", video.id);
-            });
+                )
+            })
 
             response += templates.gdata_feedEnd;
-            console.log("Completed response with gdata_feedEnd template");
+            res.set("content-type", "application/atom+xml")
+            res.send(response)
+        }}, "", true)
+    },
 
-            res.set("content-type", "application/atom+xml");
-            console.log("Setting content-type to application/atom+xml");
-
-            res.send(response);
-            console.log("Response sent to client");
+    // apk user playlists
+    "userPlaylists": function(req, res, sendRawData) {
+        if(!mobileauths.isAuthorized(req, res, "feed")) return;
+        let id = req.originalUrl.split("/users/")[1]
+                                .split("/playlists")[0]
+        let path = "/@" + id
+        if(id.startsWith("UC") && id.length == 24) {
+            path = "/channel/" + id
         }
-    }, "", true);
-},
+        setTimeout(function() {
+            channels.main({"path": path,
+            "headers": {"cookie": ""},
+            "query": {"f": 0}}, 
+            {"send": function(data) {
+                channels.get_additional_sections(data, "", () => {
+                    let response = templates.gdata_feedStart
+                    let playlists = channels.get_cache.read("playlist")
+                    if(playlists[data.id]) {
+                        playlists[data.id].forEach(playlist => {
+                            response += templates.gdata_playlistEntry(
+                                id,
+                                playlist.id,
+                                playlist.name,
+                                playlist.videos || 1,
+                                ""
+                            )
+                        })
+                    }
+                    response += templates.gdata_feedEnd;
+                    res.set("content-type", "application/atom+xml")
+                    res.send(response)
+                })
+            }}, "", true)
+        }, 4000)
+    },
 
+    // apk user favorites
+    "userFavorites": function(req, res) {
+        if(!mobileauths.isAuthorized(req, res, "feed")) return;
+        let id = req.originalUrl.split("/users/")[1]
+                                .split("/playlists")[0]
+        let path = "/@" + id
+        if(id.startsWith("UC") && id.length == 24) {
+            path = "/channel/" + id
+        }
+        setTimeout(function() {
+            channels.main({"path": path, 
+            "headers": {"cookie": ""},
+            "query": {"f": 0}}, 
+            {"send": function(data) {
+                channels.get_additional_sections(data, "", () => {
+                    let response = templates.gdata_feedStart
+                    let playlists = channels.get_cache.read("playlist")
+                    let hasFavoritesPlaylist = false;
+                    if(playlists[data.id]) {
+                        playlists[data.id].forEach(playlist => {
+                            if(playlist.name == "Favorites") {
+                                hasFavoritesPlaylist = true;
+                                yt2009playlists.parsePlaylist(playlist.id, (data => {
+                                    // add videos (kinda limited data but workable)
+                                    data.videos.forEach(video => {
+                                        let videoCache = yt2009html
+                                                        .get_cache_video(video.id)
+                                        response += templates.gdata_feedVideo(
+                                            video.id,
+                                            video.title,
+                                            utils.asciify(video.uploaderName),
+                                            utils.bareCount(
+                                                videoCache.viewCount
+                                                || Math.floor(
+                                                    Math.random() * 20000000
+                                                ).toString()
+                                            ),
+                                            videoCache.length
+                                            || Math.floor(Math.random() * 300),
+                                            "",
+                                            ""
+                                        )
+                                    })
+        
+                                    // send response
+                                    response += templates.gdata_feedEnd;
+                                    res.set("content-type", "application/atom+xml")
+                                    res.send(response)
+                                })) 
+                            }
+                        })
+                    }
+                    if(!hasFavoritesPlaylist) {
+                        // no favorites playlist, send empty feed
+                        response += templates.gdata_feedEnd;
+                        res.set("content-type", "application/atom+xml")
+                        res.send(response)
+                        return;
+                    }
+                })
+            }}, "", true)
+        }, 4000)
+    },
+
+    // apk events
+    "apkUserEvents": function(req, res) {
+        if(!mobileauths.isAuthorized(req, res)) return;
+        if(!req.query.author) {
+            res.send("")
+            return;
+        }
+
+        // i do love being too lazy to develop this function properly
+        let path = "/@" + req.query.author
+        if(req.query.author.startsWith("UC")
+        && req.query.author.length == 24) {
+            path = "/channel/" + path
+        }
+        require("./yt2009subscriptions").fetch_new_videos({
+            "headers": {
+                "url": path
+            },
+            "query": {
+                "flags": ""
+            }
+        }, {
+            "send": function(data) {
+                // anyway, we got videos to throw there
+                let response = templates.gdata_feedStart
+                data.videos.slice(0, 7).forEach(video => {
+                    response += templates.gdata_activityEntry(
+                        "video_uploaded",
+                        req.query.author,
+                        video.title,
+                        video.id,
+                        utils.relativeToAbsoluteApprox(video.upload),
+                        video.time,
+                        video.views
+                    )
+                })
+                response += templates.gdata_feedEnd
+                res.set("content-type", "application/atom+xml")
+                res.send(response)
+            }
+        }, true)
+    },
+    
     // apk user playlists
     "userPlaylists": function(req, res, sendRawData) {
         if(!mobileauths.isAuthorized(req, res, "feed")) return;
