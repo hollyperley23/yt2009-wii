@@ -153,6 +153,8 @@ if(config.redirmode
     console.log("/!\\ config.redirmode set incorrectly. ignoring.")
 }
 
+require("./yt2009androidsignin").set(app)
+
 // ws sync with master
 let syncCommentCallbacks = {}
 let syncCheckCallbacks = {}
