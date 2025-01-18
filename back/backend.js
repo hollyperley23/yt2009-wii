@@ -2125,6 +2125,32 @@ app.get("/feeds/api/users/default/favorites", (req, res, next) => {
     }
     next()
 })
+
+// things added by NexTube
+
+app.get("/feeds/api/thumbnails/:feedName", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServeThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/users", (req, res) => {
+    const feedName = req.params.feedName; 
+    yt2009_utils.fetchAndServePFPThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/results", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServeSearchThumbnail(req, res, feedName);
+});
+
+app.get("/feeds/api/thumbnails/:feedName/playlists", (req, res) => {
+    const feedName = req.params.feedName;
+    yt2009_utils.fetchAndServePlaylistThumbnail(req, res, feedName);
+});
+
+
+// end
+
 app.get("/feeds/api/users/*/recommendations", (req, res) => {
     if(useMobileHelper) {
         mobileHelper.handle_recommendations(req, res)
@@ -4480,152 +4506,4 @@ app.get("/leanback_ajax", (req, res) => {
                         "user_id": r.author_url.split("channel/")[1],
                         "time_created": r.upload,
                         "description": r.description
-                    })
-                } else if(r.type == "metadata") {
-                    resultCount = r.resultCount;
-                }
-            })
-
-            res.send({
-                "total": resultCount,
-                "videos": formattedResults
-            })
-        }), yt2009_utils.get_used_token(req), false)
-        return;
-    }
-    if(req.query.action_featured) {
-        let r = fs.readFileSync("../assets/site-assets/leanback_ajax.json").toString()
-        res.send(r)
-        return;
-    }
-    res.status(200).send("")
-})
-app.get("/player_204", (req, res) => {
-    res.sendStatus(204)
-})
-app.get("/media/iviv", (req, res) => {
-    res.redirect("/media/iviv/iv3_edit_module.swf")
-})
-app.post("/annotations_auth/update2", (req, res) => {
-    let annotations = ""
-    try {
-        annotations = req.body.toString()
-        annotations = annotations.split("<updatedItems>")[1].split("</updatedItems>")[0]
-    }
-    catch(error) {}
-    res.send(`<?xml version="1.0" encoding="UTF-8" ?><document><annotations>
-    ${annotations}
-    </annotations></document>`)
-})
-app.get("/auth/read2", (req, res) => {
-    res.send(`<?xml version="1.0" encoding="UTF-8" ?><document><annotations>
-    </annotations></document>`)
-})
-app.get("/v/*", (req, res) => {
-    let video = req.originalUrl.split("/v/")[1]
-    res.redirect("/embedF/" + video)
-})
-
-/*
-======
-cfg.ac (merged)
-======
-*/
-
-let exceptions = [
-    "uncaughtException", "unhandledRejection"
-]
-exceptions.forEach(e => {
-    process.on(e, (msg) => {
-        console.log(msg)
-    })
-})
-
-/*
-======
-data export through yt2009flags
-======
-*/
-let exportedDataCodes = {}
-let eRatelimit = {}
-app.post("/export_flags_data", (req, res) => {
-    if(!eRatelimit[req.ip]) {
-        eRatelimit[req.ip] = 0;
-        setTimeout(() => {
-            delete eRatelimit[req.ip];
-        }, 1000 * 60)
-    }
-    eRatelimit[req.ip]++
-    if(eRatelimit[req.ip] >= 3) {
-        res.status(429).send("exporting called too many times recently");
-        return;
-    }
-    let b = req.body.toString()
-    let randomCode = ""
-    if(b.startsWith("c:") && (
-        b.includes("\x00")
-        || b.includes("/x/x/x/x/x/")
-    )) {
-        function s() {
-            randomCode = ""
-            let c = "qwertyuiopasdfghjklzxcvbnm".split("")
-            while(randomCode.length !== 8) {
-                randomCode += c[Math.floor(Math.random() * 26)]
-            }
-        }
-        s()
-        while(exportedDataCodes[randomCode]) {s()}
-        exportedDataCodes[randomCode] = req.body.toString()
-        setTimeout(() => {
-            if(exportedDataCodes[randomCode]) {
-                delete exportedDataCodes[randomCode];
-            }
-        }, 1000 * 60 * 15)
-        res.send(randomCode)
-    } else {
-        res.sendStatus(400);
-        return;
-    }
-})
-app.get("/get_flags_data", (req, res) => {
-    if(!req.headers.code) {
-        res.status(400).send("no code found.")
-        return;
-    }
-    req.headers.code = req.headers.code.replace(/[^a-z]/g, "").trim()
-    let c = req.headers.code
-    if(!exportedDataCodes[c]) {
-        res.status(404).send(c + ": invalid data code.");
-        return;
-    }
-    res.send(exportedDataCodes[c]);
-    delete exportedDataCodes[c]
-})
-
-/*
-======
-yt2009upgrade: updates that can't be applied through git through various reasons
-======
-*/
-
-// remove obama video (removed from youtube)
-let obamaVideoObject = yt2009_constant.homepageCache_news.filter(s => s.id == "Z9eId_9n1NM")
-if(obamaVideoObject) {
-    let newNewsCache = yt2009_constant.homepageCache_news.filter(s => s.id !== "Z9eId_9n1NM")
-    yt2009_constant.homepageCache_news = newNewsCache;
-    fs.writeFileSync("./yt2009constants.json", JSON.stringify(yt2009_constant))
-}
-// remove zombies video (privated)
-let zombiesVideoObject = yt2009_constant.homepageCache_featured.filter(s => s.id == "czWoP7qVNSI")
-if(zombiesVideoObject) {
-    let newFeaturedCache = yt2009_constant.homepageCache_featured.filter(s => s.id !== "czWoP7qVNSI")
-    yt2009_constant.homepageCache_featured = newFeaturedCache
-    fs.writeFileSync("./yt2009constants.json", JSON.stringify(yt2009_constant))
-}
-
-/*
-pizdec
-jp2gmd
-mleczsus :*
-Stawik
-*/
+                
