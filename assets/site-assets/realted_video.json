@@ -1,0 +1,1098 @@
+{
+  "version": "1.0",
+  "encoding": "UTF-8",
+  "feed": {
+    "xmlns": "http://www.w3.org/2005/Atom",
+    "xmlns$media": "https://web.archive.org/web/20140712003847/http://search.yahoo.com/mrss/",
+    "xmlns$openSearch": "https://web.archive.org/web/20140712003847/http://a9.com/-/spec/opensearch/1.1/",
+    "xmlns$gd": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005",
+    "xmlns$yt": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007",
+    "gd$etag": "W/\"D0IGSX44eip7I2A9XRZWEU8.\"",
+    "id": {
+      "$t": "tag:youtube.com,2008:video:-i4iTYLivEs:related"
+    },
+    "updated": {
+      "$t": "2014-07-12T00:38:48.032Z"
+    },
+    "category": [
+      {
+        "scheme": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#kind",
+        "term": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video"
+      }
+    ],
+    "title": {
+      "$t": "Videos related to '26 Health/Weight Loss Tips For Teenagers'"
+    },
+    "logo": {
+      "$t": "https://web.archive.org/web/20140712003847/http://www.gstatic.com/youtube/img/logo.png"
+    },
+    "link": [
+      {
+        "rel": "alternate",
+        "type": "text/html",
+        "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/results?search=related&search_query=&v=-i4iTYLivEs"
+      },
+      {
+        "rel": "related",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs?v=2"
+      },
+      {
+        "rel": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#feed",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related?v=2"
+      },
+      {
+        "rel": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#batch",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related/batch?v=2"
+      },
+      {
+        "rel": "self",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related?alt=json-in-script&start-index=17&max-results=4&format=5&orderby=relevance&safeSearch=moderate&v=2"
+      },
+      {
+        "rel": "service",
+        "type": "application/atomsvc+xml",
+        "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related?alt=atom-service&v=2"
+      },
+      {
+        "rel": "previous",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related?alt=json-in-script&start-index=13&max-results=4&format=5&orderby=relevance&safeSearch=moderate&v=2"
+      },
+      {
+        "rel": "next",
+        "type": "application/atom+xml",
+        "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related?alt=json-in-script&start-index=21&max-results=4&format=5&orderby=relevance&safeSearch=moderate&v=2"
+      }
+    ],
+    "author": [
+      {
+        "name": {
+          "$t": "YouTube"
+        },
+        "uri": {
+          "$t": "https://web.archive.org/web/20140712003847/http://www.youtube.com/"
+        }
+      }
+    ],
+    "generator": {
+      "$t": "YouTube data API",
+      "version": "2.1",
+      "uri": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com"
+    },
+    "openSearch$totalResults": {
+      "$t": 75
+    },
+    "openSearch$startIndex": {
+      "$t": 17
+    },
+    "openSearch$itemsPerPage": {
+      "$t": 4
+    },
+    "entry": [
+      {
+        "gd$etag": "W/\"C0MMRn47eCp7I2A9XRZWEU0.\"",
+        "id": {
+          "$t": "tag:youtube.com,2008:video:_xXOu-DtTE4"
+        },
+        "published": {
+          "$t": "2013-11-11T07:10:33.000Z"
+        },
+        "updated": {
+          "$t": "2014-07-11T17:58:07.000Z"
+        },
+        "category": [
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#kind",
+            "term": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video"
+          },
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat",
+            "term": "Howto",
+            "label": "Howto & Style"
+          }
+        ],
+        "title": {
+          "$t": "The 5 Best Ways to Lose Weight"
+        },
+        "content": {
+          "type": "application/x-shockwave-flash",
+          "src": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/_xXOu-DtTE4?version=3&f=related&app=youtube_gdata"
+        },
+        "link": [
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=_xXOu-DtTE4&feature=youtube_gdata"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video.related",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/_xXOu-DtTE4/related?v=2"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#mobile",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://m.youtube.com/details?v=_xXOu-DtTE4"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#uploader",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/IJwWYOfsCfz6PjxbONYXSg?v=2"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related/_xXOu-DtTE4?v=2"
+          }
+        ],
+        "author": [
+          {
+            "name": {
+              "$t": "blogilates"
+            },
+            "uri": {
+              "$t": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/blogilates"
+            },
+            "yt$userId": {
+              "$t": "IJwWYOfsCfz6PjxbONYXSg"
+            }
+          }
+        ],
+        "yt$accessControl": [
+          {
+            "action": "comment",
+            "permission": "allowed"
+          },
+          {
+            "action": "commentVote",
+            "permission": "allowed"
+          },
+          {
+            "action": "videoRespond",
+            "permission": "moderated"
+          },
+          {
+            "action": "rate",
+            "permission": "allowed"
+          },
+          {
+            "action": "embed",
+            "permission": "allowed"
+          },
+          {
+            "action": "list",
+            "permission": "allowed"
+          },
+          {
+            "action": "autoPlay",
+            "permission": "allowed"
+          },
+          {
+            "action": "syndicate",
+            "permission": "allowed"
+          }
+        ],
+        "gd$comments": {
+          "gd$feedLink": {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#comments",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/_xXOu-DtTE4/comments?v=2",
+            "countHint": 6719
+          }
+        },
+        "yt$hd": {},
+        "media$group": {
+          "media$category": [
+            {
+              "$t": "Howto",
+              "label": "Howto & Style",
+              "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat"
+            }
+          ],
+          "media$content": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/_xXOu-DtTE4?version=3&f=related&app=youtube_gdata",
+              "type": "application/x-shockwave-flash",
+              "medium": "video",
+              "isDefault": "true",
+              "expression": "full",
+              "duration": 884,
+              "yt$format": 5
+            },
+            {
+              "url": "rtsp://r8---sn-jc47eu7z.c.youtube.com/CiMLENy73wIaGglOTO3gu84V_xMYDSANFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 884,
+              "yt$format": 1
+            },
+            {
+              "url": "rtsp://r8---sn-jc47eu7z.c.youtube.com/CiMLENy73wIaGglOTO3gu84V_xMYESARFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 884,
+              "yt$format": 6
+            }
+          ],
+          "media$credit": [
+            {
+              "$t": "blogilates",
+              "role": "uploader",
+              "scheme": "urn:youtube",
+              "yt$display": "blogilates",
+              "yt$type": "partner"
+            }
+          ],
+          "media$description": {
+            "$t": "The week 1 meal plan password is: beastm0de\nClick here to view: http://www.blogilates.com/diet-2/week-1-new-body-makeover-meal-plan\n\n***Buy my Fit Journal http://bit.ly/fitjournal and transform your body with me in 12 weeks NOW! The 12 week #newbodymakeover meal plan will begin on December 1st and the week 1 password will be released on November 26. If you get the Fit Journal, you will be e-mailed the full 12 week, 3 phase program worth $99 for FREE or you can follow me on all my social media accounts where I will be releasing the password week by week. Either way, it is super affordable to get fit and will be fun with the whole Blogilates community doing it together. Yay!\n\nThings mentioned in the video:\nBlogilates Water Bottle: http://www.ogorgeous.com/products/water-bottles\nBlogilates Workout Calendar: http://bit.ly/wocalendar\nI'm working with certified nutritionists from http://www.weighttraining.com\nPrintable POP HIITs: http://www.blogilates.com/official-pop-hiit-series\nArtist Kim Favorito from http://www.arthlete.tumblr.com\n\n\n\n♥ CHECK OUT MY DVD: http://www.poppilatesdvd.com\n♥ INSPIRATIONAL SHIRTS: http://www.shopblogilates.com\n♥ SUBSCRIBE: http://bit.ly/blogilatesyt\n♥ BLOG: http://www.blogilates.com \n♥ FB: http://www.facebook.com/blogilates \n♥ TWEET: http://www.twitter.com/blogilates\n♥ TUMBLR: http://www.blogilates.tumblr.com\n♥ PINTEREST: http://pinterest.com/blogilates\n♥ INSTAGRAM: http://www.instagram.com/blogilates\n\n\n*****\nCassey Ho is a certified Pilates and fitness instructor, winner of YouTube Next Trainer, and was also recently named FITNESS Magazine's Best Healthy Living Blogger.",
+            "type": "plain"
+          },
+          "media$keywords": {},
+          "media$license": {
+            "$t": "youtube",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/t/terms"
+          },
+          "media$player": {
+            "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=_xXOu-DtTE4&feature=youtube_gdata_player"
+          },
+          "media$thumbnail": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/_xXOu-DtTE4/default.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:07:22",
+              "yt$name": "default"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/_xXOu-DtTE4/mqdefault.jpg",
+              "height": 180,
+              "width": 320,
+              "yt$name": "mqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/_xXOu-DtTE4/hqdefault.jpg",
+              "height": 360,
+              "width": 480,
+              "yt$name": "hqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/_xXOu-DtTE4/sddefault.jpg",
+              "height": 480,
+              "width": 640,
+              "yt$name": "sddefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/_xXOu-DtTE4/1.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:03:41",
+              "yt$name": "start"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/_xXOu-DtTE4/2.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:07:22",
+              "yt$name": "middle"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/_xXOu-DtTE4/3.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:11:03",
+              "yt$name": "end"
+            }
+          ],
+          "media$title": {
+            "$t": "The 5 Best Ways to Lose Weight",
+            "type": "plain"
+          },
+          "yt$aspectRatio": {
+            "$t": "widescreen"
+          },
+          "yt$duration": {
+            "seconds": "884"
+          },
+          "yt$uploaded": {
+            "$t": "2013-11-11T07:10:33.000Z"
+          },
+          "yt$uploaderId": {
+            "$t": "UCIJwWYOfsCfz6PjxbONYXSg"
+          },
+          "yt$videoid": {
+            "$t": "_xXOu-DtTE4"
+          }
+        },
+        "gd$rating": {
+          "average": 4.954559,
+          "max": 5,
+          "min": 1,
+          "numRaters": 33890,
+          "rel": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#overall"
+        },
+        "yt$statistics": {
+          "favoriteCount": "0",
+          "viewCount": "1211811"
+        },
+        "yt$rating": {
+          "numDislikes": "385",
+          "numLikes": "33505"
+        }
+      },
+      {
+        "gd$etag": "W/\"D0ABQn47eCp7I2A9XRZWEEo.\"",
+        "id": {
+          "$t": "tag:youtube.com,2008:video:Gc4HGQHgeFE"
+        },
+        "published": {
+          "$t": "2010-03-12T19:23:08.000Z"
+        },
+        "updated": {
+          "$t": "2014-07-11T10:49:13.000Z"
+        },
+        "category": [
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#kind",
+            "term": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video"
+          },
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat",
+            "term": "People",
+            "label": "People & Blogs"
+          }
+        ],
+        "title": {
+          "$t": "LOOK AT YOURSELF AFTER WATCHING THIS.mp4"
+        },
+        "content": {
+          "type": "application/x-shockwave-flash",
+          "src": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/Gc4HGQHgeFE?version=3&f=related&app=youtube_gdata"
+        },
+        "link": [
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=Gc4HGQHgeFE&feature=youtube_gdata"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video.related",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/Gc4HGQHgeFE/related?v=2"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#mobile",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://m.youtube.com/details?v=Gc4HGQHgeFE"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#uploader",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/HlDybhOcWBUao3xISQm2TQ?v=2"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related/Gc4HGQHgeFE?v=2"
+          }
+        ],
+        "author": [
+          {
+            "name": {
+              "$t": "harrish0789"
+            },
+            "uri": {
+              "$t": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/harrish0789"
+            },
+            "yt$userId": {
+              "$t": "HlDybhOcWBUao3xISQm2TQ"
+            }
+          }
+        ],
+        "yt$accessControl": [
+          {
+            "action": "comment",
+            "permission": "allowed"
+          },
+          {
+            "action": "commentVote",
+            "permission": "allowed"
+          },
+          {
+            "action": "videoRespond",
+            "permission": "moderated"
+          },
+          {
+            "action": "rate",
+            "permission": "allowed"
+          },
+          {
+            "action": "embed",
+            "permission": "allowed"
+          },
+          {
+            "action": "list",
+            "permission": "allowed"
+          },
+          {
+            "action": "autoPlay",
+            "permission": "allowed"
+          },
+          {
+            "action": "syndicate",
+            "permission": "allowed"
+          }
+        ],
+        "gd$comments": {
+          "gd$feedLink": {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#comments",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/Gc4HGQHgeFE/comments?v=2",
+            "countHint": 65762
+          }
+        },
+        "media$group": {
+          "media$category": [
+            {
+              "$t": "People",
+              "label": "People & Blogs",
+              "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat"
+            }
+          ],
+          "media$content": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/Gc4HGQHgeFE?version=3&f=related&app=youtube_gdata",
+              "type": "application/x-shockwave-flash",
+              "medium": "video",
+              "isDefault": "true",
+              "expression": "full",
+              "duration": 251,
+              "yt$format": 5
+            },
+            {
+              "url": "rtsp://r3---sn-jc47eu7d.c.youtube.com/CiMLENy73wIaGglReOABGQfOGRMYDSANFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 251,
+              "yt$format": 1
+            },
+            {
+              "url": "rtsp://r3---sn-jc47eu7d.c.youtube.com/CiMLENy73wIaGglReOABGQfOGRMYESARFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 251,
+              "yt$format": 6
+            }
+          ],
+          "media$credit": [
+            {
+              "$t": "harrish0789",
+              "role": "uploader",
+              "scheme": "urn:youtube",
+              "yt$display": "harrish0789"
+            }
+          ],
+          "media$description": {
+            "$t": "",
+            "type": "plain"
+          },
+          "media$keywords": {},
+          "media$license": {
+            "$t": "youtube",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/t/terms"
+          },
+          "media$player": {
+            "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=Gc4HGQHgeFE&feature=youtube_gdata_player"
+          },
+          "media$thumbnail": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/Gc4HGQHgeFE/default.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:02:05.500",
+              "yt$name": "default"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/Gc4HGQHgeFE/mqdefault.jpg",
+              "height": 180,
+              "width": 320,
+              "yt$name": "mqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/Gc4HGQHgeFE/hqdefault.jpg",
+              "height": 360,
+              "width": 480,
+              "yt$name": "hqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/Gc4HGQHgeFE/1.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:01:02.750",
+              "yt$name": "start"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/Gc4HGQHgeFE/2.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:02:05.500",
+              "yt$name": "middle"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/Gc4HGQHgeFE/3.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:03:08.250",
+              "yt$name": "end"
+            }
+          ],
+          "media$title": {
+            "$t": "LOOK AT YOURSELF AFTER WATCHING THIS.mp4",
+            "type": "plain"
+          },
+          "yt$aspectRatio": {
+            "$t": "widescreen"
+          },
+          "yt$duration": {
+            "seconds": "251"
+          },
+          "yt$uploaded": {
+            "$t": "2010-03-12T19:23:08.000Z"
+          },
+          "yt$uploaderId": {
+            "$t": "UCHlDybhOcWBUao3xISQm2TQ"
+          },
+          "yt$videoid": {
+            "$t": "Gc4HGQHgeFE"
+          }
+        },
+        "gd$rating": {
+          "average": 4.9317946,
+          "max": 5,
+          "min": 1,
+          "numRaters": 313963,
+          "rel": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#overall"
+        },
+        "yt$statistics": {
+          "favoriteCount": "0",
+          "viewCount": "48266477"
+        },
+        "yt$rating": {
+          "numDislikes": "5353",
+          "numLikes": "308610"
+        }
+      },
+      {
+        "gd$etag": "W/\"CUMAQ347eCp7I2A9XRZWEEg.\"",
+        "id": {
+          "$t": "tag:youtube.com,2008:video:0Wo15QEKJV4"
+        },
+        "published": {
+          "$t": "2013-06-02T14:19:25.000Z"
+        },
+        "updated": {
+          "$t": "2014-07-11T04:37:22.000Z"
+        },
+        "category": [
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#kind",
+            "term": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video"
+          },
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat",
+            "term": "Howto",
+            "label": "Howto & Style"
+          }
+        ],
+        "title": {
+          "$t": "Fitness & Healthy Tips ♥"
+        },
+        "content": {
+          "type": "application/x-shockwave-flash",
+          "src": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/0Wo15QEKJV4?version=3&f=related&app=youtube_gdata"
+        },
+        "link": [
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=0Wo15QEKJV4&feature=youtube_gdata"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video.related",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/0Wo15QEKJV4/related?v=2"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#mobile",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://m.youtube.com/details?v=0Wo15QEKJV4"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#uploader",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/qh3ijNTQJ9h_tJB0lIopLA?v=2"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related/0Wo15QEKJV4?v=2"
+          }
+        ],
+        "author": [
+          {
+            "name": {
+              "$t": "StellaBeauty08"
+            },
+            "uri": {
+              "$t": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/Stellabeauty08"
+            },
+            "yt$userId": {
+              "$t": "qh3ijNTQJ9h_tJB0lIopLA"
+            }
+          }
+        ],
+        "yt$accessControl": [
+          {
+            "action": "comment",
+            "permission": "allowed"
+          },
+          {
+            "action": "commentVote",
+            "permission": "allowed"
+          },
+          {
+            "action": "videoRespond",
+            "permission": "moderated"
+          },
+          {
+            "action": "rate",
+            "permission": "allowed"
+          },
+          {
+            "action": "embed",
+            "permission": "allowed"
+          },
+          {
+            "action": "list",
+            "permission": "allowed"
+          },
+          {
+            "action": "autoPlay",
+            "permission": "allowed"
+          },
+          {
+            "action": "syndicate",
+            "permission": "allowed"
+          }
+        ],
+        "gd$comments": {
+          "gd$feedLink": {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#comments",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/0Wo15QEKJV4/comments?v=2",
+            "countHint": 369
+          }
+        },
+        "yt$hd": {},
+        "media$group": {
+          "media$category": [
+            {
+              "$t": "Howto",
+              "label": "Howto & Style",
+              "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat"
+            }
+          ],
+          "media$content": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/0Wo15QEKJV4?version=3&f=related&app=youtube_gdata",
+              "type": "application/x-shockwave-flash",
+              "medium": "video",
+              "isDefault": "true",
+              "expression": "full",
+              "duration": 324,
+              "yt$format": 5
+            },
+            {
+              "url": "rtsp://r4---sn-jc47eu7e.c.youtube.com/CiMLENy73wIaGgleJQoB5TVq0RMYDSANFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 324,
+              "yt$format": 1
+            },
+            {
+              "url": "rtsp://r4---sn-jc47eu7e.c.youtube.com/CiMLENy73wIaGgleJQoB5TVq0RMYESARFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 324,
+              "yt$format": 6
+            }
+          ],
+          "media$credit": [
+            {
+              "$t": "stellabeauty08",
+              "role": "uploader",
+              "scheme": "urn:youtube",
+              "yt$display": "StellaBeauty08",
+              "yt$type": "partner"
+            }
+          ],
+          "media$description": {
+            "$t": "Open meeee ! :)\n\nMy workout routine: http://25.media.tumblr.com/70c0b6d322caad067d00dd0154cf97b2/tumblr_mnrs24WvHr1rvxeqwo1_500.jpg ♥\n\nIf you ever feel that you're not worth it, you need to click here right now, cause girl, you're amazing ok? (:  http://www.cse.unsw.edu.au/~geoffo/humour/flattery.html\n\n♡Find me Online;\n\n♥ Instagram: http://instagram.com/vaniafernandes\n♥ Twitter: http://twitter.com/stellabeauty08\n♥ Facebook: http://facebook.com/stellabeauty08\n♥ Tumblr: http://s0stella.tumblr.com\n♥ Vine: @stellabeauty08\n___________________________________________\n\nBusiness only: stellabeauty08@gmail.com\n\nIf you wanna ask anything, just message me :D xx",
+            "type": "plain"
+          },
+          "media$keywords": {},
+          "media$license": {
+            "$t": "youtube",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/t/terms"
+          },
+          "media$player": {
+            "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=0Wo15QEKJV4&feature=youtube_gdata_player"
+          },
+          "media$thumbnail": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/0Wo15QEKJV4/default.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:02:42",
+              "yt$name": "default"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/0Wo15QEKJV4/mqdefault.jpg",
+              "height": 180,
+              "width": 320,
+              "yt$name": "mqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/0Wo15QEKJV4/hqdefault.jpg",
+              "height": 360,
+              "width": 480,
+              "yt$name": "hqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/0Wo15QEKJV4/sddefault.jpg",
+              "height": 480,
+              "width": 640,
+              "yt$name": "sddefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/0Wo15QEKJV4/1.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:01:21",
+              "yt$name": "start"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/0Wo15QEKJV4/2.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:02:42",
+              "yt$name": "middle"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/0Wo15QEKJV4/3.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:04:03",
+              "yt$name": "end"
+            }
+          ],
+          "media$title": {
+            "$t": "Fitness & Healthy Tips ♥",
+            "type": "plain"
+          },
+          "yt$aspectRatio": {
+            "$t": "widescreen"
+          },
+          "yt$duration": {
+            "seconds": "324"
+          },
+          "yt$uploaded": {
+            "$t": "2013-06-02T14:19:25.000Z"
+          },
+          "yt$uploaderId": {
+            "$t": "UCqh3ijNTQJ9h_tJB0lIopLA"
+          },
+          "yt$videoid": {
+            "$t": "0Wo15QEKJV4"
+          }
+        },
+        "gd$rating": {
+          "average": 4.9071507,
+          "max": 5,
+          "min": 1,
+          "numRaters": 2671,
+          "rel": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#overall"
+        },
+        "yt$statistics": {
+          "favoriteCount": "0",
+          "viewCount": "108017"
+        },
+        "yt$rating": {
+          "numDislikes": "62",
+          "numLikes": "2609"
+        }
+      },
+      {
+        "gd$etag": "W/\"A0UMSX47eCp7I2A9XRZWEEo.\"",
+        "id": {
+          "$t": "tag:youtube.com,2008:video:bymcXkwhVqM"
+        },
+        "published": {
+          "$t": "2012-10-10T15:11:25.000Z"
+        },
+        "updated": {
+          "$t": "2014-07-11T11:48:08.000Z"
+        },
+        "category": [
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#kind",
+            "term": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video"
+          },
+          {
+            "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat",
+            "term": "Howto",
+            "label": "Howto & Style"
+          }
+        ],
+        "title": {
+          "$t": "12 Tips How to Lose Weight Naturally and Fast"
+        },
+        "content": {
+          "type": "application/x-shockwave-flash",
+          "src": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/bymcXkwhVqM?version=3&f=related&app=youtube_gdata"
+        },
+        "link": [
+          {
+            "rel": "alternate",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=bymcXkwhVqM&feature=youtube_gdata"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#video.related",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/bymcXkwhVqM/related?v=2"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#mobile",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://m.youtube.com/details?v=bymcXkwhVqM"
+          },
+          {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#uploader",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/r_-k8z6_RKKxkjWkt8RFvA?v=2"
+          },
+          {
+            "rel": "self",
+            "type": "application/atom+xml",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/-i4iTYLivEs/related/bymcXkwhVqM?v=2"
+          }
+        ],
+        "author": [
+          {
+            "name": {
+              "$t": "TheSeriousfitness"
+            },
+            "uri": {
+              "$t": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/users/TheSeriousfitness"
+            },
+            "yt$userId": {
+              "$t": "r_-k8z6_RKKxkjWkt8RFvA"
+            }
+          }
+        ],
+        "yt$accessControl": [
+          {
+            "action": "comment",
+            "permission": "allowed"
+          },
+          {
+            "action": "commentVote",
+            "permission": "allowed"
+          },
+          {
+            "action": "videoRespond",
+            "permission": "moderated"
+          },
+          {
+            "action": "rate",
+            "permission": "allowed"
+          },
+          {
+            "action": "embed",
+            "permission": "allowed"
+          },
+          {
+            "action": "list",
+            "permission": "allowed"
+          },
+          {
+            "action": "autoPlay",
+            "permission": "allowed"
+          },
+          {
+            "action": "syndicate",
+            "permission": "allowed"
+          }
+        ],
+        "gd$comments": {
+          "gd$feedLink": {
+            "rel": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007#comments",
+            "href": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/feeds/api/videos/bymcXkwhVqM/comments?v=2",
+            "countHint": 253
+          }
+        },
+        "yt$hd": {},
+        "media$group": {
+          "media$category": [
+            {
+              "$t": "Howto",
+              "label": "Howto & Style",
+              "scheme": "https://web.archive.org/web/20140712003847/http://gdata.youtube.com/schemas/2007/categories.cat"
+            }
+          ],
+          "media$content": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/v/bymcXkwhVqM?version=3&f=related&app=youtube_gdata",
+              "type": "application/x-shockwave-flash",
+              "medium": "video",
+              "isDefault": "true",
+              "expression": "full",
+              "duration": 300,
+              "yt$format": 5
+            },
+            {
+              "url": "rtsp://r4---sn-jc47eu7z.c.youtube.com/CiMLENy73wIaGgmjViFMXpwpbxMYDSANFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 300,
+              "yt$format": 1
+            },
+            {
+              "url": "rtsp://r4---sn-jc47eu7z.c.youtube.com/CiMLENy73wIaGgmjViFMXpwpbxMYESARFEgGUgdyZWxhdGVkDA==/0/0/0/video.3gp",
+              "type": "video/3gpp",
+              "medium": "video",
+              "expression": "full",
+              "duration": 300,
+              "yt$format": 6
+            }
+          ],
+          "media$credit": [
+            {
+              "$t": "theseriousfitness",
+              "role": "uploader",
+              "scheme": "urn:youtube",
+              "yt$display": "TheSeriousfitness",
+              "yt$type": "partner"
+            }
+          ],
+          "media$description": {
+            "$t": "https://web.archive.org/web/20140712003847/http://serious-fitness-programs.com/weightloss\n\n12 Tips How to Lose Weight Fast Naturally,In this video you're going to learn natural weight loss methods , diets and  kind of food you have to eat for  fat loss and what kind of exercices to do for losing weight fast and natruly \n\nHow to lose weight fast for teenage girls and women, what is the fastest way to lose weight, how many calories should I eat to lose weight ,what workout should i do?. \n\nDiscover effective tips to lose weight fast and best weight loss diet.\nways to lose weight fast? Is it possible to lose weight fast at home naturally? Losing weight is something that is really challenging , however you can lose weight fast if you know the secrets to it so watch this video to know how.\n\nVideo Transcription:\n\n1. Make up Your Mind.\nThis is very important. If you make half-hearted efforts to lose weight, you are never really going to succeed. So develop a strong determination, that is what you want and you will do anything it takes to achieve your goal.\n\n2.Stop eating all simple carbs.\n such as flour, sugar, starchy vegetables like potatoes, and most grains. These foods cause blood sugar to spike and the pancreas to release insulin to turn all that excess sugar into fat. This is very important do to for losing weight.\n\n3.Increase your water intake.\nEliminate soda, sweet teas, highly sugared coffee drinks, processed fruit juices and alcohol. Instead, drink water. It can help flush toxins from your system. Several studies recommend that women consume 2.8 quarts of water and men consume 3.9 quarts every day.\n\n4.Increase your fiber intake.\nFiber  helps you to cut your food cravings and act as natural appetite suppressant. Also most of the fiber rich foods are low on the fat content\n\nTry to eat at least 5 serving of fruits and vegetables per day. Fruits that are high in fiber include apples, bananas, strawberries, citrus fruits, prunes, pears and tangerines.\nSwitch to whole grain or whole wheat bread. White bread is low in fiber.\nSwitch to a high fiber cereal or oatmeal for breakfast. Some cereals that are high in fiber include Raisin Bran, Cracklin' Oat Bran, Grape-Nuts, All-Bran and Fiber One.\nMake sure to include peas, beans and legumes in your diet. Foods that will help you add these to your meal plan include: lentil soup, bean burritos, chili with beans, split pea soup, 3-bean salsa, and refried beans.\nSwitch from regular pasta to whole wheat pasta, and from white rice to brown rice.\nChoose high fiber snacks, such as popcorn or whole grain crackers, instead of candy bars or other high-fat, sugary foods.\n\n 5.Increase Your Metabolism -- Eat 5-6 small meals every 2-3 hours daily. It has been scientifically proven that by eating frequently, you will raise your body's natural metabolism. That means your body will burn more fat naturally. And You become a fat burning machine all day long.\n\n\n6.Eliminate processed foods.\nSuch as burgers and Pizza, cakes, pastas, and get more good carbohydrates such as oats, brown rice and jacket potatoes to ensure that your blood sugar levels are kept even and you have plenty of energy.\n\n7.Don't eat at nights. \nAt nights the body prepares itself for sleep and it naturally begins to slow down. So you are more likely to gain weight when you eat at nights because your metabolic rate slows down and you are no longer active so you don't burn many calories. So avoid eating food after 9 pm.\n\n8.Exercise Everyday.\nDo aerobic exercise four to five days a week. Several studies show that aerobic activities cause your metabolism to stay at an elevated level for a period of time after you have finished exercising. \n9.Running (link) running Every day is best, but try to run at least 3-4 times a week. If you are lacking motivation, join a running group or ask your  friend.\n\n10.Bicycling \nGet out and ride a bike, but remember to pedal fast. Riding your bike around the track, or on a dirt track in your neighborhood, can burn as much as 500 to 1,000 calories an hour.\n\n11.Squats.\n Do about 2-3 sets of 20-30 repetitions. These are important because they target the buttocks and leg muscles. These are the largest muscles in our bodies.\n\n12.Jumping rope.\n can be a fun exercise and extremely efficient in not only helping you to lose weight, but to give you coordination, build your leg muscles, and help your cardiovascular system.\n13 and finaly .Stay Motivated. And  Measure Body Fat. Every 2 weeks using a fat caliper\nShoot pictures of yourself every 2 weeks: front, back & side. The side pictures will show the most change.",
+            "type": "plain"
+          },
+          "media$keywords": {},
+          "media$license": {
+            "$t": "youtube",
+            "type": "text/html",
+            "href": "https://web.archive.org/web/20140712003847/http://www.youtube.com/t/terms"
+          },
+          "media$player": {
+            "url": "https://web.archive.org/web/20140712003847/http://www.youtube.com/watch?v=bymcXkwhVqM&feature=youtube_gdata_player"
+          },
+          "media$thumbnail": [
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/bymcXkwhVqM/default.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:02:30",
+              "yt$name": "default"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/bymcXkwhVqM/mqdefault.jpg",
+              "height": 180,
+              "width": 320,
+              "yt$name": "mqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/bymcXkwhVqM/hqdefault.jpg",
+              "height": 360,
+              "width": 480,
+              "yt$name": "hqdefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/bymcXkwhVqM/sddefault.jpg",
+              "height": 480,
+              "width": 640,
+              "yt$name": "sddefault"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/bymcXkwhVqM/1.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:01:15",
+              "yt$name": "start"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/bymcXkwhVqM/2.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:02:30",
+              "yt$name": "middle"
+            },
+            {
+              "url": "https://web.archive.org/web/20140712003847/http://i.ytimg.com/vi/bymcXkwhVqM/3.jpg",
+              "height": 90,
+              "width": 120,
+              "time": "00:03:45",
+              "yt$name": "end"
+            }
+          ],
+          "media$title": {
+            "$t": "12 Tips How to Lose Weight Naturally and Fast",
+            "type": "plain"
+          },
+          "yt$aspectRatio": {
+            "$t": "widescreen"
+          },
+          "yt$duration": {
+            "seconds": "300"
+          },
+          "yt$uploaded": {
+            "$t": "2012-10-10T15:11:25.000Z"
+          },
+          "yt$uploaderId": {
+            "$t": "UCr_-k8z6_RKKxkjWkt8RFvA"
+          },
+          "yt$videoid": {
+            "$t": "bymcXkwhVqM"
+          }
+        },
+        "gd$rating": {
+          "average": 4.9072323,
+          "max": 5,
+          "min": 1,
+          "numRaters": 3277,
+          "rel": "https://web.archive.org/web/20140712003847/http://schemas.google.com/g/2005#overall"
+        },
+        "yt$statistics": {
+          "favoriteCount": "0",
+          "viewCount": "193052"
+        },
+        "yt$rating": {
+          "numDislikes": "76",
+          "numLikes": "3201"
+        }
+      }
+    ]
+  }
+}

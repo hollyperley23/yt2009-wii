@@ -1,0 +1,242 @@
+body {
+  display: block;
+  margin: 0 2em 2em 2em;
+  background-color: #f9f9fa;
+  font-weight: normal; /* for Firefox extension.css bug */
+}
+h1 {
+  font-size: 1.83em;
+  font-weight: normal;
+}
+h2 {
+  font-size: 1.33em;
+  margin-bottom: .25em;
+}
+table {
+  display: block;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-collapse: collapse;
+  background: #fff;
+  cursor: auto;
+  -moz-user-select: text;
+  overflow: auto;
+}
+thead {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1; /* workaround for ellipsis display bug in td */
+}
+tbody > tr:hover {
+  background-color: rgba(0, 0, 0, 0.06);
+}
+td,
+th {
+  padding-left: .75em;
+  padding-right: .75em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 5em;
+  min-width: 5em;
+}
+th {
+  border-right-style: solid;
+  border-right-color: rgba(0, 0, 0, 0.1);
+  border-right-width: 1px;
+  font-weight: normal;
+  text-align: start;
+  color: rgba(0, 0, 0, 0.5);
+  background: #f4f4f4;
+}
+th:last-child {
+  border-right-width: 0;
+}
+
+[data-ref=error_top] {
+  margin-left: 1em;
+}
+[name=urls] {
+  width: 100%;
+}
+[name=save] {
+  width: 8em;
+  text-align: center;
+  float: right;
+}
+[name=save]:disabled {
+  color: #999;
+  opacity: .5;
+}
+.browser-style > input[type=text] {
+  padding-top: 0; /* for Firefox placeholder rendering bug */
+  padding-right: 24px;
+  margin-bottom: 6px;
+}
+.clear {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  margin: 4px 0 0 -20px;
+  border: none;
+  padding: 0;
+  background: url(clear.svg);
+  opacity: .5;
+}
+.clear:hover {
+  opacity: 1;
+}
+:placeholder-shown + .clear {
+  display: none;
+}
+.error {
+  color: #d70022;
+}
+
+[data-tab-target] {
+  display: none;
+}
+[data-theme] [data-tab-button] {
+  padding: .25em 1em;
+  border-style: solid;
+  border-color: transparent;
+  border-width: 2px 0 0 0;
+  font-size: 116.7%;
+  color: inherit;
+  text-decoration: inherit;
+  cursor: inherit;
+}
+[data-theme] [data-tab-button]:hover {
+  border-top-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.04);
+}
+[data-tab] {
+  margin-top: 1em;
+  display: none;
+}
+#list:target ~ [href="#list"],
+#stats:target ~ [href="#stats"],
+#log:target ~ [href="#log"],
+#settings:target ~ [href="#settings"] {
+  border-top-color: #0a84ff;
+  color: #0a84ff;
+}
+#list:target ~ [data-tab=list],
+#stats:target ~ [data-tab=stats],
+#log:target ~ [data-tab=log],
+#settings:target ~ [data-tab=settings] {
+  display: block;
+}
+
+[data-tab=list] textarea {
+  height: calc(100vh - 18em);
+}
+
+[data-tab=stats] table {
+  height: calc(100vh - 14em);
+}
+[data-tab=stats] th:nth-child(1),
+[data-tab=stats] td:nth-child(1) {
+  min-width: 6em;
+}
+[data-tab=stats] th:nth-child(2),
+[data-tab=stats] td:nth-child(2) {
+  width: 100%;
+}
+[data-tab=stats] td:nth-child(1) {
+  text-align: end;
+}
+[data-tab=stats] .nblocked {
+  float: right;
+  margin-right: .5em;
+  line-height: 2;
+}
+
+[data-tab=log] table {
+  height: calc(100vh - 14em);
+}
+[data-tab=log] th:nth-child(1),
+[data-tab=log] td:nth-child(1) {
+  min-width: 8.5em;
+}
+[data-tab=log] th:nth-child(2),
+[data-tab=log] td:nth-child(2) {
+  width: 20%;
+}
+[data-tab=log] th:nth-child(3),
+[data-tab=log] td:nth-child(3) {
+  width: 40%;
+}
+[data-tab=log] th:nth-child(4),
+[data-tab=log] td:nth-child(4) {
+  min-width: 5em;
+}
+[data-tab=log] th:nth-child(5),
+[data-tab=log] td:nth-child(5) {
+  width: 40%;
+}
+
+[data-theme=dark] {
+  background-color: #0c0c0d;
+  color: #b1b1b3;
+  scrollbar-color: #7f7f82 #2d2d32;
+}
+[data-theme=dark] a {
+  color: #0a84ff;
+}
+[data-theme=dark] a:visited {
+  color: #0060df;
+}
+[data-theme=dark] button {
+  background-color: #2a2a2e;
+  border-color: #3a3e42;
+  color: #b1b1b3;
+}
+[data-theme=dark] button.browser-style:hover:not(.pressed):not(:disabled):not(.focused) {
+  background-color: rgba(249, 249, 250, 0.2);
+  border-color: #3e4249;
+}
+[data-theme=dark] button.browser-style:disabled {
+  opacity: .6;
+  color: #b1b1b3;
+}
+[data-theme=dark] button.browser-style:focus:not(:disabled) {
+  border-color: transparent !important;
+}
+[data-theme=dark] .browser-style > input[type="radio"]:hover:not(:checked) {
+  background-color: rgba(249, 249, 250, 0.2);
+  border-color: #3e4249;
+}
+[data-theme=dark] textarea,
+[data-theme=dark] .browser-style input {
+  background-color: #2a2a2e;
+  color: #d7d7db;
+  border-color: #3c3c3d;
+}
+[data-theme=dark] table {
+  background-color: #2a2a2e;
+  color: #b1b1b3;
+  border-color: #3c3c3d;
+}
+[data-theme=dark] th {
+  border-color: #3c3c3d;
+  background-color: #0c0c0d;
+  color: #b1b1b3;
+}
+[data-theme=dark] tbody > tr:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+[data-theme=dark] [data-tab-button]:hover {
+  border-top-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+[data-theme=dark] .clear {
+  filter: invert(100%);
+  background-color: transparent;
+}
+[data-theme=dark] .clear:hover {
+  opacity: .3;
+}
+.browser-style {
+  font-size: 1.167em;
+}

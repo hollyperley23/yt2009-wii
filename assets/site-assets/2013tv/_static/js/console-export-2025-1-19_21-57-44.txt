@@ -1,0 +1,152 @@
+GET
+http://192.168.1.184/assets/site-assets/2013tv/_static/bundle-playback.js?v=HxkREWBo
+NS_ERROR_CORRUPTED_CONTENT
+
+The resource from “http://192.168.1.184/assets/site-assets/2013tv/_static/bundle-playback.js%3Fv=HxkREWBo” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff). 2013tv
+Loading failed for the <script> with source “http://192.168.1.184/assets/site-assets/2013tv/_static/bundle-playback.js%3Fv=HxkREWBo”. 2013tv:3:131
+The script from “http://192.168.1.184/assets/site-assets/2013tv/_static/js/wombat.js%3Fv=txqj7nKC” was loaded even though its MIME type (“application/octet-stream”) is not a valid JavaScript MIME type. 2013tv
+Uncaught ReferenceError: __wm is not defined
+    <anonymous> http://192.168.1.184/2013tv#/watch?v=ru0KCAS5zuY&mode=transport:7
+2013tv:7:5
+The script from “http://192.168.1.184/assets/site-assets/2013tv/_static/js/jwplayer/jwplayer.js%3Fv=hiYhl5rb” was loaded even though its MIME type (“application/octet-stream”) is not a valid JavaScript MIME type. 2013tv
+The script from “http://192.168.1.184/assets/site-assets/2013tv/_static/js/bundle-video.js%3Fv=TFNEreMA” was loaded even though its MIME type (“application/octet-stream”) is not a valid JavaScript MIME type. 2013tv
+GET
+http://192.168.1.184/{{qrCodeImageUrl}}
+[HTTP/1.1 404 Not Found 1ms]
+
+GET
+http://192.168.1.184/assets/site-assets/2013tv/_static/css/img/player-controls.png
+[HTTP/1.1 404 Not Found 1ms]
+
+GET
+http://192.168.1.184/s/tv/html5/f4d170b4/img/bg11.jpg
+[HTTP/1.1 404 Not Found 1ms]
+
+The script from “http://192.168.1.184/feeds/api/videos/ru0KCAS5zuY?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=title%2Cyt%3Astatistics%2Cyt%3Ahd%2Cyt%3Aclaimed%2Cmedia%3Agroup(yt%3Avideoid%2Cyt%3Aduration%2Cyt%3AuploaderId%2Cyt%3Auploaded%2Cmedia%3Acredit)&videoId=ru0KCAS5zuY&callback=_callbacks_._1m64ggf1g” was loaded even though its MIME type (“application/atom+xml”) is not a valid JavaScript MIME type. 2013tv
+Not available app-prod.js:19846:17
+Uncaught SyntaxError: expected expression, got '<' ru0KCAS5zuY:1:1
+GET
+https://www.youtube-nocookie.com/device_204?c=TVHTML5&cver=4&app_anon_id=da382e90-1446-46e8-b8d7-d9a5346d2990&firstactive=1377939600&prevactive=1377939600&firstactivegeo=US&loginstate=0&firstlogin=0&prevlogin=0
+NS_ERROR_CORRUPTED_CONTENT
+
+The resource from “https://www.youtube-nocookie.com/device_204?c=TVHTML5&cver=4&app_anon_id=da382e90-1446-46e8-b8d7-d9a5346d2990&firstactive=1377939600&prevactive=1377939600&firstactivegeo=US&loginstate=0&firstlogin=0&prevlogin=0” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff). 2013tv
+Loading failed for the <script> with source “http://www.youtube-nocookie.com/device_204?c=TVHTML5&cver=4&app_anon_id=da382e90-1446-46e8-b8d7-d9a5346d2990&firstactive=1377939600&prevactive=1377939600&firstactivegeo=US&loginstate=0&firstlogin=0&prevlogin=0”. 2013tv:1:1
+The script from “http://192.168.1.184/feeds/api/videos/ru0KCAS5zuY?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=title%2Cyt%3Astatistics%2Cyt%3Ahd%2Cyt%3Aclaimed%2Cmedia%3Agroup(yt%3Avideoid%2Cyt%3Aduration%2Cyt%3AuploaderId%2Cyt%3Auploaded%2Cmedia%3Acredit)&videoId=ru0KCAS5zuY&callback=_callbacks_._2m64ggfwv” was loaded even though its MIME type (“application/atom+xml”) is not a valid JavaScript MIME type. 2013tv
+Not available app-prod.js:19846:17
+Uncaught SyntaxError: expected expression, got '<' ru0KCAS5zuY:1:1
+GET
+http://192.168.1.184/assets/site-assets/2013tv/_static/css/img/icon-delete.png
+[HTTP/1.1 404 Not Found 1ms]
+
+GET
+http://192.168.1.184/assets/site-assets/2013tv/_static/css/img/bg-search-input.png
+[HTTP/1.1 404 Not Found 1ms]
+
+GET
+http://192.168.1.184/assets/site-assets/2013tv/_static/css/img/pairing-devices.png
+[HTTP/1.1 404 Not Found 1ms]
+
+XHRGET
+http://192.168.1.184/gen_204?a=tv_activity&state=browse:search&logged_in=0&e=919112,938603,914048,916626,919515,929117,929121,929906,929907,929922,929127,929129,929131,929930,936403,925726,925720,925722,925718,929917,906945,929933,920302,913428,920605,919811,913563,904830,919373,930803,908536,904122,938701,936308,909549,912711,904494,904497,900375,936312,906001&c=TVHTML5&cver=4
+[HTTP/1.1 404 Not Found 0ms]
+
+GET
+http://192.168.1.184/s/tv/html5/f4d170b4/img/bg11.jpg
+[HTTP/1.1 404 Not Found 1ms]
+
+XHRGET
+http://192.168.1.184/gen_204?a=tv_activity&state=browse:search&logged_in=0&prev=browse:search&t=0&e=919112,938603,914048,916626,919515,929117,929121,929906,929907,929922,929127,929129,929131,929930,936403,925726,925720,925722,925718,929917,906945,929933,920302,913428,920605,919811,913563,904830,919373,930803,908536,904122,938701,936308,909549,912711,904494,904497,900375,936312,906001&c=TVHTML5&cver=4
+[HTTP/1.1 404 Not Found 0ms]
+
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://192.168.1.184/api/lounge/pairing/generate_screen_id. (Reason: CORS request did not succeed). Status code: (null).
+Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at https://192.168.1.184/api/lounge/pairing/get_lounge_token_batch. (Reason: CORS request did not succeed). Status code: (null).
+Not available app-prod.js:19846:17
+Uncaught TypeError: can't access property "$P", this.ua is null
+    b http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13919
+    na http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:5088
+    l http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13856
+    onreadystatechange http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13768
+    ri http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13767
+    ui http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13817
+    nB http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:14030
+    Dj http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13937
+    ce http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13993
+    l http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13856
+    onreadystatechange http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13768
+    ri http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13767
+    ui http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13817
+    YP http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13989
+    Dj http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:13935
+    Rz http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:14071
+    fB http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:14074
+    xm http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:16598
+    B http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:17065
+    B http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:23591
+    P http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:10914
+    ck http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:21481
+    gG http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:21653
+    $broadcast http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:2583
+    l http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:2340
+    h http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:2176
+    h http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:2176
+    then http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:2201
+    $eval http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:2499
+    $digest http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:2463
+    get http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:1615
+    h http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:779
+    p http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:12
+    h http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:778
+    c http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:526
+    p http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:12
+    c http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:525
+    Xb http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:3378
+    a http://192.168.1.184/assets/site-assets/2013tv/_static/js/app-prod.js:3546
+app-prod.js:13919:45
+GET
+http://192.168.1.184/s/tv/html5/f4d170b4/img/bg11.jpg
+[HTTP/1.1 404 Not Found 1ms]
+
+GET
+http://192.168.1.184/assets/site-assets/2013tv/_static/css/img/carousel-loading-indicator.gif
+[HTTP/1.1 404 Not Found 1ms]
+
+The script from “http://gdata.youtube.com/feeds/api/videos?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=title%2Clogo%2Centry%5Bnot(app%3Acontrol%2Fyt%3Astate)%20and%20not(media%3Agroup%2Fmedia%3Acategory%2F%40label%20%3D%20%22Movies%22%20and%20yt%3ApaidContent%2F%40type%20%3D%20%22paygate%22)%20and%20media%3Agroup%2Fyt%3Aduration%2F%40seconds%3E0%5D(title%2Cyt%3Astatistics%2Cyt%3Ahd%2Cyt%3Aclaimed%2Cyt%3ApaidContent%2Cyt%3Arating%2Cmedia%3Agroup(yt%3Avideoid%2Cyt%3Aduration%2Cyt%3Auploaded%2Cyt%3AuploaderId%2Cmedia%3Acredit%2Cmedia%3Adescription))%2CopenSearch%3AtotalResults&max-results=50&orderby=relevance&q=k&callback=_callbacks_._4m64ggl1j” was loaded even though its MIME type (“text/plain”) is not a valid JavaScript MIME type. 2013tv
+GET
+http://192.168.1.184/assets/site-assets/2013tv/_static/css/img/icon-playbutton.png
+[HTTP/1.1 404 Not Found 1ms]
+
+GET
+http://192.168.1.184/feeds/api/partners/iamvishalchauhan/branding/default?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=yt:option[@name='device_watchpage.watermark.image.url' or @name='generictv_watchpage.banner.image.url' or @name='channel.banner.tv.image.url' or @name='watchpage.global.featured_playlist.id' or @name='channel.featured_video_module.video_id.string']&userName=iamvishalchauhan&callback=_callbacks_._6m64ggtlb
+NS_ERROR_CORRUPTED_CONTENT
+
+XHRGET
+http://192.168.1.184/gen_204?a=tv_activity&state=watch&logged_in=0&prev=browse:search&t=16.8&e=919112,938603,914048,916626,919515,929117,929121,929906,929907,929922,929127,929129,929131,929930,936403,925726,925720,925722,925718,929917,906945,929933,920302,913428,920605,919811,913563,904830,919373,930803,908536,904122,938701,936308,909549,912711,904494,904497,900375,936312,906001&c=TVHTML5&cver=4
+[HTTP/1.1 404 Not Found 1ms]
+
+The resource from “http://192.168.1.184/feeds/api/partners/iamvishalchauhan/branding/default?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=yt%3Aoption%5B%40name%3D%27device_watchpage.watermark.image.url%27%20or%20%40name%3D%27generictv_watchpage.banner.image.url%27%20or%20%40name%3D%27channel.banner.tv.image.url%27%20or%20%40name%3D%27watchpage.global.featured_playlist.id%27%20or%20%40name%3D%27channel.featured_video_module.video_id.string%27%5D&userName=iamvishalchauhan&callback=_callbacks_._6m64ggtlb” was blocked due to MIME type (“text/html”) mismatch (X-Content-Type-Options: nosniff). 2013tv
+Loading failed for the <script> with source “http://192.168.1.184/feeds/api/partners/iamvishalchauhan/branding/default?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=yt%3Aoption%5B%40name%3D%27device_watchpage.watermark.image.url%27%20or%20%40name%3D%27generictv_watchpage.banner.image.url%27%20or%20%40name%3D%27channel.banner.tv.image.url%27%20or%20%40name%3D%27watchpage.global.featured_playlist.id%27%20or%20%40name%3D%27channel.featured_video_module.video_id.string%27%5D&userName=iamvishalchauhan&callback=_callbacks_._6m64ggtlb”. 2013tv:1:1
+GET
+http://192.168.1.184/s/tv/html5/f4d170b4/img/bg11.jpg
+[HTTP/1.1 404 Not Found 1ms]
+
+GET
+http://i1.ytimg.com/i/YZb8DHi3xwrnFZD90-2JgA/1.jpg
+[HTTP/1.1 404 Not Found 244ms]
+
+a: 
+Object { C: {…}, Ua: (2) […], oa: {…}, A: {…}, L: NaN, F: null, O: null, o: {…}, Da: {…}, ha: NaN, … }
+tv-player-vfl4sSYPq.js:13410:21
+a.a is null or undefined 
+Object { C: {…}, Ua: (2) […], oa: {…}, A: {…}, L: NaN, F: null, O: null, o: {…}, Da: {…}, ha: NaN, … }
+tv-player-vfl4sSYPq.js:13413:25
+MouseEvent.mozPressure is deprecated. Use PointerEvent.pressure instead. tv-player-vfl4sSYPq.js:1952:39
+MouseEvent.mozInputSource is deprecated. Use PointerEvent.pointerType instead. tv-player-vfl4sSYPq.js:1952:39
+The script from “http://192.168.1.184/feeds/api/videos/gqGJzSAnifo/related?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=author%2Ctitle%2Clogo%2Centry%5Bnot(app%3Acontrol%2Fyt%3Astate)%20and%20not(media%3Agroup%2Fmedia%3Acategory%2F%40label%20%3D%20%22Movies%22%20and%20yt%3ApaidContent%2F%40type%20%3D%20%22paygate%22)%20and%20media%3Agroup%2Fyt%3Aduration%2F%40seconds%3E0%5D(author%2Ctitle%2Cyt%3Astatistics%2Cyt%3Ahd%2Cyt%3Aclaimed%2Cyt%3ApaidContent%2Cyt%3Arating%2Cmedia%3Agroup(yt%3Avideoid%2Cyt%3Aduration%2Cyt%3AuploaderId%2Cyt%3Auploaded%2Cmedia%3Acredit%2Cmedia%3Adescription))%2CopenSearch%3AtotalResults&start-index=1&max-results=25&relatedId=gqGJzSAnifo&callback=_callbacks_._5m64ggtl6” was loaded even though its MIME type (“application/atom+xml”) is not a valid JavaScript MIME type. 2013tv
+Not available app-prod.js:19846:17
+Uncaught SyntaxError: expected expression, got '<' related:1:1
+The script from “http://192.168.1.184/feeds/api/videos/gqGJzSAnifo/related?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=author%2Ctitle%2Clogo%2Centry%5Bnot(app%3Acontrol%2Fyt%3Astate)%20and%20not(media%3Agroup%2Fmedia%3Acategory%2F%40label%20%3D%20%22Movies%22%20and%20yt%3ApaidContent%2F%40type%20%3D%20%22paygate%22)%20and%20media%3Agroup%2Fyt%3Aduration%2F%40seconds%3E0%5D(author%2Ctitle%2Cyt%3Astatistics%2Cyt%3Ahd%2Cyt%3Aclaimed%2Cyt%3ApaidContent%2Cyt%3Arating%2Cmedia%3Agroup(yt%3Avideoid%2Cyt%3Aduration%2Cyt%3AuploaderId%2Cyt%3Auploaded%2Cmedia%3Acredit%2Cmedia%3Adescription))%2CopenSearch%3AtotalResults&start-index=26&max-results=25&relatedId=gqGJzSAnifo&callback=_callbacks_._8m64ggtu3” was loaded even though its MIME type (“application/atom+xml”) is not a valid JavaScript MIME type. 2013tv
+Not available app-prod.js:19846:17
+Uncaught SyntaxError: expected expression, got '<' related:1:1
+The script from “http://192.168.1.184/feeds/api/videos/gqGJzSAnifo/related?alt=json&key=AI39si5-UxCbfO2jRg9EV2bWI0UDWm74GkLzZWFHkQR0bm4d0JTKyrhSi6NZORaTMuJaRH8zs0PmsCONB9uV3pSgzZklwvMoRA&v=2.1&fields=author%2Ctitle%2Clogo%2Centry%5Bnot(app%3Acontrol%2Fyt%3Astate)%20and%20not(media%3Agroup%2Fmedia%3Acategory%2F%40label%20%3D%20%22Movies%22%20and%20yt%3ApaidContent%2F%40type%20%3D%20%22paygate%22)%20and%20media%3Agroup%2Fyt%3Aduration%2F%40seconds%3E0%5D(author%2Ctitle%2Cyt%3Astatistics%2Cyt%3Ahd%2Cyt%3Aclaimed%2Cyt%3ApaidContent%2Cyt%3Arating%2Cmedia%3Agroup(yt%3Avideoid%2Cyt%3Aduration%2Cyt%3AuploaderId%2Cyt%3Auploaded%2Cmedia%3Acredit%2Cmedia%3Adescription))%2CopenSearch%3AtotalResults&start-index=1&max-results=25&relatedId=gqGJzSAnifo&callback=_callbacks_._7m64ggtu3” was loaded even though its MIME type (“application/atom+xml”) is not a valid JavaScript MIME type. 2013tv
+Not available app-prod.js:19846:17
+Uncaught SyntaxError: expected expression, got '<' related:1:1

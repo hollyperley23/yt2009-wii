@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8">
+<title>Request Blocker Options</title>
+<link rel="stylesheet" href="chrome://browser/content/extension.css">
+<link rel="stylesheet" href="Request%20Blocker%20Options_files/options.css">
+<link rel="icon" href="moz-extension://283c78f5-93b6-4251-af6d-8d32d11558cb/icon.svg">
+
+</head><body data-theme="dark"><h1>Request Blocker Options</h1>
+
+<form id="options">
+
+<span id="list" data-tab-target=""></span>
+<span id="stats" data-tab-target=""></span>
+<span id="log" data-tab-target=""></span>
+<span id="settings" data-tab-target=""></span>
+<a href="#list" data-tab-button="">Block List</a><a href="#stats" data-tab-button="">Stats</a><a href="#log" data-tab-button="">Log</a><a href="#settings" data-tab-button="">Settings</a>
+
+<div data-tab="list">
+  Available Patterns: <span data-ref="npatterns">0</span>
+  <span data-ref="error_top" class="error"></span>
+  <br>
+  Block URL <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Match_patterns" target="_blank">match patterns</a>, one per line (<a href="moz-extension://283c78f5-93b6-4251-af6d-8d32d11558cb/help.html" target="_blank">more detail</a>)
+  &nbsp;
+  <button type="button" name="load" class="browser-style">Load from File…</button>
+  <button type="button" name="export" class="browser-style">Export to File…</button>
+  <textarea name="urls" class="browser-style" spellcheck="false">web.archive.org/web/*/http://www.youtube.com/leanback_ajax*
+</textarea>
+  <span data-ref="error" class="error"></span>
+  <button type="button" name="save" class="browser-style">Save</button>
+</div>
+
+<div data-tab="stats">
+  <div class="nblocked">
+    Blocked Requests in Current Session: <span data-ref="nblocked">0</span>
+  </div>
+  <span class="browser-style">
+    <input name="filterstats" type="text" placeholder="Filter"><button type="button" name="resetfilterstats" class="clear"></button>
+  </span>
+  &nbsp;
+  <a href="moz-extension://283c78f5-93b6-4251-af6d-8d32d11558cb/help.html" target="_blank">Filter Syntax</a>
+  <table>
+    <thead><tr><th>Blocked</th><th>Pattern</th></tr></thead>
+    <tbody data-ref="stats"></tbody>
+  </table>
+</div>
+
+<div data-tab="log">
+  <span class="browser-style">
+    <input name="filterlog" type="text" placeholder="Filter"><button type="button" name="resetfilterlog" class="clear"></button>
+  </span>
+  &nbsp;
+  <a href="moz-extension://283c78f5-93b6-4251-af6d-8d32d11558cb/help.html" target="_blank">Filter Syntax</a>
+  <table>
+    <thead><tr><th>Time</th><th>Pattern</th><th>Blocked URL</th><th>Type</th><th>Origin</th></tr></thead>
+    <tbody data-ref="log"></tbody>
+  </table>
+</div>
+
+<div data-tab="settings">
+  <h2>Options Page Theme</h2>
+  <div class="browser-style">
+    <input id="theme_light" type="radio" name="theme" value="light"><label for="theme_light">Light</label>
+    <input id="theme_dark" type="radio" name="theme" value="dark"><label for="theme_dark">Dark</label>
+    <input id="theme_device" type="radio" name="theme" value="device" checked="checked"><label for="theme_device">Use Device Theme</label>
+  </div>
+</div>
+
+</form>
+
+<script src="Request%20Blocker%20Options_files/util.js"></script>
+<script src="Request%20Blocker%20Options_files/theme.js"></script>
+<script src="Request%20Blocker%20Options_files/options.js"></script>
+</body></html>

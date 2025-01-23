@@ -1,0 +1,125 @@
+.yttv-view-button.disabled {	
+	opacity: 0.5;
+}
+
+.yttv-view-button {	
+  height: 8%;
+  background: url(https://web.archive.org/web/20120315022227im_/http://s.ytimg.com/yt/img/tv/yttv-button-vfl68068.png) repeat-x;
+}
+
+/* depricated, no need to nest childen in a content div on a button */
+.yttv-view-button-content,
+.yttv-view-watchbutton-content {
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+.yttv-view-button-contentcenter {
+  top: 13%;
+  left: 0%;
+  width: 100%;
+  height: 74%;
+  text-align: center;
+}
+
+.yttv-view-button.selected {
+  background: url(https://web.archive.org/web/20120315022227im_/http://s.ytimg.com/yt/img/tv/yttv-button-active-vfl68068.png) repeat-x;
+}
+
+.yttv-view-button.mousehover {
+  background: url(https://web.archive.org/web/20120315022227im_/http://s.ytimg.com/yt/img/tv/yttv-button-hover-vfl68068.png) repeat-x;
+}
+
+.yttv-view-button-icon {
+  top: 40%;
+  height: 20%;
+  width: 100%;
+  left: 5%;
+}
+
+.yttv-view-button-paddlecontent {
+  height: 70%;
+  left: 46%;
+  top: 21%;
+  width: 6%;
+}
+
+.yttv-view-button-vicon {
+  height: 8%;
+  left: 5%;
+  top: 43%;
+  width: 89%;
+}
+
+.yttv-view-button-text {
+  top: 14%;
+  left: 5%;
+  width: 90%;
+  height: 72%;
+}
+
+.yttv-view-watchbutton {	
+  height: 7%;
+  background: url(https://web.archive.org/web/20120315022227im_/http://s.ytimg.com/yt/img/tv/yttv-button-vfl68068.png) repeat-x;
+/*  border: 3px solid black;*/
+}
+
+.yttv-view-watchbutton.selected {
+  background: url(https://web.archive.org/web/20120315022227im_/http://s.ytimg.com/yt/img/tv/yttv-button-active-vfl68068.png) repeat-x;
+/*  border: 3px solid #4A4d94; */
+}
+
+.yttv-view-watchbutton.mousehover {
+/*  border: 3px solid #4A4d94; */
+  background: url(https://web.archive.org/web/20120315022227im_/http://s.ytimg.com/yt/img/tv/yttv-button-hover-vfl68068.png) repeat-x;
+}
+
+.yttv-view-buttoncontent-icon {
+  height: 60%;
+  width: 15.5%;
+  left: 3%;
+  top: 20%;
+}
+
+.yttv-view-buttoncontent-text {
+  top: 14%;
+  left: 20%;
+  width: 75%;
+  height: 72%;
+}
+
+.yttv-view-buttoncontent-icon2 {
+  height: 60%;
+  width: 20%;
+  left: 9%;
+  top: 18%;
+}
+
+.yttv-view-buttoncontent-text2 {
+  top: 23%;
+  left: 30%;
+  width: 75%;
+  height: 54%;
+}
+
+/*
+     FILE ARCHIVED ON 02:22:27 Mar 15, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 16:32:40 Jan 22, 2025.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  captures_list: 0.782
+  exclusion.robots: 0.031
+  exclusion.robots.policy: 0.012
+  esindex: 0.02
+  cdx.remote: 10.208
+  LoadShardBlock: 748.684 (3)
+  PetaboxLoader3.datanode: 702.959 (4)
+  load_resource: 154.009
+  PetaboxLoader3.resolve: 81.224
+*/

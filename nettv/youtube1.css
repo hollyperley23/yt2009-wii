@@ -1,0 +1,1130 @@
+body {
+    width: 1280px;
+    height: 720px;
+    font-size: 20px;
+    font-family: "Philips Screenfont";
+    color: #fff;
+    overflow: hidden;
+}
+#wrapper {
+    width: 1200px;
+    height: 680px;
+    padding: 40px 40px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+a {
+    color: #fff;
+    text-decoration: none;
+}
+div, html, body {
+    margin: 0;
+    padding: 0;
+}
+img {
+    border: 0;
+}
+textarea, input {
+    font-family: "Philips Screenfont"}
+*:focus {
+    outline: none;
+}
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+.clearfix {
+    display: inline-block;
+}
+* html .clearfix {
+    height: 1%}
+.hidden {
+    position: absolute !important;
+    left: -9999px !important;
+    top: 0 !important;
+    z-index: -1 !important;
+    overflow: hidden;
+    height: 0 !important;
+    width: 0 !important;
+}
+.divider {
+    display: block;
+    height: 1px;
+    width: 330px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat 0 -141px;
+    clear: both;
+    margin: 0 auto;
+}
+.divider_long {
+    height: 1px;
+    width: 600px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat 0 -142px;
+    clear: both;
+    margin: 0 auto;
+}
+.empty_divider {
+    height: 10px;
+}
+#overlay {
+    width: 1280px;
+    height: 720px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: url(http://youtube.nettvservices.com/pics/overlay.png) repeat 0 0;
+    display: none;
+    visibility: hidden;
+    z-index: 999;
+}
+#overlay_content {
+    border: 2px solid #fff;
+    position: fixed;
+    background: #303030;
+    top: 360px;
+    left: 640px;
+    text-align: center;
+    color: #b9cde5;
+    padding-bottom: 10px;
+    z-index: 1000;
+}
+#overlay_content .small {
+    display: none;
+    width: 446px;
+}
+#overlay_content .double {
+    display: none;
+    width: 809px;
+}
+#overlay_content a {
+    display: block;
+    width: 343px;
+    margin: 0 auto;
+    color: #b9cde5;
+    line-height: 40px;
+    font-size: 17px;
+    z-index: 10;
+    position: relative;
+    height: 40px;
+}
+#overlay_content a:focus {
+    color: #FFF;
+    background: transparent url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll 0 -144px;
+}
+#overlay_content h3 {
+    margin: 10px 0;
+}
+#links a {
+    z-index: 100;
+}
+.double #overlay_links {
+    padding: 10px 60px;
+}
+#overlay_content .emptyUp {
+    position: absolute;
+    top: 0;
+    left: 50px;
+}
+#overlay_content .emptyDown {
+    position: absolute;
+    bottom: -25px;
+    left: 50px;
+}
+#overlay_content .double .emptyDown {
+    left: 233px;
+}
+#overlay_content .emptyDown:focus, #overlay_content .emptyUp:focus {
+    background: none;
+}
+body#home #row1 {
+    height: 109px;
+    border-bottom: 1px solid #5a686c;
+}
+body#home #row2 {
+    float: left;
+    width: 800px;
+    height: 570px;
+    padding-top: 50px;
+}
+#homelink {
+    position: fixed;
+    top: 65px;
+    left: 1040px;
+    width: 50px;
+    text-align: center;
+    display: block;
+    padding: 8px 8px 9px;
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+span.optionbreak {
+    position: fixed;
+    top: 73px;
+    left: 1023px;
+    font-size: 24px;
+}
+#locale {
+    position: fixed;
+    top: 65px;
+    left: 860px;
+    width: 140px;
+    text-align: center;
+    display: block;
+    padding: 8px 8px 9px;
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+#locale:focus, #homelink:focus {
+    border-color: #fff;
+    background: #000 url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -10px -91px;
+}
+#logo {
+    float: right;
+    width: 115px;
+    height: 69px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat 0 0;
+}
+#logo a#logolink {
+    display: block;
+    width: 115px;
+    height: 69px;
+}
+#logo a#logolink:focus {
+    border: 2px solid white;
+}
+#search_form {
+    position: absolute;
+    top: 60px;
+}
+#search_form label {
+    margin: 0 10px 0 30px;
+    position: relative;
+    top: 5px;
+}
+#search_query {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -119px 0;
+    border: 3px solid transparent;
+    height: 24px;
+    width: 395px;
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 23px;
+    color: #000;
+}
+#search_query:focus {
+    background: transparent url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll 0 -198px;
+    border: 3px solid #fff;
+    color: #fff;
+    position: relative;
+    top: 2px;
+}
+#search_submit {
+    display: block;
+    float: left;
+    width: 82px;
+    height: 45px;
+    line-height: 50px;
+    text-align: center;
+    position: fixed;
+    top: 64px;
+    left: 580px;
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+#search_submit:focus {
+    border-color: #fff;
+    background: #000 url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -10px -91px;
+}
+.video .entry {
+    float: left;
+    margin: 0 15px 24px;
+    padding: 0;
+    width: 130px;
+}
+.video .entry a {
+    line-height: 0;
+    padding: 0;
+    margin: 0;
+    width: 0;
+    display: block;
+    height: 145px;
+}
+.video img {
+    margin-bottom: 1px;
+    width: 130px;
+    height: 97px;
+}
+.video .entry a:focus img {
+    border: 3px solid #fff;
+}
+.video .entry a:focus canvas {
+    position: relative;
+    bottom: 3px;
+}
+.video .entry img {
+    border: 1px solid #333;
+}
+#home #prev_vid, #home #next_vid {
+    position: fixed;
+    display: none;
+    left: 425px;
+    width: 30px;
+    height: 15px;
+}
+#home #prev_vid {
+    top: 170px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -116px -49px;
+}
+#home #next_vid {
+    top: 680px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -119px -64px;
+}
+#videoPage #prev_vid, #videoPage #next_vid {
+    position: fixed;
+    display: none;
+    width: 15px;
+    height: 30px;
+    top: 570px;
+}
+#videoPage #prev_vid {
+    left: 20px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -119px -49px;
+}
+#videoPage #next_vid {
+    left: 1170px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -132px -49px;
+}
+#side_navi {
+    width: 343px;
+    float: right;
+    position: absolute;
+    top: 200px;
+    left: 900px;
+}
+#side_navi .tabs {
+    margin-left: 22px;
+    height: 52px;
+}
+#side_navi .tabs a {
+    width: 139px;
+    height: 52px;
+    line-height: 52px;
+    float: left;
+    text-align: center;
+    border: 1px solid transparent;
+    color: #b9cde5;
+    border-bottom: 1px solid #b3b3b3;
+}
+#side_navi .tabs a.active {
+    border-left: 1px solid #b3b3b3;
+    border-top: 1px solid #b3b3b3;
+    border-right: 1px solid #b3b3b3;
+    border-bottom: 1px solid transparent;
+    color: #fff;
+}
+#side_navi .tabs a:focus, #side_navi .tabs a.active:focus {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -343px -87px;
+    border: 1px solid transparent;
+}
+.tab_contents, html[xmlns] .clearfix {
+    display: block;
+}
+.tab_contents a {
+    clear: both;
+    display: block;
+    height: 52px;
+    line-height: 52px;
+    padding-left: 30px;
+}
+.tab_contents a:focus {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat 0 -87px;
+}
+#login_form {
+    padding: 0 40px;
+}
+#login_form label.text {
+    display: block;
+    float: left;
+    width: 100px;
+    text-align: left;
+    margin-top: 10px;
+    padding: 10px;
+    height: 24px;
+    line-height: 40px;
+}
+#login_form label.checkbox {
+    position: relative;
+    top: 5px;
+    left: 10px;
+    line-height: 30px;
+}
+#login_form input.checkbox {
+    float: left;
+    margin: 10px 0 0 40px;
+    height: 20px;
+    width: 20px;
+}
+#login_form p {
+    font-size: 18px;
+}
+#login_load {
+    margin: 20px 0;
+    display: none;
+}
+#video_info_box {
+    padding: 10px 30px;
+    visibility: hidden;
+}
+#video_info_box #video_title {
+    text-transform: uppercase;
+    max-height: 52px;
+    overflow: hidden;
+    margin-bottom: 1px;
+}
+#video_info_box #video_description {
+    margin-bottom: 10px;
+    max-height: 52px;
+    overflow: hidden;
+}
+#video_info_box .video_details {
+    float: left;
+    margin-right: 10px;
+}
+#terms_of_use {
+    width: 130px;
+    text-align: center;
+    display: block;
+    position: absolute;
+    left: 1100px;
+    bottom: 10px;
+    padding: 8px 8px 9px;
+    border-width: 0 2px;
+    border-style: solid;
+    border-color: transparent;
+}
+#terms_of_use:focus {
+    border-color: #fff;
+    background: #121212 url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -10px -91px;
+}
+h3 #video_info_box {
+    padding: 20px 0;
+}
+#rating, #signin_rating {
+    float: left;
+    width: 105px;
+    border: 2px solid transparent;
+}
+#rating:focus, #signin_rating:focus, #login_form input.checkbox:focus {
+    border: 2px solid #fff;
+}
+#rating span, #signin_rating span {
+    display: block;
+    float: left;
+    height: 19px;
+    width: 21px;
+    white-space: nowrap;
+}
+.rating_star {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -169px -50px;
+}
+.rating_half {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -209px -50px;
+}
+.rating_empty {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -189px -50px;
+}
+#video-info #rating, #video-info #signin_rating {
+    width: 150px;
+}
+#video-info #rating span, #video-info #signin_rating span {
+    height: 30px;
+    width: 30px;
+}
+#video-info #rating .rating_star, #video-info #signin_rating .rating_star {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -236px -50px;
+}
+#video-info #rating .rating_half, #video-info #signin_rating .rating_half {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -296px -50px;
+}
+#video-info #rating .rating_empty, #video-info #signin_rating .rating_empty {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -266px -50px;
+}
+#player, #repeat-video, #video-thumb {
+    display: block;
+    height: 380px;
+    width: 450px;
+    border: 2px solid #fff;
+    position: absolute;
+    left: 80px;
+    text-align: center;
+    background: url(http://youtube.nettvservices.com/pics/ajaxload.gif) 50% 50% no-repeat;
+    margin: 3px;
+    z-index: 100;
+}
+#video-thumb {
+    background: #121212;
+    z-index: 200;
+}
+#video-thumb img {
+    background: #121212;
+}
+#player:focus {
+    border: 5px solid #FFF;
+    margin: 0;
+}
+#repeat-video {
+    left: 45%;
+    top: 45%;
+    border: 0;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -407px -50px;
+    width: 22px;
+    height: 26px;
+    margin: 13px 15px;
+    z-index: 100;
+}
+#play-tools {
+    height: 60px;
+    width: 429px;
+    position: fixed;
+    top: 440px;
+    left: 105px;
+}
+#play-tools #duration {
+    white-space: nowrap;
+    line-height: 60px;
+}
+#play-tools a {
+    float: right;
+    width: 52px;
+    height: 52px;
+    border: 4px solid transparent;
+}
+#play-tools span, .double #overlay_links span {
+    float: left;
+}
+#play-tools #stop {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -221px -72px;
+    width: 14px;
+    height: 14px;
+    margin: 19px;
+}
+#play-tools #rewind {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -171px -69px;
+    width: 26px;
+    height: 16px;
+    margin: 18px 13px;
+}
+#play-tools #play {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -393px -50px;
+    width: 14px;
+    height: 24px;
+    margin: 14px 19px;
+}
+#play-tools #fwd {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -198px -69px;
+    width: 22px;
+    height: 16px;
+    margin: 18px 15px;
+}
+#play-tools #replay {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -407px -50px;
+    width: 22px;
+    height: 26px;
+    margin: 13px 15px;
+}
+#play-tools #fullscreen {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -446px -50px;
+    width: 31px;
+    height: 22px;
+    margin: 13px 11px;
+}
+#video-info {
+    position: absolute;
+    left: 534px;
+    top: 40px;
+    width: 704px;
+    padding: 0;
+}
+#video-info h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #b9cde5;
+    margin: 0 0 20px 10px;
+    position: relative;
+    top: 10px;
+    max-height: 100px;
+    overflow: hidden;
+}
+#video-info h3 span {
+    float: none;
+    width: auto;
+    height: 100px;
+}
+.video-info-box {
+    clear: both;
+    padding: 0 54px;
+    color: #b9cde5;
+    font-size: 18px;
+}
+.video-info-box .left {
+    float: left;
+    width: 275px;
+    margin: 10px;
+}
+.video-info-box .right {
+    float: right;
+    width: 275px;
+    margin: 10px;
+}
+.video-info-box .full {
+    float: left;
+    width: 550px;
+    margin: 10px;
+}
+.video-info-box label {
+    float: left;
+    width: 90px;
+}
+.video-info-box span {
+    float: left;
+    width: 185px;
+}
+.video-info-box .full span {
+    float: left;
+    width: 415px;
+}
+#player-bottom {
+    position: fixed;
+    top: 460px;
+}
+.player-controls div {
+    float: left;
+    margin-right: 10px;
+}
+.player-controls div.item_focus {
+    color: #b9cde5;
+}
+#bar {
+    width: 450px;
+    height: 6px;
+    background: #000;
+    border: 1px solid #fff;
+    position: fixed;
+    left: 84px;
+    top: 430px;
+    overflow: hidden;
+}
+#progressbar {
+    background: #FFF;
+    height: 6px;
+    width: 0;
+}
+#related-videos {
+    clear: both;
+    height: 220px;
+}
+#related-videos h3 {
+    font-size: 24px;
+    color: #b9cde5;
+    position: relative;
+    top: 10px;
+    margin-bottom: 20px;
+}
+#related-videos h3 span {
+    font-size: 20px;
+    font-weight: 400;
+    display: inline;
+    width: auto;
+    height: auto;
+}
+#related-videos h3 #video_info_box {
+    position: relative;
+    left: 70px;
+}
+#related-videos h3 span#video_title {
+    color: #fff;
+    padding-left: 5px;
+    padding-right: 5px;
+    left: 0;
+}
+#related-videos .video, #related-videos #loading, .double #overlay_close, .clear {
+    clear: both;
+    display: block;
+}
+#user-controls a {
+    border: 2px solid transparent;
+}
+#tags a:focus, #user-controls a:focus {
+    color: #FFF;
+    border: 2px solid #fff;
+    padding: 0 3px;
+}
+#related-videos #autoplay {
+    width: 52px;
+    height: 52px;
+    border: 4px solid transparent;
+    margin: 0 3px;
+    position: absolute;
+    top: -15px;
+}
+#related-videos #autoplay:focus, #play-tools a:focus {
+    border: 4px solid #fff;
+    background: transparent url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -344px -144px;
+}
+#related-videos #autoplay #autoplay_img {
+    display: block;
+    width: 22px;
+    height: 30px;
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -479px -50px;
+    left: 0;
+    margin: 11px 15px;
+}
+#related-videos #autoplay_status {
+    color: #B9CDE5;
+    position: relative;
+    left: 70px;
+}
+#related-videos #videocontainer {
+    padding-top: 10px;
+}
+#oc_signin {
+    text-align: left;
+}
+#overlay_content .userList h3 {
+    width: 269px;
+    margin: 20px auto;
+}
+#overlay_content .userList a {
+    display: block;
+    width: 343px;
+    margin: 0 auto;
+    background: none;
+    height: 52px;
+    line-height: 52px;
+}
+#overlay_content .userList a .linkImg {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -337px -51px;
+    height: 30px;
+    width: 28px;
+    position: absolute;
+    left: 30px;
+    margin: 11px 0;
+}
+#overlay_content .userList a .emptyImg {
+    height: 30px;
+    width: 28px;
+    position: absolute;
+    left: 80px;
+    margin: 11px 0;
+}
+#overlay_content .userList a:focus {
+    background: transparent url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll 0 -87px;
+}
+#overlay_content .userList a:focus .linkImg {
+    background: url(http://youtube.nettvservices.com/pics/elements.png) no-repeat -365px -51px;
+}
+#overlay_error {
+    margin: 10px 0;
+    display: none;
+}
+#overlay_content #overlay_giveRating {
+    display: none;
+    height: 70px;
+    padding: 0 129px;
+    margin-top: 10px;
+}
+#overlay_content #overlay_giveRating a {
+    display: block;
+    float: left;
+    height: 30px;
+    width: 30px;
+    background: none;
+    margin: 2px 4px;
+}
+#overlay_content #overlay_giveRating a:focus {
+    border: 2px solid #fff;
+    margin: 0 2px;
+}
+#overlay_content #overlay_giveRating .rating_star {
+    background: transparent url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -236px -50px;
+}
+#overlay_content #overlay_giveRating .rating_empty {
+    background: transparent url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -266px -50px;
+}
+#overlay_content #overlay_giveRating #rating_title {
+    padding-top: 37px;
+}
+#overlay_content #overlay_giveRating #star0 {
+    margin-left: 0;
+}
+#overlay_content #overlay_basic input.text {
+    margin-top: 10px;
+    height: 21px;
+    font-size: 20px;
+    background: #121212 url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -399px -145px;
+    border: 3px solid transparent;
+    padding: 10px;
+    vertical-align: middle;
+    width: 172px;
+    z-index: 100;
+    margin-bottom: 10px;
+}
+#overlay_content .large {
+    display: none;
+    width: 900px;
+    text-align: left;
+    padding: 20px;
+}
+#overlay_content .large_tabs {
+    height: 40px;
+}
+#overlay_content .large_tabs a {
+    float: left;
+    height: 40px;
+    width: auto;
+    padding: 5px 10px;
+    border: 2px solid transparent;
+}
+#overlay_content .large_tabs a:focus {
+    background: none;
+    border: 2px solid #fff;
+}
+#comments {
+    clear: both;
+    margin-top: 20px;
+}
+#comments .comment_entry {
+    margin-bottom: 20px;
+}
+#comment_form .comment_text {
+    width: 850px;
+    height: 160px;
+    margin: 20px auto 0;
+    font-size: 24px;
+    background: #121212 url(http://youtube.nettvservices.com/pics/textarea_big_bg.png) no-repeat top center;
+    padding: 20px;
+}
+#comment_preview {
+    display: none;
+    margin: 0 0 20px;
+}
+#comment_preview_title {
+    display: none;
+    margin: 20px 0 0;
+}
+#overlay_content .overlay_large_left {
+    width: 550px;
+    float: left;
+}
+#overlay_content .overlay_large_left label {
+    width: 200px;
+    float: left;
+    line-height: 50px;
+    margin: 10px 0;
+    clear: both;
+}
+#overlay_content .overlay_large_left input.text, #login_form input.text {
+    float: left;
+    margin-top: 10px;
+    height: 21px;
+    font-size: 20px;
+    background: #121212 url(http://youtube.nettvservices.com/pics/elements.png) no-repeat scroll -399px -145px;
+    border: 3px solid transparent;
+    padding: 10px;
+    vertical-align: middle;
+    width: 172px;
+    z-index: 100;
+}
+#overlay_content .overlay_large_left input.text:focus, #overlay_content #overlay_basic input.text:focus, #login_form input.text:focus {
+    background: #121212;
+    border: 3px solid #fff;
+    color: #fff;
+    top: 2px;
+}
+#overlay_content .overlay_large_left textarea {
+    background: #121212 url(http://youtube.nettvservices.com/pics/textarea_bg.png) no-repeat top center;
+    float: left;
+    height: 130px;
+    width: 280px;
+    font-size: 24px;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+#overlay_content .overlay_large_left textarea:focus, #comment_form .comment_text:focus {
+    background: #121212;
+    color: #fff;
+}
+#overlay_content .overlay_large_right {
+    width: 350px;
+    float: left;
+}
+#overlay_content #overlay_newPlaylist {
+    width: 520px;
+}
+#overlay_content .page, #overlay_content #prev_comments, #overlay_content #comment_back, #overlay_newPlaylist, #overlay_newSubscription, #tab2_contents, #overlay_content .linkOff *, #overlay_content .userList .linkOff * {
+    display: none;
+}
+#overlay_content #overlay_pagination_links {
+    padding-top: 20px;
+}
+#overlay_content #overlay_pagination_links a, #overlay_content .overlay_large_right #share_user_links a, #overlay_content .overlay_large_right #flag_links a, #oc_signin h3 {
+    text-align: center;
+}
+#homelink {
+    nav-index: 0;
+    nav-down: #tab_signin;
+    nav-right: #search_query;
+    nav-left: #locale;
+    nav-up: #homelink;
+}
+//#locale {
+    nav-index: 1;
+    nav-down: #tab_home;
+    nav-right: #homelink;
+    nav-left: #search_submit;
+    nav-up: #locale;
+}
+#search_query {
+    nav-index: 2;
+    nav-down: #video0;
+    nav-right: #search_submit;
+    nav-left: #search_query;
+    nav-up: #search_query;
+}
+#search_submit {
+    nav-index: 3;
+    nav-down: #video0;
+    nav-right: #locale;
+    nav-left: #search_query;
+    nav-up: #search_submit;
+}
+#video0 {
+    nav-index: 4;
+    nav-down: #video5;
+    nav-right: #video1;
+    nav-left: #signin;
+    nav-up: #search_query;
+}
+#video1 {
+    nav-index: 5;
+    nav-down: #video6;
+    nav-right: #video2;
+    nav-left: #video0;
+    nav-up: #search_query;
+}
+#video2 {
+    nav-index: 6;
+    nav-down: #video7;
+    nav-right: #video3;
+    nav-left: #video1;
+    nav-up: #search_query;
+}
+#video3 {
+    nav-index: 7;
+    nav-down: #video8;
+    nav-right: #video4;
+    nav-left: #video2;
+    nav-up: #search_query;
+}
+#video4 {
+    nav-index: 8;
+    nav-down: #video9;
+    nav-right: #tab_home;
+    nav-left: #video3;
+    nav-up: #search_query;
+}
+#video5 {
+    nav-index: 9;
+    nav-down: #video10;
+    nav-right: #video6;
+    nav-left: #signin;
+    nav-up: #video0;
+}
+#video6 {
+    nav-index: 10;
+    nav-down: #video11;
+    nav-right: #video7;
+    nav-left: #video5;
+    nav-up: #video1;
+}
+#video7 {
+    nav-index: 11;
+    nav-down: #video12;
+    nav-right: #video8;
+    nav-left: #video6;
+    nav-up: #video2;
+}
+#video8 {
+    nav-index: 12;
+    nav-down: #video13;
+    nav-right: #video9;
+    nav-left: #video7;
+    nav-up: #video3;
+}
+#video9 {
+    nav-index: 13;
+    nav-down: #video14;
+    nav-right: #tab_home;
+    nav-left: #video8;
+    nav-up: #video4;
+}
+#video10 {
+    nav-index: 14;
+    nav-down: #video10;
+    nav-right: #video11;
+    nav-left: #signin;
+    nav-up: #video5;
+}
+#video11 {
+    nav-index: 15;
+    nav-down: #video11;
+    nav-right: #video12;
+    nav-left: #video10;
+    nav-up: #video6;
+}
+#video12 {
+    nav-index: 16;
+    nav-down: #video12;
+    nav-right: #video13;
+    nav-left: #video11;
+    nav-up: #video7;
+}
+#video13 {
+    nav-index: 17;
+    nav-down: #video13;
+    nav-right: #video14;
+    nav-left: #video12;
+    nav-up: #video8;
+}
+#video14 {
+    nav-index: 18;
+    nav-down: #video14;
+    nav-right: #tab_home;
+    nav-left: #video13;
+    nav-up: #video9;
+}
+#tab_home {
+    nav-index: 19;
+    nav-down: #feed;
+    nav-right: #signin;
+    nav-left: #video4;
+    nav-up: #locale;
+}
+#signin {
+    nav-index: 20;
+    ;
+    nav-right: #video0;
+    nav-left: #tab_home;
+    nav-up: #homelink;
+}
+#feed {
+    nav-index: 21;
+    nav-down: #time;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #tab_home;
+}
+#time {
+    nav-index: 22;
+    nav-down: #category;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #feed;
+}
+#category {
+    nav-index: 23;
+    nav-down: #terms_of_use;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #time;
+}
+#favorites {
+    nav-index: 24;
+    nav-down: #playlists;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #signin;
+}
+#playlists {
+    nav-index: 25;
+    nav-down: #subscriptions;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #favorites;
+}
+#subscriptions {
+    nav-index: 26;
+    nav-down: #my_videos;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #playlists;
+}
+#my_videos {
+    nav-index: 27;
+    nav-down: #logout;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #subscriptions;
+}
+#logout {
+    nav-index: 28;
+    nav-down: #terms_of_use;
+    nav-right: #video0;
+    nav-left: #video4;
+    nav-up: #my_videos;
+}
+#terms_of_use {
+    nav-index: 29;
+    nav-down: #signin;
+    nav-right: #video0;
+    nav-left: #video4;
+}
+#login_name {
+    nav-index: 30;
+    nav-down: #login_pwd;
+    nav-right: #login_name;
+    nav-left: #login_name;
+    nav-up: #login_name;
+}
+#login_pwd {
+    nav-index: 31;
+    nav-down: #save_username;
+    nav-right: #login_pwd;
+    nav-left: #login_pwd;
+    nav-up: #login_name;
+}
+#save_username {
+    nav-index: 32;
+    nav-down: #save_password;
+    nav-right: #save_username;
+    nav-left: #save_username;
+    nav-up: #login_pwd;
+}
+#save_password {
+    nav-index: 33;
+    nav-down: #signin_btn;
+    nav-right: #save_password;
+    nav-left: #save_password;
+    nav-up: #save_username;
+}
+#signin_btn {
+    nav-index: 34;
+    nav-down: #signin_close;
+    nav-right: #signin_btn;
+    nav-left: #signin_btn;
+    nav-up: #save_password;
+}
+#signin_close {
+    nav-index: 35;
+    nav-down: #signin_close;
+    nav-right: #signin_close;
+    nav-left: #signin_close;
+    nav-up: #signin_btn;
+}

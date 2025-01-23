@@ -1,0 +1,121 @@
+<!--?xml version="1.0" encoding="UTF-8"?-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+   <head>
+      <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+      <link rel="stylesheet" type="text/css" href="youtube1.css">
+      <script type="text/javascript" src="philipsyoutube.js"></script> 
+      <script type="text/javascript">
+         //<![CDATA[
+         var triggerGoogleMessage = false;
+         var flag = '1';
+         function setOverLayPosition(a) {
+         			a.style.marginTop = "-" + a.clientHeight / 2 + "px";
+         			a.style.marginLeft = "125px";//"-" + a.clientWidth / 2 + "px"
+         		}
+         //]]>
+      </script>
+   </head>
+   <body id="home" bgcolor="black">
+      <input type="hidden" id="startIndex" value="1"> <input type="hidden" id="searchOn" value="off"> <input type="hidden" id="currentFeed" value="most_viewed" alt="Most viewed"> <input type="hidden" id="currentCategory" value="All" alt="All categories" title="category"> <input type="hidden" id="timeFilter" value="today" alt="Today"> <input type="hidden" id="orderByFilter" value="relevance" alt="Relevance"> 
+      <div id="wrapper">
+         <div id="row1">
+            <div id="search_form"> <label>Search</label> <input id="search_query" type="text" name="vq" onkeydown="PHILIPS.ui.okCatcher(this, event.keyCode);"> <a href="#" id="search_submit" onkeydown="PHILIPS.ui.okCatcher(this, event.keyCode);">Submit</a> </div>
+            <a href="#" id="locale" onkeydown="PHILIPS.ui.loadOverlayFunctions(this, event.keyCode);">Worldwide (All)</a> <span class="optionbreak">&nbsp;|&nbsp;</span> <a href="https://youtube.nettvservices.com/index.php" id="homelink">Home</a> 
+            <div id="logo">&nbsp;</div>
+         </div>
+         <div id="row2">
+            <div id="prev_vid">&nbsp;</div>
+            <div id="loading" style="text-align: center;"> <span>Loading...</span></div>
+            <div id="videocontainer" class="video">
+               <div id="entry0" class="entry">
+                  <div id="entry0_input"></div>
+                  <a id="video0" href="#">&nbsp;</a>
+               </div>
+               <div id="entry1" class="entry">
+                  <div id="entry1_input"></div>
+                  <a id="video1" href="#">&nbsp;</a>
+               </div>
+               <div id="entry2" class="entry">
+                  <div id="entry2_input"></div>
+                  <a id="video2" href="#">&nbsp;</a>
+               </div>
+               <div id="entry3" class="entry">
+                  <div id="entry3_input"></div>
+                  <a id="video3" href="#">&nbsp;</a>
+               </div>
+               <div id="entry4" class="entry">
+                  <div id="entry4_input"></div>
+                  <a id="video4" href="#">&nbsp;</a>
+               </div>
+               <div id="entry5" class="entry">
+                  <div id="entry5_input"></div>
+                  <a id="video5" href="#">&nbsp;</a>
+               </div>
+               <div id="entry6" class="entry">
+                  <div id="entry6_input"></div>
+                  <a id="video6" href="#">&nbsp;</a>
+               </div>
+               <div id="entry7" class="entry">
+                  <div id="entry7_input"></div>
+                  <a id="video7" href="#">&nbsp;</a>
+               </div>
+               <div id="entry8" class="entry">
+                  <div id="entry8_input"></div>
+                  <a id="video8" href="#">&nbsp;</a>
+               </div>
+               <div id="entry9" class="entry">
+                  <div id="entry9_input"></div>
+                  <a id="video9" href="#">&nbsp;</a>
+               </div>
+               <div id="entry10" class="entry">
+                  <div id="entry10_input"></div>
+                  <a id="video10" href="#">&nbsp;</a>
+               </div>
+               <div id="entry11" class="entry">
+                  <div id="entry11_input"></div>
+                  <a id="video11" href="#">&nbsp;</a>
+               </div>
+               <div id="entry12" class="entry">
+                  <div id="entry12_input"></div>
+                  <a id="video12" href="#">&nbsp;</a>
+               </div>
+               <div id="entry13" class="entry">
+                  <div id="entry13_input"></div>
+                  <a id="video13" href="#">&nbsp;</a>
+               </div>
+               <div id="entry14" class="entry">
+                  <div id="entry14_input"></div>
+                  <a id="video14" href="#">&nbsp;</a>
+               </div>
+            </div>
+            <div id="next_vid">&nbsp;</div>
+         </div>
+         <div id="side_navi">
+            <div class="tabs"> <a href="#" id="tab_home" class="active" onkeydown="PHILIPS.ui.okCatcher(this, event.keyCode);">Home</a> <a href="#" id="signin" onkeydown="sayHello2(event);" title="a">Sign in</a> </div>
+            <div id="tab1_contents" class="tab_contents"> <a href="#" title="most_viewed" id="feed" onkeydown="PHILIPS.ui.loadOverlayFunctions(this, event.keyCode);">Most viewed</a> <span class="divider">&nbsp;</span> <a href="#" title="today" id="time" onkeydown="PHILIPS.ui.loadOverlayFunctions(this, event.keyCode);">Today</a> <span class="divider">&nbsp;</span> <a href="#" title="All" id="category" onkeydown="PHILIPS.ui.loadOverlayFunctions(this, event.keyCode);">All categories</a> <span class="divider">&nbsp;</span> </div>
+            <div id="tab2_contents" class="tab_contents"> <a href="#" title="favorites" id="favorites" onkeydown="PHILIPS.ui.okCatcher(this, event.keyCode);">Favorites</a> <span class="divider">&nbsp;</span> <a href="#" title="empty" id="playlists" onkeydown="PHILIPS.ui.loadOverlayFunctions(this, event.keyCode);">Playlists</a> <span class="divider">&nbsp;</span> <a href="#" title="empty" id="subscriptions" onkeydown="PHILIPS.ui.loadOverlayFunctions(this, event.keyCode);">Subscriptions</a> <span class="divider">&nbsp;</span> <a href="#" title="my_videos" id="my_videos" onkeydown="PHILIPS.ui.okCatcher(this, event.keyCode);">My Videos</a> <span class="divider">&nbsp;</span> <a href="#" title="sign_out" id="logout" onkeydown="PHILIPS.ui.okCatcher(this, event.keyCode);">Sign out</a> <span class="divider">&nbsp;</span> </div>
+            <div id="video_info_box">
+               <div id="video_title"></div>
+               <div id="video_description"></div>
+               <div class="video_details"> <span id="duration"></span> | Views: <span id="totalViews"></span> | </div>
+               <div id="rating"> </div>
+            </div>
+         </div>
+         <a href="#" title="Terms of use" id="terms_of_use" onkeydown="sayHello(event);">Terms of use</a> 
+      </div>
+      <div id="overlay" style="display: block; visibility: visible;">
+         <div id="overlay_content" style="min-height: 75px; min-width: 950px; background: rgb(20, 70, 115); font-family: Roboto; padding-top: 50px; left: 45px; padding-right: 0px; padding-bottom: 25px; margin-top: -98.5px; margin-left: 125px;">
+            <div id="overlay_basic" class="small" style="width: 850px; display: block;">
+               <h3 id="overlay_title"></h3>
+               <div id="overlay_error" style="padding-left: 50px; text-align: left; font-size: 30px; display: block;">Google no longer supports the YouTube app on this device. <br>Please visit youtube.com/devicesupport for more information.</div>
+               <div id="overlay_links" class="clearfix"> <span id="linkC0" class="linkOff"><a href="#" id="link0"></a><span class="divider">&nbsp;</span></span> <span id="linkC1" class="linkOff"><a href="#" id="link1"></a><span class="divider">&nbsp;</span></span> <span id="linkC2" class="linkOff"><a href="#" id="link2"></a><span class="divider">&nbsp;</span></span> <span id="linkC3" class="linkOff"><a href="#" id="link3"></a><span class="divider">&nbsp;</span></span> <span id="linkC4" class="linkOff"><a href="#" id="link4"></a><span class="divider">&nbsp;</span></span> <span id="linkC5" class="linkOff"><a href="#" id="link5"></a><span class="divider">&nbsp;</span></span> <span id="linkC6" class="linkOff"><a href="#" id="link6"></a><span class="divider">&nbsp;</span></span> <span id="linkC7" class="linkOff"><a href="#" id="link7"></a><span class="divider">&nbsp;</span></span> <span id="linkC8" class="linkOff"><a href="#" id="link8"></a><span class="divider">&nbsp;</span></span> <span id="linkC9" class="linkOff"><a href="#" id="link9"></a><span class="divider">&nbsp;</span></span> <span id="linkC10" class="linkOff"><a href="#" id="link10"></a><span class="divider">&nbsp;</span></span> <span id="linkC11" class="linkOff"><a href="#" id="link11"></a><span class="divider">&nbsp;</span></span> <span id="linkC12" class="linkOff"><a href="#" id="link12"></a><span class="divider">&nbsp;</span></span> <span id="linkC13" class="linkOff"><a href="#" id="link13"></a><span class="divider">&nbsp;</span></span> <span id="linkC14" class="linkOff"><a href="#" id="link14"></a><span class="divider">&nbsp;</span></span> <span id="linkC15" class="linkOff"><a href="#" id="link15"></a><span class="divider">&nbsp;</span></span> <span id="linkC16" class="linkOff"><a href="#" id="link16"></a><span class="divider">&nbsp;</span></span> <span id="linkC17" class="linkOff"><a href="#" id="link17"></a><span class="divider">&nbsp;</span></span> <span id="linkC18" class="linkOff"><a href="#" id="link18"></a><span class="divider">&nbsp;</span></span> <span id="linkC19" class="linkOff"><a href="#" id="link19"></a><span class="divider">&nbsp;</span></span> </div>
+               <div id="overlay_newSubscription"> <input id="newSubscriptionName" type="text" class="text"> <a href="#" id="createSubscription" onkeydown="PHILIPS.ui.okCatcher(this, event.keyCode);">Create</a> </div>
+               <a href="#" id="overlay_close" onkeydown="PHILIPS.ui.closeOverlay(this, event.keyCode);" style="display: block;">Close</a> 
+            </div>
+            <div id="overlay_terms_of_use" class="large"> </div>
+            <div id="overlay_signin" class="small"> </div>
+         </div>
+      </div>
+   </body>
+</html>

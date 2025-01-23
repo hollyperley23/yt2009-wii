@@ -1832,11 +1832,30 @@ wiitv = wiitv.split(`http_url`).join(
     "http://" + config.ip + ":" + config.port
 )
 
+let tv2013EndpointsTwo = ["/2013tv", "/2013tv/", "/2013tv/index.htm"]
+let ttTV = fs.readFileSync("../2013tv/tv.html").toString()
+ttTV = ttTV.split(`http_url`).join(
+    "http://" + config.ip + ":" + config.port
+)
+
+let tv2012EndpointsTwo = ["/2012tv", "/2012tv/", "/2012tv/index.html"]
+let tttTV = fs.readFileSync("../2012tv/index.html").toString()
+tttTV = tttTV.split(`http_url`).join(
+    "http://" + config.ip + ":" + config.port
+)
+
+let newTV = ["/nettv", "/nettv/", "/nettv/index.html"]
+let ttttTV = fs.readFileSync("../nettv/index.html").toString()
+ttttTV = ttttTV.split(`http_url`).join(
+    "http://" + config.ip + ":" + config.port
+)
+
 let leanbackV3EndPoint = ["/tv", "/tv/", "/tv/index.htm"]
 let tv = fs.readFileSync("../tv/index.html").toString()
 tv = tv.split(`http_url`).join(
     "http://" + config.ip + ":" + config.port
 )
+
 
 app.get("/feeds/api/channelstandardfeeds/most_subscribed", (req, res) => {
     let r = fs.readFileSync("../assets/site-assets/most_subscribed.atom");
@@ -1855,6 +1874,40 @@ leanbackEndpoints.forEach(lbe => {
         }
         if(yt2009_utils.isRatelimited(req, res)) return;
         res.send(leanback)
+    })
+})
+
+newTV.forEach(lbe => {
+    app.get(lbe, (req, res) => {
+        if(!yt2009_utils.isAuthorized(req)) {
+            res.redirect("/unauth.htm")
+            return;
+        }
+        if(yt2009_utils.isRatelimited(req, res)) return;
+        res.send(ttttTV)
+    })
+})
+
+
+tv2012EndpointsTwo.forEach(lbe => {
+    app.get(lbe, (req, res) => {
+        if(!yt2009_utils.isAuthorized(req)) {
+            res.redirect("/unauth.htm")
+            return;
+        }
+        if(yt2009_utils.isRatelimited(req, res)) return;
+        res.send(tttTV)
+    })
+})
+
+tv2012EndpointsTwo.forEach(lbe => {
+    app.get(lbe, (req, res) => {
+        if(!yt2009_utils.isAuthorized(req)) {
+            res.redirect("/unauth.htm")
+            return;
+        }
+        if(yt2009_utils.isRatelimited(req, res)) return;
+        res.send(tttTV)
     })
 })
 
@@ -2056,12 +2109,31 @@ twoHundredEndpoints.forEach(e => {
     })
 })
 app.get("/feeds/api/videos/*/related", (req, res) => {
-    if(useMobileHelper && mobileHelper.hasLogin(req)) {
-        mobileHelper.personalizedRelated(req, res)
+
+    if (req.query.alt === "json") {
+        const filePath = "../assets/site-assets/realted_video.json";
+        
+        // Set headers for download
+        res.setHeader('Content-Disposition', 'attachment; filename="related_video.json"');
+        res.setHeader('Content-Type', 'application/json');
+        
+        // Read the file synchronously and send it as a download
+        try {
+            const fileContent = fs.readFileSync(filePath);
+            res.send(fileContent);
+        } catch (err) {
+            res.status(500).send({ error: "Failed to read realted_video.json" });
+        }
+        return;
+    }    
+
+    if (useMobileHelper && mobileHelper.hasLogin(req)) {
+        mobileHelper.personalizedRelated(req, res);
         return;
     }
-    yt2009_mobile.apkVideoRelated(req, res)
-})
+
+    yt2009_mobile.apkVideoRelated(req, res);
+});
 app.get("/feeds/api/videos/*", (req, res) => {
     if(!req.query.q && !req.query.vq) {
         yt2009_mobile.videoData(req, res)
@@ -2168,6 +2240,24 @@ app.get("/feeds/api/users/*/newsubscriptionvideos", (req, res) => {
     res.redirect("/feeds/api/standardfeeds/recently_featured")
 })
 app.get("/feeds/api/users/*/uploads", (req, res) => {
+
+    if (req.query.alt === "json") {
+        const filePath = "../assets/site-assets/channel_json.json";
+        
+        // Set headers for download
+        res.setHeader('Content-Disposition', 'attachment; filename="channel_json.json"');
+        res.setHeader('Content-Type', 'application/json');
+        
+        // Read the file synchronously and send it as a download
+        try {
+            const fileContent = fs.readFileSync(filePath);
+            res.send(fileContent);
+        } catch (err) {
+            res.status(500).send({ error: "Failed to read channel_json.json" });
+        }
+        return;
+    }    
+
     yt2009_mobile.userVideos(req, res)
 })
 if(useMobileHelper) {
@@ -4506,4 +4596,160 @@ app.get("/leanback_ajax", (req, res) => {
                         "user_id": r.author_url.split("channel/")[1],
                         "time_created": r.upload,
                         "description": r.description
-                
+                    })
+                } else if(r.type == "metadata") {
+                    resultCount = r.resultCount;
+                }
+            })
+
+            res.send({
+                "total": resultCount,
+                "videos": formattedResults
+            })
+        }), yt2009_utils.get_used_token(req), false)
+        return;
+    }
+    if (req.query.action_featured) {
+        const filePath = "../assets/site-assets/leanback_ajax.json";
+        
+        // Set headers for download
+        res.setHeader('Content-Disposition', 'attachment; filename="leanback_ajax.json"');
+        res.setHeader('Content-Type', 'application/json');
+    
+        // Read the file and send it as a download
+        const fileContent = fs.readFileSync(filePath);
+        res.send(fileContent);
+        return;
+    }
+    
+    res.status(200).send("")
+})
+app.get("/player_204", (req, res) => {
+    res.sendStatus(204)
+})
+app.get("/media/iviv", (req, res) => {
+    res.redirect("/media/iviv/iv3_edit_module.swf")
+})
+app.post("/annotations_auth/update2", (req, res) => {
+    let annotations = ""
+    try {
+        annotations = req.body.toString()
+        annotations = annotations.split("<updatedItems>")[1].split("</updatedItems>")[0]
+    }
+    catch(error) {}
+    res.send(`<?xml version="1.0" encoding="UTF-8" ?><document><annotations>
+    ${annotations}
+    </annotations></document>`)
+})
+app.get("/auth/read2", (req, res) => {
+    res.send(`<?xml version="1.0" encoding="UTF-8" ?><document><annotations>
+    </annotations></document>`)
+})
+app.get("/v/*", (req, res) => {
+    let video = req.originalUrl.split("/v/")[1]
+    res.redirect("/embedF/" + video)
+})
+
+/*
+======
+cfg.ac (merged)
+======
+*/
+
+let exceptions = [
+    "uncaughtException", "unhandledRejection"
+]
+exceptions.forEach(e => {
+    process.on(e, (msg) => {
+        console.log(msg)
+    })
+})
+
+/*
+======
+data export through yt2009flags
+======
+*/
+let exportedDataCodes = {}
+let eRatelimit = {}
+app.post("/export_flags_data", (req, res) => {
+    if(!eRatelimit[req.ip]) {
+        eRatelimit[req.ip] = 0;
+        setTimeout(() => {
+            delete eRatelimit[req.ip];
+        }, 1000 * 60)
+    }
+    eRatelimit[req.ip]++
+    if(eRatelimit[req.ip] >= 3) {
+        res.status(429).send("exporting called too many times recently");
+        return;
+    }
+    let b = req.body.toString()
+    let randomCode = ""
+    if(b.startsWith("c:") && (
+        b.includes("\x00")
+        || b.includes("/x/x/x/x/x/")
+    )) {
+        function s() {
+            randomCode = ""
+            let c = "qwertyuiopasdfghjklzxcvbnm".split("")
+            while(randomCode.length !== 8) {
+                randomCode += c[Math.floor(Math.random() * 26)]
+            }
+        }
+        s()
+        while(exportedDataCodes[randomCode]) {s()}
+        exportedDataCodes[randomCode] = req.body.toString()
+        setTimeout(() => {
+            if(exportedDataCodes[randomCode]) {
+                delete exportedDataCodes[randomCode];
+            }
+        }, 1000 * 60 * 15)
+        res.send(randomCode)
+    } else {
+        res.sendStatus(400);
+        return;
+    }
+})
+app.get("/get_flags_data", (req, res) => {
+    if(!req.headers.code) {
+        res.status(400).send("no code found.")
+        return;
+    }
+    req.headers.code = req.headers.code.replace(/[^a-z]/g, "").trim()
+    let c = req.headers.code
+    if(!exportedDataCodes[c]) {
+        res.status(404).send(c + ": invalid data code.");
+        return;
+    }
+    res.send(exportedDataCodes[c]);
+    delete exportedDataCodes[c]
+})
+
+/*
+======
+yt2009upgrade: updates that can't be applied through git through various reasons
+======
+*/
+
+// remove obama video (removed from youtube)
+let obamaVideoObject = yt2009_constant.homepageCache_news.filter(s => s.id == "Z9eId_9n1NM")
+if(obamaVideoObject) {
+    let newNewsCache = yt2009_constant.homepageCache_news.filter(s => s.id !== "Z9eId_9n1NM")
+    yt2009_constant.homepageCache_news = newNewsCache;
+    fs.writeFileSync("./yt2009constants.json", JSON.stringify(yt2009_constant))
+}
+// remove zombies video (privated)
+let zombiesVideoObject = yt2009_constant.homepageCache_featured.filter(s => s.id == "czWoP7qVNSI")
+if(zombiesVideoObject) {
+    let newFeaturedCache = yt2009_constant.homepageCache_featured.filter(s => s.id !== "czWoP7qVNSI")
+    yt2009_constant.homepageCache_featured = newFeaturedCache
+    fs.writeFileSync("./yt2009constants.json", JSON.stringify(yt2009_constant))
+}
+
+/*
+pizdec
+jp2gmd
+mleczsus :*
+Stawik
+*/
